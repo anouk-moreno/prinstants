@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorias Impresas — Barcelona</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --catalan-yellow: #FCDD09;
+            --catalan-red: #DA121A;
+            --white: #ffffff;
+            --black: #1d1d1f;
+            --gray: #86868b;
+            --light-gray: #f5f5f7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        /* HERO */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--catalan-red), var(--catalan-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: var(--gray);
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--black);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* SECTION */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .price-card {
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--catalan-red), var(--catalan-yellow));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--catalan-yellow);
+            background: linear-gradient(135deg, rgba(252, 221, 9, 0.05), rgba(218, 18, 26, 0.05));
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--catalan-yellow);
+            color: var(--black);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .price-amount {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .price-label {
+            font-size: 20px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .price-features li {
+            padding: 12px 0;
+            color: var(--gray);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            color: var(--catalan-red);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* BIZUM BOX */
+        .bizum-box {
+            background: linear-gradient(135deg, var(--catalan-red), var(--catalan-yellow));
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+        }
+
+        .bizum-box h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .bizum-number {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #2d2d2f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-light:hover {
+            background: var(--light-gray);
+        }
+
+        /* FORMS */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .form-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .form-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--catalan-red);
+            box-shadow: 0 0 0 4px rgba(218, 18, 26, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .faq-answer {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* COMMENTS */
+        .comment-form {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 32px;
+            cursor: pointer;
+            color: #ddd;
+            transition: all 0.2s;
+        }
+
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: var(--catalan-yellow);
+        }
+
+        .comment-item {
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .comment-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .comment-stars {
+            color: var(--catalan-yellow);
+            font-size: 18px;
+        }
+
+        .comment-text {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* POLICY */
+        .policy-box {
+            background: rgba(218, 18, 26, 0.05);
+            border-left: 4px solid var(--catalan-red);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--catalan-red);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bizum-box {
+                padding: 40px 20px;
+            }
+
+            .bizum-number {
+                font-size: 24px;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* SMOOTH SCROLL */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Instant BCN</div>
+            <ul class="nav-links">
+                <li><a href="#preus">Preus</a></li>
+                <li><a href="#serveis">Serveis</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacte">Contacte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero fade-in">
+        <div class="badge">Barcelona 2026</div>
+        <h1>Benvingut</h1>
+        <p class="subtitle">Fotos instantànies a disponibilitat :)</p>
+    </section>
+
+    <!-- PRICING -->
+    <section id="preus">
+        <h2 class="section-title">Preus</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-amount">4€</div>
+                <div class="price-label">1 Foto</div>
+                <ul class="price-features">
+                    <li>Individual</li>
+                    <li>Impressió instantània</li>
+                    <li>Versió digital inclosa</li>
+                </ul>
+            </div>
+
+            <div class="price-card popular">
+                <div class="popular-badge">Popular</div>
+                <div class="price-amount">7€</div>
+                <div class="price-label">2 Fotos</div>
+                <ul class="price-features">
+                    <li>Impressió instantània</li>
+                    <li>Versions digitals incloses</li>
+                    <li>Estalvia 1€</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <div class="price-amount">10€</div>
+                <div class="price-label">3 Fotos</div>
+                <ul class="price-features">
+                    <li>Pack estalvi</li>
+                    <li>Impressió instantània</li>
+                    <li>Versions digitals incloses</li>
+                    <li>Estalvia 2€</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BIZUM -->
+        <div class="bizum-box">
+            <h2>Pagar amb Bizum</h2>
+            <p>Manda el Bizum al següent número:</p>
+            <div class="bizum-number">+34 640 341 318</div>
+            <button class="btn btn-light" onclick="copyBizum()">Copiar número</button>
+        </div>
+
+        <!-- POLICY -->
+        <div class="policy-box">
+            <div class="policy-title">Política de devolucions</div>
+            <p>Les fotos són impressions instantànies realitzades al moment. Per aquest motiu, no acceptem devolucions ni reemborsaments.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="serveis">
+        <h2 class="section-title">Serveis addicionals</h2>
+        <div class="form-grid">
+            <!-- UPLOAD -->
+            <div class="form-card">
+                <h3>Pujar la teva foto</h3>
+                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
+                    Tens una foto al mòbil que vols imprimir? Puja-la aquí!
+                </p>
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label>Selecciona la teva foto</label>
+                        <input type="file" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label>El teu email</label>
+                        <input type="email" placeholder="exemple@email.com" required>
+                    </div>
+                    <button type="submit" class="btn">Enviar foto</button>
+                </form>
+            </div>
+
+            <!-- DIGITAL -->
+            <div class="form-card">
+                <h3>Versió digital</h3>
+                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
+                    Deixa el teu email i t'enviarem la versió digital
+                </p>
+                <form id="digitalForm">
+                    <div class="form-group">
+                        <label>El teu email</label>
+                        <input type="email" placeholder="exemple@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de referència</label>
+                        <input type="text" placeholder="#0123">
+                    </div>
+                    <button type="submit" class="btn">Sol·licitar</button>
+                </form>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="form-card">
+                <h3>Contacta</h3>
+                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
+                    Tens dubtes? Escriu-nos!
+                </p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>El teu email</label>
+                        <input type="email" placeholder="exemple@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Missatge</label>
+                        <textarea required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <h2 class="section-title">Preguntes freqüents</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">La versió digital té el marc blanc?</div>
+            <div class="faq-answer">
+                Sí, per el moment no hem trobat la manera de treure-lo així que l'hem de mandar tal i com ens apareix.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Quan rebré la versió digital?</div>
+            <div class="faq-answer">
+                Principalment la podem mandar en el moment. Si no fos viable, et pedim que introdueixis el teu correu a la secció de serveis addicionals - versió digital (el número de referència te'l direm en el moment).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Puc imprimir fotos del meu mòbil?</div>
+            <div class="faq-answer">
+                Absolutament! A la secció de serveis addicionals - pujar foto pots mandar la foto que vulguis. També la pots mandar per WhatsApp al mateix número al que es fa el Bizum (+34 640 341 318) o si tens AirDrop també la pots mandar per aquí. La impressió d'una foto de la galeria del client té el mateix preu que la d'una foto presa al moment.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">On us puc tornar a trobar?</div>
+            <div class="faq-answer">
+                La veritat que acabem de començar i ens anem movent per alguns esdeveniments de Barcelona: concerts, esdeveniments esportius i altres dates importants pel centre. Sempre pots mandar un correu si necessites qualsevol cosa :)
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENTS -->
+    <section>
+        <h2 class="section-title">Valoracions i comentaris</h2>
+        <p style="text-align: center; color: var(--gray); margin-bottom: 40px;">
+            Deixa una valoració per ajudar-nos a millorar o saluda a futurs clients!
+        </p>
+
+        <!-- COMMENT FORM -->
+        <div class="comment-form">
+            <form id="commentForm">
+                <div class="form-group">
+                    <label>El teu nom o username</label>
+                    <input type="text" id="commentName" placeholder="Maria" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Valoració</label>
+                    <div class="star-rating">
+                        <input type="radio" name="rating" id="star5" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" name="rating" id="star4" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" name="rating" id="star3" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" name="rating" id="star2" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" name="rating" id="star1" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Comentari (opcional)</label>
+                    <textarea id="commentText" placeholder="Saluts des del concert de..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Publicar comentari</button>
+            </form>
+        </div>
+
+        <!-- COMMENTS LIST -->
+        <div id="commentsList">
+            <!-- Example comment -->
+            <div class="comment-item fade-in">
+                <div class="comment-header">
+                    <span class="comment-name">Anna</span>
+                    <span class="comment-stars">★★★★★</span>
+                </div>
+                <div class="comment-text">
+                    Saluts des del concert de Bad Gyal! Som d'Alemanya i ens ha encantat el servei!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacte">
+        <div class="footer-content">
+            <h2 style="margin-bottom: 40px; font-size: 32px;">Informació de contacte</h2>
+            <div class="footer-links">
+                <a href="mailto:memoriasimpresas@gmail.com">memoriasimpresas@gmail.com</a>
+                <a href="tel:+34640341318">+34 640 341 318</a>
+                <a href="https://instagram.com/memoriasimpresas" target="_blank">@memoriasimpresas</a>
+                <span>Barcelona, Catalunya</span>
+            </div>
+            <div class="copyright">
+                © 2026 Memorias Impresas. Barcelona Edition.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // COPY BIZUM
+        function copyBizum() {
+            const number = '+34640341318';
+            navigator.clipboard.writeText(number).then(() => {
+                alert('Número copiat al portapapers!');
+            }).catch(() => {
+                alert('Error al copiar. Número: ' + number);
+            });
+        }
+
+        // FORMS
+        document.getElementById('uploadForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Foto pujada correctament!');
+            e.target.reset();
+        });
+
+        document.getElementById('digitalForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Sol·licitud enviada!');
+            e.target.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Missatge enviat correctament!');
+            e.target.reset();
+        });
+
+        // COMMENTS
+        document.getElementById('commentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('commentName').value;
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            const text = document.getElementById('commentText').value;
+            
+            const commentHTML = `
+                <div class="comment-item fade-in">
+                    <div class="comment-header">
+                        <span class="comment-name">${name}</span>
+                        <span class="comment-stars">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</span>
+                    </div>
+                    <div class="comment-text">
+                        ${text || '(Sense comentari)'}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('commentsList').insertAdjacentHTML('afterbegin', commentHTML);
+            document.getElementById('commentForm').reset();
+            alert('Comentari publicat! Gràcies!');
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
