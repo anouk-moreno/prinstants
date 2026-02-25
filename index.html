@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorias Impresas — Barcelona</title>
+    <title>Prinstants — Barcelona</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -51,16 +51,26 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 24px;
             font-weight: 700;
             color: var(--black);
             letter-spacing: -0.5px;
         }
 
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
         .nav-links {
             display: flex;
             gap: 40px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -73,6 +83,71 @@
 
         .nav-links a:hover {
             color: var(--black);
+        }
+
+        /* LANGUAGE SELECTOR */
+        .lang-selector {
+            position: relative;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--light-gray);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: var(--gray);
+            color: var(--white);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: 10px;
+            min-width: 180px;
+            display: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 200;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .lang-dropdown.active {
+            display: block;
+        }
+
+        .lang-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-option:hover {
+            background: var(--light-gray);
+        }
+
+        .lang-option.active {
+            background: var(--catalan-yellow);
+            font-weight: 600;
         }
 
         /* HERO */
@@ -127,19 +202,25 @@
             text-align: center;
         }
 
-        /* PRICING */
+        /* PRICING - 2 COLUMNS */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .price-card {
             background: var(--white);
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 24px;
-            padding: 40px;
+            padding: 30px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -185,25 +266,25 @@
         }
 
         .price-amount {
-            font-size: 64px;
+            font-size: 56px;
             font-weight: 700;
             letter-spacing: -2px;
             margin-bottom: 10px;
         }
 
         .price-label {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--gray);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .price-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .price-features li {
-            padding: 12px 0;
+            padding: 10px 0;
             color: var(--gray);
             font-size: 15px;
             display: flex;
@@ -222,23 +303,23 @@
         .bizum-box {
             background: linear-gradient(135deg, var(--catalan-red), var(--catalan-yellow));
             border-radius: 24px;
-            padding: 60px;
+            padding: 40px;
             text-align: center;
             color: var(--white);
-            margin-top: 60px;
+            height: fit-content;
         }
 
         .bizum-box h2 {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .bizum-number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
-            margin: 30px 0;
-            padding: 20px;
+            margin: 25px 0;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 16px;
             backdrop-filter: blur(10px);
@@ -258,22 +339,13 @@
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            width: 100%;
+            text-align: center;
         }
 
         .btn:hover {
             background: #2d2d2f;
             transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--black);
-            color: var(--black);
-        }
-
-        .btn-outline:hover {
-            background: var(--black);
-            color: var(--white);
         }
 
         .btn-light {
@@ -283,6 +355,13 @@
 
         .btn-light:hover {
             background: var(--light-gray);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         /* FORMS */
@@ -340,6 +419,11 @@
         textarea {
             resize: vertical;
             min-height: 120px;
+        }
+
+        .form-card .btn {
+            width: auto;
+            padding: 16px 32px;
         }
 
         /* FAQ */
@@ -491,7 +575,19 @@
             }
 
             .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
                 display: none;
+            }
+
+            .lang-selector {
+                position: static;
+            }
+
+            .lang-dropdown {
+                right: 20px;
             }
 
             .hero {
@@ -514,16 +610,16 @@
                 font-size: 32px;
             }
 
-            .pricing-grid {
+            .pricing-container {
                 grid-template-columns: 1fr;
             }
 
             .bizum-box {
-                padding: 40px 20px;
+                padding: 30px 20px;
             }
 
             .bizum-number {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
 
@@ -553,12 +649,35 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">Instant BCN</div>
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="logo-image" style="display: none;" onerror="this.style.display='none';" onload="this.style.display='block';">
+                <span>Prinstants</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#preus">Preus</a></li>
                 <li><a href="#serveis">Serveis</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contacte">Contacte</a></li>
+                <li class="lang-selector">
+                    <div class="lang-btn" id="langBtn">
+                        <span id="currentLang">🇪🇸 CAT</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option active" data-lang="ca" data-flag="🇪🇸" data-name="CAT">🇪🇸 Català</div>
+                        <div class="lang-option" data-lang="es" data-flag="🇪🇸" data-name="ESP">🇪🇸 Español</div>
+                        <div class="lang-option" data-lang="en" data-flag="🇬🇧" data-name="ENG">🇬🇧 English</div>
+                        <div class="lang-option" data-lang="fr" data-flag="🇫🇷" data-name="FRA">🇫🇷 Français</div>
+                        <div class="lang-option" data-lang="it" data-flag="🇮🇹" data-name="ITA">🇮🇹 Italiano</div>
+                        <div class="lang-option" data-lang="pt" data-flag="🇵🇹" data-name="POR">🇵🇹 Português</div>
+                        <div class="lang-option" data-lang="de" data-flag="🇩🇪" data-name="DEU">🇩🇪 Deutsch</div>
+                        <div class="lang-option" data-lang="ru" data-flag="🇷🇺" data-name="RUS">🇷🇺 Русский</div>
+                        <div class="lang-option" data-lang="ar" data-flag="🇸🇦" data-name="ARA">🇸🇦 العربية</div>
+                        <div class="lang-option" data-lang="zh" data-flag="🇨🇳" data-name="中文">🇨🇳 中文</div>
+                        <div class="lang-option" data-lang="ja" data-flag="🇯🇵" data-name="日本">🇯🇵 日本語</div>
+                        <div class="lang-option" data-lang="ko" data-flag="🇰🇷" data-name="한국">🇰🇷 한국어</div>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -573,46 +692,52 @@
     <!-- PRICING -->
     <section id="preus">
         <h2 class="section-title">Preus</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <div class="price-amount">4€</div>
-                <div class="price-label">1 Foto</div>
-                <ul class="price-features">
-                    <li>Individual</li>
-                    <li>Impressió instantània</li>
-                    <li>Versió digital inclosa</li>
-                </ul>
+        <div class="pricing-container">
+            <!-- COLUMNA 1: PRECIOS -->
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-amount">4€</div>
+                    <div class="price-label">1 Foto - Individual</div>
+                    <ul class="price-features">
+                        <li>Impressió instantània</li>
+                        <li>Versió digital inclosa</li>
+                    </ul>
+                </div>
+
+                <div class="price-card popular">
+                    <div class="popular-badge">Popular</div>
+                    <div class="price-amount">7€</div>
+                    <div class="price-label">2 Fotos</div>
+                    <ul class="price-features">
+                        <li>Impressió instantània</li>
+                        <li>Versions digitals incloses</li>
+                        <li>Estalvia 1€</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-amount">10€</div>
+                    <div class="price-label">3 Fotos - Pack estalvi</div>
+                    <ul class="price-features">
+                        <li>Impressió instantània</li>
+                        <li>Versions digitals incloses</li>
+                        <li>Estalvia 2€</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="price-card popular">
-                <div class="popular-badge">Popular</div>
-                <div class="price-amount">7€</div>
-                <div class="price-label">2 Fotos</div>
-                <ul class="price-features">
-                    <li>Impressió instantània</li>
-                    <li>Versions digitals incloses</li>
-                    <li>Estalvia 1€</li>
-                </ul>
+            <!-- COLUMNA 2: BIZUM -->
+            <div>
+                <div class="bizum-box">
+                    <h2>Pagar amb Bizum</h2>
+                    <p style="font-size: 14px;">Manda el Bizum al següent número:</p>
+                    <div class="bizum-number">+34 640 341 318</div>
+                    <div class="btn-group">
+                        <button class="btn btn-light" onclick="copyBizum()">Copiar número</button>
+                        <a href="bizum://send?phone=+34640341318" class="btn btn-light">Obrir Bizum</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="price-card">
-                <div class="price-amount">10€</div>
-                <div class="price-label">3 Fotos</div>
-                <ul class="price-features">
-                    <li>Pack estalvi</li>
-                    <li>Impressió instantània</li>
-                    <li>Versions digitals incloses</li>
-                    <li>Estalvia 2€</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- BIZUM -->
-        <div class="bizum-box">
-            <h2>Pagar amb Bizum</h2>
-            <p>Manda el Bizum al següent número:</p>
-            <div class="bizum-number">+34 640 341 318</div>
-            <button class="btn btn-light" onclick="copyBizum()">Copiar número</button>
         </div>
 
         <!-- POLICY -->
@@ -784,7 +909,7 @@
                 <span>Barcelona, Catalunya</span>
             </div>
             <div class="copyright">
-                © 2026 Memorias Impresas. Barcelona Edition.
+                © 2026 Prinstants. Barcelona Edition.
             </div>
         </div>
     </footer>
@@ -855,6 +980,44 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // LANGUAGE SELECTOR
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLangSpan = document.getElementById('currentLang');
+
+        // Toggle dropdown
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            langDropdown.classList.remove('active');
+        });
+
+        // Handle language selection
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const flag = option.getAttribute('data-flag');
+                const name = option.getAttribute('data-name');
+                const lang = option.getAttribute('data-lang');
+                
+                // Update current language display
+                currentLangSpan.textContent = `${flag} ${name}`;
+                
+                // Update active state
+                document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Close dropdown
+                langDropdown.classList.remove('active');
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
             });
         });
     </script>
