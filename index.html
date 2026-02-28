@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prinstants — Barcelona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Shippori+Mincho:wght@400;600;800&family=Zen+Antique&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,24 +13,24 @@
         }
 
         :root {
-            --vintage-yellow: #F4D03F;
-            --vintage-brown: #6B4423;
-            --vintage-cream: #F5E6D3;
-            --vintage-dark: #2C1810;
-            --vintage-tan: #D4A373;
-            --vintage-beige: #E8DCC4;
+            --indigo: #1e3a5f;
+            --red-traditional: #c3423f;
+            --washi-cream: #f5ebe0;
+            --ink-black: #2d2424;
+            --gold-traditional: #d4a574;
+            --wave-blue: #4a7c9e;
         }
 
         body {
-            font-family: 'Courier Prime', monospace;
-            background: var(--vintage-cream);
-            color: var(--vintage-dark);
-            line-height: 1.6;
+            font-family: 'Shippori Mincho', serif;
+            background: var(--washi-cream);
+            color: var(--ink-black);
+            line-height: 1.8;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* VINTAGE TEXTURE OVERLAY */
+        /* WASHI PAPER TEXTURE */
         body::before {
             content: '';
             position: fixed;
@@ -38,23 +38,37 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(107, 68, 35, 0.03) 2px,
-                    rgba(107, 68, 35, 0.03) 4px
-                );
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 9999;
+            opacity: 0.5;
         }
 
-        /* HEADER VINTAGE */
+        /* WAVE PATTERN */
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: 
+                radial-gradient(ellipse at 50% 100%, transparent 40%, var(--wave-blue) 41%, var(--wave-blue) 43%, transparent 44%),
+                radial-gradient(ellipse at 0% 100%, transparent 40%, var(--indigo) 41%, var(--indigo) 43%, transparent 44%),
+                radial-gradient(ellipse at 100% 100%, transparent 40%, var(--wave-blue) 41%, var(--wave-blue) 43%, transparent 44%);
+            background-size: 200px 150px, 250px 180px, 220px 160px;
+            background-position: 0 100%, 100px 100%, 200px 100%;
+            background-repeat: repeat-x;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* HEADER TRADITIONAL */
         header {
-            background: var(--vintage-brown);
-            border-bottom: 4px solid var(--vintage-dark);
-            box-shadow: 0 4px 0 var(--vintage-yellow);
+            background: linear-gradient(180deg, var(--indigo), #2d4a6f);
+            border-bottom: 4px solid var(--red-traditional);
+            box-shadow: 0 4px 0 var(--gold-traditional);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -63,51 +77,63 @@
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 40px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* HAMBURGER MENU */
+        /* HAMBURGER */
         .hamburger {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            background: var(--vintage-yellow);
-            border: 3px solid var(--vintage-dark);
-            border-radius: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.3s;
+            position: relative;
+        }
+
+        .hamburger::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 2px solid var(--red-traditional);
+            border-radius: 50%;
+            opacity: 0.6;
         }
 
         .hamburger:hover {
-            background: var(--vintage-tan);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
         }
 
         .hamburger span {
             width: 30px;
-            height: 4px;
-            background: var(--vintage-dark);
+            height: 3px;
+            background: var(--ink-black);
+            border-radius: 2px;
         }
 
         /* SIDEBAR */
         .sidebar {
             position: fixed;
             top: 0;
-            left: -350px;
-            width: 350px;
+            left: -400px;
+            width: 400px;
             height: 100vh;
-            background: var(--vintage-beige);
-            border-right: 6px solid var(--vintage-dark);
-            box-shadow: 6px 0 0 var(--vintage-yellow);
+            background: linear-gradient(180deg, var(--washi-cream), #efe3d5);
+            border-right: 4px solid var(--red-traditional);
+            box-shadow: 8px 0 20px rgba(0,0,0,0.3);
             z-index: 1000;
-            transition: left 0.4s ease;
-            overflow-y: auto;
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .sidebar.active {
@@ -115,55 +141,84 @@
         }
 
         .sidebar-header {
-            padding: 30px 20px;
-            background: var(--vintage-brown);
-            border-bottom: 4px solid var(--vintage-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 40px 30px;
+            background: var(--indigo);
+            border-bottom: 3px solid var(--gold-traditional);
+            position: relative;
+        }
+
+        .sidebar-header::after {
+            content: '〜';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            color: var(--gold-traditional);
+            opacity: 0.5;
         }
 
         .sidebar-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: var(--vintage-yellow);
-            letter-spacing: 3px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--washi-cream);
+            text-align: center;
+            letter-spacing: 8px;
         }
 
         .close-btn {
-            width: 40px;
-            height: 40px;
-            background: var(--vintage-yellow);
-            border: 3px solid var(--vintage-dark);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background: var(--red-traditional);
+            border: 3px solid var(--washi-cream);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             font-size: 24px;
             font-weight: bold;
-            color: var(--vintage-dark);
+            color: var(--washi-cream);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
 
         .sidebar-links {
             list-style: none;
-            padding: 0;
+            padding: 30px 0;
         }
 
         .sidebar-links a {
             display: block;
-            padding: 20px 30px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            color: var(--vintage-dark);
+            padding: 22px 40px;
+            font-family: 'Zen Antique', serif;
+            font-size: 22px;
+            color: var(--ink-black);
             text-decoration: none;
-            border-bottom: 2px solid var(--vintage-tan);
+            border-bottom: 2px solid rgba(195, 66, 63, 0.2);
             transition: all 0.3s;
-            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .sidebar-links a::before {
+            content: '◆';
+            position: absolute;
+            left: 15px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--red-traditional);
         }
 
         .sidebar-links a:hover {
-            background: var(--vintage-yellow);
-            padding-left: 40px;
+            background: linear-gradient(90deg, rgba(195, 66, 63, 0.1), transparent);
+            padding-left: 50px;
+        }
+
+        .sidebar-links a:hover::before {
+            opacity: 1;
         }
 
         /* OVERLAY */
@@ -173,7 +228,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(44, 24, 16, 0.8);
+            background: rgba(30, 58, 95, 0.85);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
@@ -185,7 +240,7 @@
             visibility: visible;
         }
 
-        /* LOGO CENTER */
+        /* LOGO */
         .logo {
             position: absolute;
             left: 50%;
@@ -196,26 +251,38 @@
         }
 
         .logo-box {
-            width: 55px;
-            height: 55px;
-            background: var(--vintage-yellow);
-            border: 4px solid var(--vintage-dark);
+            width: 65px;
+            height: 65px;
+            background: var(--washi-cream);
+            border: 3px solid var(--gold-traditional);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: var(--vintage-dark);
-            font-weight: bold;
-            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--red-traditional);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 2px solid var(--red-traditional);
+            border-radius: 50%;
+            opacity: 0.4;
         }
 
         .logo-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: var(--vintage-yellow);
-            letter-spacing: 4px;
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 34px;
+            font-weight: 900;
+            color: var(--washi-cream);
+            letter-spacing: 6px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* NAV RIGHT */
@@ -226,25 +293,28 @@
         }
 
         .search-btn {
-            width: 50px;
-            height: 50px;
-            background: var(--vintage-yellow);
-            border: 3px solid var(--vintage-dark);
+            width: 55px;
+            height: 55px;
+            background: var(--wave-blue);
+            border: 3px solid var(--washi-cream);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.3s;
         }
 
         .search-btn:hover {
-            background: var(--vintage-tan);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
         }
 
         .search-icon {
             width: 24px;
             height: 24px;
-            border: 3px solid var(--vintage-dark);
+            border: 3px solid var(--washi-cream);
             border-radius: 50%;
             position: relative;
         }
@@ -252,12 +322,13 @@
         .search-icon::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            right: -8px;
-            width: 12px;
+            bottom: -9px;
+            right: -9px;
+            width: 13px;
             height: 3px;
-            background: var(--vintage-dark);
+            background: var(--washi-cream);
             transform: rotate(-45deg);
+            border-radius: 2px;
         }
 
         /* LANGUAGE SELECTOR */
@@ -266,31 +337,36 @@
         }
 
         .lang-btn {
-            padding: 12px 20px;
-            background: var(--vintage-yellow);
-            border: 3px solid var(--vintage-dark);
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            color: var(--vintage-dark);
+            padding: 14px 24px;
+            background: var(--gold-traditional);
+            border: 3px solid var(--ink-black);
+            border-radius: 25px;
+            font-family: 'Zen Antique', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink-black);
             cursor: pointer;
-            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: all 0.3s;
         }
 
         .lang-btn:hover {
-            background: var(--vintage-tan);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
         .lang-dropdown {
             position: absolute;
-            top: 60px;
+            top: 65px;
             right: 0;
-            background: var(--vintage-beige);
-            border: 4px solid var(--vintage-dark);
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             min-width: 200px;
             display: none;
             z-index: 200;
+            overflow: hidden;
         }
 
         .lang-dropdown.active {
@@ -298,65 +374,96 @@
         }
 
         .lang-option {
-            padding: 12px 20px;
-            font-family: 'Bebas Neue', sans-serif;
+            padding: 14px 22px;
+            font-family: 'Zen Antique', serif;
             font-size: 16px;
             cursor: pointer;
-            border-bottom: 2px solid var(--vintage-tan);
+            border-bottom: 2px solid rgba(45, 36, 36, 0.1);
             transition: all 0.2s;
-            letter-spacing: 1px;
+        }
+
+        .lang-option:last-child {
+            border-bottom: none;
         }
 
         .lang-option:hover {
-            background: var(--vintage-yellow);
+            background: var(--wave-blue);
+            color: var(--washi-cream);
         }
 
         .lang-option.active {
-            background: var(--vintage-brown);
-            color: var(--vintage-yellow);
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            font-weight: 700;
         }
 
-        /* HERO VINTAGE POSTER STYLE */
+        /* HERO */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
             padding: 100px 40px;
             text-align: center;
             position: relative;
+            z-index: 2;
         }
 
         .badge {
             display: inline-block;
-            background: var(--vintage-dark);
-            color: var(--vintage-yellow);
-            padding: 10px 30px;
-            border: 3px solid var(--vintage-yellow);
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            padding: 10px 40px;
+            border: 3px solid var(--ink-black);
+            border-radius: 30px;
+            font-family: 'Zen Antique', serif;
+            font-size: 16px;
+            font-weight: 600;
             letter-spacing: 3px;
-            margin-bottom: 30px;
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+            margin-bottom: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(60px, 12vw, 140px);
-            font-weight: 400;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
-            color: var(--vintage-brown);
-            text-shadow: 
-                4px 4px 0 var(--vintage-yellow),
-                8px 8px 0 rgba(0, 0, 0, 0.2);
-            line-height: 0.9;
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(65px, 13vw, 140px);
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--indigo);
+            letter-spacing: 12px;
+            line-height: 1;
         }
 
         .subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-style: italic;
-            color: var(--vintage-brown);
+            font-family: 'Zen Antique', serif;
+            font-size: 26px;
+            color: var(--red-traditional);
             margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* DECORATIVE ELEMENTS */
+        .wave-divider {
+            width: 200px;
+            height: 3px;
+            background: var(--gold-traditional);
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .wave-divider::before,
+        .wave-divider::after {
+            content: '〜';
+            position: absolute;
+            top: -20px;
+            font-size: 32px;
+            color: var(--red-traditional);
+        }
+
+        .wave-divider::before {
+            left: -30px;
+        }
+
+        .wave-divider::after {
+            right: -30px;
         }
 
         /* SECTIONS */
@@ -364,78 +471,96 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 40px;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(40px, 8vw, 80px);
-            letter-spacing: 6px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(45px, 9vw, 85px);
+            font-weight: 900;
+            letter-spacing: 8px;
             margin-bottom: 60px;
             text-align: center;
-            color: var(--vintage-brown);
-            text-shadow: 3px 3px 0 var(--vintage-yellow);
+            color: var(--indigo);
         }
 
-        /* PRICING VINTAGE CARDS */
+        /* PRICING */
         .pricing-container {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 35px;
+            margin-bottom: 50px;
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 25px;
         }
 
         .price-card {
-            background: var(--vintage-beige);
-            border: 5px solid var(--vintage-dark);
-            padding: 40px;
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 20px;
+            padding: 35px;
             position: relative;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
             transition: all 0.3s;
         }
 
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, var(--red-traditional) 30%, transparent 31%);
+            opacity: 0.2;
+        }
+
         .price-card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .price-card.popular {
-            background: var(--vintage-yellow);
-            border: 5px solid var(--vintage-dark);
+            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            border: 3px solid var(--red-traditional);
         }
 
         .popular-badge {
             position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--vintage-dark);
-            color: var(--vintage-yellow);
-            padding: 8px 20px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
+            top: -16px;
+            right: 30px;
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            padding: 8px 22px;
+            font-family: 'Zen Antique', serif;
+            font-size: 14px;
+            font-weight: 700;
             letter-spacing: 2px;
-            border: 3px solid var(--vintage-yellow);
+            border: 3px solid var(--ink-black);
+            border-radius: 20px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
 
         .price-amount {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 80px;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-            color: var(--vintage-brown);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 76px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: var(--indigo);
+            line-height: 1;
         }
 
         .price-label {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: var(--vintage-brown);
-            margin-bottom: 30px;
+            font-family: 'Zen Antique', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--ink-black);
+            margin-bottom: 25px;
         }
 
         .price-features {
@@ -444,68 +569,80 @@
 
         .price-features li {
             padding: 12px 0;
-            font-family: 'Courier Prime', monospace;
+            font-family: 'Shippori Mincho', serif;
             font-size: 16px;
-            color: var(--vintage-dark);
-            border-bottom: 2px dashed var(--vintage-tan);
+            color: var(--ink-black);
+            border-bottom: 2px dotted rgba(195, 66, 63, 0.3);
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
         }
 
         .price-features li::before {
-            content: '★ ';
-            color: var(--vintage-brown);
-            font-weight: bold;
+            content: '◆ ';
+            color: var(--red-traditional);
+            font-size: 12px;
+            margin-right: 8px;
         }
 
-        /* BIZUM VINTAGE */
+        /* BIZUM */
         .bizum-box {
-            background: var(--vintage-brown);
-            border: 5px solid var(--vintage-dark);
-            padding: 50px 40px;
+            background: linear-gradient(135deg, var(--indigo), var(--wave-blue));
+            border: 3px solid var(--gold-traditional);
+            border-radius: 20px;
+            padding: 40px 35px;
             text-align: center;
-            color: var(--vintage-yellow);
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+            color: var(--washi-cream);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             height: fit-content;
         }
 
         .bizum-box h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 32px;
+            font-weight: 900;
             letter-spacing: 4px;
             margin-bottom: 20px;
         }
 
         .bizum-number {
-            font-family: 'Courier Prime', monospace;
-            font-size: 28px;
-            font-weight: bold;
-            margin: 30px 0;
+            font-family: 'Shippori Mincho', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 28px 0;
             padding: 25px;
-            background: var(--vintage-beige);
-            border: 4px solid var(--vintage-dark);
-            color: var(--vintage-dark);
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 15px;
+            color: var(--ink-black);
             letter-spacing: 2px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        /* BUTTONS VINTAGE */
+        /* BUTTONS */
         .btn {
             display: block;
-            padding: 18px 40px;
-            background: var(--vintage-yellow);
-            color: var(--vintage-dark);
-            border: 4px solid var(--vintage-dark);
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px;
-            letter-spacing: 3px;
+            padding: 16px 35px;
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 25px;
+            font-family: 'Zen Antique', serif;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             text-align: center;
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            background: var(--gold-traditional);
+            color: var(--ink-black);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
         }
 
         .btn-group {
@@ -515,7 +652,7 @@
             margin-top: 25px;
         }
 
-        /* FORMS VINTAGE */
+        /* FORMS */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -523,31 +660,34 @@
         }
 
         .form-card {
-            background: var(--vintage-beige);
-            border: 5px solid var(--vintage-dark);
-            padding: 40px;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            border: 3px solid var(--ink-black);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
 
         .form-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 30px;
+            font-weight: 900;
             letter-spacing: 3px;
             margin-bottom: 20px;
-            color: var(--vintage-brown);
+            color: var(--indigo);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         label {
             display: block;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            letter-spacing: 2px;
+            font-family: 'Zen Antique', serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
             margin-bottom: 8px;
-            color: var(--vintage-brown);
+            color: var(--ink-black);
         }
 
         input[type="text"],
@@ -555,18 +695,20 @@
         input[type="file"],
         textarea {
             width: 100%;
-            padding: 14px 16px;
-            border: 3px solid var(--vintage-dark);
-            font-family: 'Courier Prime', monospace;
+            padding: 14px 18px;
+            border: 3px solid var(--ink-black);
+            border-radius: 12px;
+            font-family: 'Shippori Mincho', serif;
             font-size: 16px;
-            background: var(--vintage-cream);
-            color: var(--vintage-dark);
+            background: var(--washi-cream);
+            color: var(--ink-black);
         }
 
         input:focus,
         textarea:focus {
             outline: none;
-            background: var(--vintage-yellow);
+            border-color: var(--red-traditional);
+            box-shadow: 0 0 0 4px rgba(195, 66, 63, 0.1);
         }
 
         textarea {
@@ -574,43 +716,51 @@
             min-height: 120px;
         }
 
-        /* FAQ VINTAGE */
+        /* FAQ */
         .faq-item {
-            background: var(--vintage-beige);
-            border: 4px solid var(--vintage-dark);
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 16px;
             padding: 30px;
             margin-bottom: 20px;
-            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
         }
 
         .faq-question {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            color: var(--vintage-brown);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--indigo);
         }
 
         .faq-answer {
-            font-family: 'Courier Prime', monospace;
-            color: var(--vintage-dark);
-            font-size: 15px;
-            line-height: 1.7;
+            font-family: 'Shippori Mincho', serif;
+            color: var(--ink-black);
+            font-size: 16px;
+            line-height: 1.8;
         }
 
         /* COMMENTS */
         .comment-form {
-            background: var(--vintage-beige);
-            border: 5px solid var(--vintage-dark);
+            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            border: 3px solid var(--wave-blue);
+            border-radius: 20px;
             padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            margin-bottom: 45px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
 
         .star-rating {
             display: flex;
             gap: 10px;
-            margin: 15px 0;
+            margin: 18px 0;
             flex-direction: row-reverse;
             justify-content: flex-end;
         }
@@ -620,80 +770,89 @@
         }
 
         .star-rating label {
-            font-size: 36px;
+            font-size: 38px;
             cursor: pointer;
-            color: var(--vintage-tan);
+            color: rgba(212, 165, 116, 0.3);
             transition: all 0.2s;
         }
 
         .star-rating input:checked ~ label,
         .star-rating label:hover,
         .star-rating label:hover ~ label {
-            color: var(--vintage-brown);
+            color: var(--gold-traditional);
         }
 
         .comment-item {
-            background: var(--vintage-cream);
-            border: 4px solid var(--vintage-dark);
+            background: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 16px;
             padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 22px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
         }
 
         .comment-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px dashed var(--vintage-tan);
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(195, 66, 63, 0.2);
         }
 
         .comment-name {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Zen Antique', serif;
             font-size: 20px;
-            letter-spacing: 2px;
-            color: var(--vintage-brown);
+            font-weight: 700;
+            color: var(--indigo);
         }
 
         .comment-stars {
-            color: var(--vintage-brown);
+            color: var(--gold-traditional);
             font-size: 20px;
         }
 
         .comment-text {
-            font-family: 'Courier Prime', monospace;
-            color: var(--vintage-dark);
-            line-height: 1.7;
+            font-family: 'Shippori Mincho', serif;
+            color: var(--ink-black);
+            line-height: 1.8;
+            font-size: 16px;
         }
 
         /* POLICY */
         .policy-box {
-            background: var(--vintage-dark);
-            border: 4px solid var(--vintage-yellow);
-            padding: 30px;
-            margin-top: 40px;
-            color: var(--vintage-yellow);
+            background: var(--ink-black);
+            border: 3px solid var(--gold-traditional);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 45px;
+            color: var(--washi-cream);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
         .policy-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 22px;
+            font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--gold-traditional);
         }
 
         .policy-box p {
-            font-family: 'Courier Prime', monospace;
+            font-family: 'Shippori Mincho', serif;
+            font-size: 16px;
         }
 
-        /* FOOTER VINTAGE */
+        /* FOOTER */
         footer {
-            background: var(--vintage-brown);
-            color: var(--vintage-yellow);
-            padding: 80px 40px 40px;
-            border-top: 6px solid var(--vintage-dark);
-            box-shadow: 0 -4px 0 var(--vintage-yellow);
+            background: linear-gradient(180deg, var(--indigo), #1e2f4a);
+            color: var(--washi-cream);
+            padding: 70px 40px 40px;
+            border-top: 4px solid var(--red-traditional);
+            box-shadow: 0 -4px 0 var(--gold-traditional);
+            position: relative;
+            z-index: 2;
         }
 
         .footer-content {
@@ -703,39 +862,40 @@
         }
 
         .footer-content h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 42px;
-            letter-spacing: 4px;
-            margin-bottom: 40px;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin-bottom: 45px;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 45px;
+            margin-bottom: 45px;
             flex-wrap: wrap;
         }
 
         .footer-links a,
         .footer-links span {
-            font-family: 'Courier Prime', monospace;
-            color: var(--vintage-yellow);
+            font-family: 'Zen Antique', serif;
+            color: var(--washi-cream);
             text-decoration: none;
-            transition: color 0.3s;
-            font-size: 16px;
+            transition: all 0.3s;
+            font-size: 17px;
         }
 
         .footer-links a:hover {
-            color: var(--vintage-cream);
-            text-decoration: underline;
+            color: var(--gold-traditional);
         }
 
         .copyright {
-            font-family: 'Courier Prime', monospace;
-            color: var(--vintage-tan);
+            font-family: 'Shippori Mincho', serif;
+            color: var(--washi-cream);
             font-size: 14px;
-            margin-top: 40px;
+            margin-top: 45px;
+            opacity: 0.8;
         }
 
         /* RESPONSIVE */
@@ -745,17 +905,17 @@
             }
 
             .logo-text {
-                font-size: 24px;
+                font-size: 26px;
             }
 
             .logo-box {
-                width: 45px;
-                height: 45px;
-                font-size: 24px;
+                width: 52px;
+                height: 52px;
+                font-size: 28px;
             }
 
             h1 {
-                font-size: 50px;
+                font-size: 55px;
             }
 
             .subtitle {
@@ -768,6 +928,11 @@
 
             .pricing-container {
                 grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                width: 100%;
+                left: -100%;
             }
         }
 
@@ -784,14 +949,14 @@
     <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-title">MENÚ</div>
+            <div class="sidebar-title">目録</div>
             <div class="close-btn" id="closeBtn">✕</div>
         </div>
         <ul class="sidebar-links">
-            <li><a href="#preus" class="sidebar-link">PREUS</a></li>
-            <li><a href="#serveis" class="sidebar-link">SERVEIS</a></li>
+            <li><a href="#preus" class="sidebar-link">Preus</a></li>
+            <li><a href="#serveis" class="sidebar-link">Serveis</a></li>
             <li><a href="#faq" class="sidebar-link">FAQ</a></li>
-            <li><a href="#contacte" class="sidebar-link">CONTACTE</a></li>
+            <li><a href="#contacte" class="sidebar-link">Contacte</a></li>
         </ul>
     </div>
 
@@ -808,7 +973,7 @@
             <!-- CENTER: LOGO -->
             <div class="logo">
                 <div class="logo-box">P</div>
-                <span class="logo-text">PRINSTANTS</span>
+                <span class="logo-text">Prinstants</span>
             </div>
 
             <!-- RIGHT: SEARCH & LANGUAGE -->
@@ -822,14 +987,14 @@
                         <span id="currentLang">CAT ▼</span>
                     </div>
                     <div class="lang-dropdown" id="langDropdown">
-                        <div class="lang-option active" data-lang="ca" data-name="CAT">🇪🇸 CATALÀ</div>
-                        <div class="lang-option" data-lang="es" data-name="ESP">🇪🇸 ESPAÑOL</div>
-                        <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 ENGLISH</div>
-                        <div class="lang-option" data-lang="fr" data-name="FRA">🇫🇷 FRANÇAIS</div>
-                        <div class="lang-option" data-lang="it" data-name="ITA">🇮🇹 ITALIANO</div>
-                        <div class="lang-option" data-lang="pt" data-name="POR">🇵🇹 PORTUGUÊS</div>
-                        <div class="lang-option" data-lang="de" data-name="DEU">🇩🇪 DEUTSCH</div>
-                        <div class="lang-option" data-lang="ru" data-name="RUS">🇷🇺 РУССКИЙ</div>
+                        <div class="lang-option active" data-lang="ca" data-name="CAT">🇪🇸 Català</div>
+                        <div class="lang-option" data-lang="es" data-name="ESP">🇪🇸 Español</div>
+                        <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 English</div>
+                        <div class="lang-option" data-lang="fr" data-name="FRA">🇫🇷 Français</div>
+                        <div class="lang-option" data-lang="it" data-name="ITA">🇮🇹 Italiano</div>
+                        <div class="lang-option" data-lang="pt" data-name="POR">🇵🇹 Português</div>
+                        <div class="lang-option" data-lang="de" data-name="DEU">🇩🇪 Deutsch</div>
+                        <div class="lang-option" data-lang="ru" data-name="RUS">🇷🇺 Русский</div>
                         <div class="lang-option" data-lang="ar" data-name="ARA">🇸🇦 العربية</div>
                         <div class="lang-option" data-lang="zh" data-name="中文">🇨🇳 中文</div>
                         <div class="lang-option" data-lang="ja" data-name="日本">🇯🇵 日本語</div>
@@ -842,20 +1007,21 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="badge">BARCELONA 2026</div>
-        <h1>BENVINGUT</h1>
-        <p class="subtitle">Fotos instantànies a disponibilitat :)</p>
+        <div class="badge">Barcelona 2026</div>
+        <h1>Benvingut</h1>
+        <p class="subtitle">Fotos instantànies amb essència</p>
+        <div class="wave-divider"></div>
     </section>
 
     <!-- PRICING -->
     <section id="preus">
-        <h2 class="section-title">PREUS</h2>
+        <h2 class="section-title">Preus</h2>
         <div class="pricing-container">
             <!-- LEFT: PRICES -->
             <div class="pricing-grid">
                 <div class="price-card">
                     <div class="price-amount">4€</div>
-                    <div class="price-label">1 Foto - Individual</div>
+                    <div class="price-label">1 Foto</div>
                     <ul class="price-features">
                         <li>Impressió instantània</li>
                         <li>Versió digital inclosa</li>
@@ -863,22 +1029,22 @@
                 </div>
 
                 <div class="price-card popular">
-                    <div class="popular-badge">POPULAR</div>
+                    <div class="popular-badge">Popular</div>
                     <div class="price-amount">7€</div>
                     <div class="price-label">2 Fotos</div>
                     <ul class="price-features">
                         <li>Impressió instantània</li>
-                        <li>Versions digitals incloses</li>
+                        <li>Versions digitals</li>
                         <li>Estalvia 1€</li>
                     </ul>
                 </div>
 
                 <div class="price-card">
                     <div class="price-amount">10€</div>
-                    <div class="price-label">3 Fotos - Pack estalvi</div>
+                    <div class="price-label">3 Fotos</div>
                     <ul class="price-features">
                         <li>Impressió instantània</li>
-                        <li>Versions digitals incloses</li>
+                        <li>Versions digitals</li>
                         <li>Estalvia 2€</li>
                     </ul>
                 </div>
@@ -887,12 +1053,12 @@
             <!-- RIGHT: BIZUM -->
             <div>
                 <div class="bizum-box">
-                    <h2>PAGAR AMB BIZUM</h2>
-                    <p>Manda el Bizum al següent número:</p>
+                    <h2>Bizum</h2>
+                    <p style="font-family: 'Zen Antique', serif; font-size: 16px;">Envia al número:</p>
                     <div class="bizum-number">+34 640 341 318</div>
                     <div class="btn-group">
-                        <button class="btn" onclick="copyBizum()">COPIAR NÚMERO</button>
-                        <a href="bizum://send?phone=+34640341318" class="btn">OBRIR BIZUM</a>
+                        <button class="btn" onclick="copyBizum()">Copiar número</button>
+                        <a href="bizum://send?phone=+34640341318" class="btn">Obrir Bizum</a>
                     </div>
                 </div>
             </div>
@@ -900,69 +1066,69 @@
 
         <!-- POLICY -->
         <div class="policy-box">
-            <div class="policy-title">POLÍTICA DE DEVOLUCIONS</div>
-            <p>Les fotos són impressions instantànies realitzades al moment. Per aquest motiu, no acceptem devolucions ni reemborsaments.</p>
+            <div class="policy-title">Política de devolucions</div>
+            <p>Les fotos són impressions instantànies. No acceptem devolucions ni reemborsaments.</p>
         </div>
     </section>
 
     <!-- SERVICES -->
     <section id="serveis">
-        <h2 class="section-title">SERVEIS</h2>
+        <h2 class="section-title">Serveis</h2>
         <div class="form-grid">
             <!-- UPLOAD -->
             <div class="form-card">
-                <h3>PUJAR FOTO</h3>
-                <p style="margin-bottom: 20px; font-size: 14px;">
-                    Tens una foto al mòbil que vols imprimir?
+                <h3>Pujar foto</h3>
+                <p style="margin-bottom: 18px; font-size: 14px;">
+                    Tens una foto que vols imprimir?
                 </p>
                 <form id="uploadForm">
                     <div class="form-group">
-                        <label>FOTO</label>
+                        <label>Foto</label>
                         <input type="file" accept="image/*" required>
                     </div>
                     <div class="form-group">
-                        <label>EMAIL</label>
+                        <label>Email</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
-                    <button type="submit" class="btn">ENVIAR</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
 
             <!-- DIGITAL -->
             <div class="form-card">
-                <h3>VERSIÓ DIGITAL</h3>
-                <p style="margin-bottom: 20px; font-size: 14px;">
-                    Deixa el teu email i t'enviarem la versió digital
+                <h3>Versió digital</h3>
+                <p style="margin-bottom: 18px; font-size: 14px;">
+                    T'enviarem la versió digital
                 </p>
                 <form id="digitalForm">
                     <div class="form-group">
-                        <label>EMAIL</label>
+                        <label>Email</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label>REFERÈNCIA</label>
+                        <label>Referència</label>
                         <input type="text" placeholder="#0123">
                     </div>
-                    <button type="submit" class="btn">SOL·LICITAR</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
 
             <!-- CONTACT -->
             <div class="form-card">
-                <h3>CONTACTA</h3>
-                <p style="margin-bottom: 20px; font-size: 14px;">
-                    Tens dubtes? Escriu-nos!
+                <h3>Contacta</h3>
+                <p style="margin-bottom: 18px; font-size: 14px;">
+                    Tens dubtes? Escriu-nos
                 </p>
                 <form id="contactForm">
                     <div class="form-group">
-                        <label>EMAIL</label>
+                        <label>Email</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label>MISSATGE</label>
+                        <label>Missatge</label>
                         <textarea required></textarea>
                     </div>
-                    <button type="submit" class="btn">ENVIAR</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
         </div>
@@ -970,54 +1136,51 @@
 
     <!-- FAQ -->
     <section id="faq">
-        <h2 class="section-title">FAQ</h2>
+        <h2 class="section-title">Preguntes</h2>
         
         <div class="faq-item">
-            <div class="faq-question">LA VERSIÓ DIGITAL TÉ EL MARC BLANC?</div>
+            <div class="faq-question">La versió digital té el marc blanc?</div>
             <div class="faq-answer">
                 Sí, per el moment no hem trobat la manera de treure-lo així que l'hem de mandar tal i com ens apareix.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">QUAN REBRÉ LA VERSIÓ DIGITAL?</div>
+            <div class="faq-question">Quan rebré la versió digital?</div>
             <div class="faq-answer">
-                Principalment la podem mandar en el moment. Si no fos viable, et pedim que introdueixis el teu correu a la secció de serveis addicionals - versió digital (el número de referència te'l direm en el moment).
+                La podem mandar en el moment. Si no, introdueix el correu a serveis digitals amb el número de referència.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">PUC IMPRIMIR FOTOS DEL MEU MÒBIL?</div>
+            <div class="faq-question">Puc imprimir fotos del mòbil?</div>
             <div class="faq-answer">
-                Absolutament! A la secció de serveis addicionals - pujar foto pots mandar la foto que vulguis. També la pots mandar per WhatsApp al mateix número al que es fa el Bizum (+34 640 341 318) o si tens AirDrop també la pots mandar per aquí.
+                Sí! Puja-la a serveis o manda-la per WhatsApp (+34 640 341 318) o AirDrop. Mateix preu.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">ON US PUC TORNAR A TROBAR?</div>
+            <div class="faq-question">On us trobo?</div>
             <div class="faq-answer">
-                La veritat que acabem de començar i ens anem movent per alguns esdeveniments de Barcelona: concerts, esdeveniments esportius i altres dates importants pel centre. Sempre pots mandar un correu si necessites qualsevol cosa :)
+                Ens movem per esdeveniments de Barcelona: concerts, esports, dates importants. Escriu-nos!
             </div>
         </div>
     </section>
 
     <!-- COMMENTS -->
     <section>
-        <h2 class="section-title">COMENTARIS</h2>
-        <p style="text-align: center; margin-bottom: 40px; font-size: 16px;">
-            Deixa una valoració per ajudar-nos a millorar!
-        </p>
+        <h2 class="section-title">Comentaris</h2>
 
         <!-- COMMENT FORM -->
         <div class="comment-form">
             <form id="commentForm">
                 <div class="form-group">
-                    <label>NOM O USERNAME</label>
+                    <label>Nom</label>
                     <input type="text" id="commentName" placeholder="Maria" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>VALORACIÓ</label>
+                    <label>Valoració</label>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="star5" value="5" required>
                         <label for="star5">★</label>
@@ -1033,11 +1196,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label>COMENTARI (OPCIONAL)</label>
-                    <textarea id="commentText" placeholder="Saluts des del concert de..."></textarea>
+                    <label>Comentari (opcional)</label>
+                    <textarea id="commentText" placeholder="Saluts des del concert..."></textarea>
                 </div>
 
-                <button type="submit" class="btn">PUBLICAR</button>
+                <button type="submit" class="btn">Publicar</button>
             </form>
         </div>
 
@@ -1045,11 +1208,11 @@
         <div id="commentsList">
             <div class="comment-item">
                 <div class="comment-header">
-                    <span class="comment-name">ANNA</span>
+                    <span class="comment-name">Anna</span>
                     <span class="comment-stars">★★★★★</span>
                 </div>
                 <div class="comment-text">
-                    Saluts des del concert de Bad Gyal! Som d'Alemanya i ens ha encantat el servei!
+                    Saluts des del concert de Bad Gyal! Som d'Alemanya i ens ha encantat!
                 </div>
             </div>
         </div>
@@ -1058,21 +1221,21 @@
     <!-- FOOTER -->
     <footer id="contacte">
         <div class="footer-content">
-            <h2>INFORMACIÓ DE CONTACTE</h2>
+            <h2>Contacte</h2>
             <div class="footer-links">
-                <a href="mailto:memoriasimpresas@gmail.com">memoriasimpresas@gmail.com</a>
-                <a href="tel:+34640341318">+34 640 341 318</a>
-                <a href="https://instagram.com/memoriasimpresas" target="_blank">@memoriasimpresas</a>
-                <span>Barcelona, Catalunya</span>
+                <a href="mailto:memoriasimpresas@gmail.com">Email</a>
+                <a href="tel:+34640341318">Telèfon</a>
+                <a href="https://instagram.com/memoriasimpresas" target="_blank">Instagram</a>
+                <span>Barcelona</span>
             </div>
             <div class="copyright">
-                © 2026 MEMORIAS IMPRESAS. BARCELONA EDITION.
+                © 2026 Prinstants · Barcelona
             </div>
         </div>
     </footer>
 
     <script>
-        // HAMBURGER MENU
+        // MENU
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
         const closeBtn = document.getElementById('closeBtn');
@@ -1096,7 +1259,7 @@
             link.addEventListener('click', closeSidebar);
         });
 
-        // LANGUAGE SELECTOR
+        // LANGUAGE
         const langBtn = document.getElementById('langBtn');
         const langDropdown = document.getElementById('langDropdown');
         const currentLangSpan = document.getElementById('currentLang');
@@ -1113,30 +1276,24 @@
         document.querySelectorAll('.lang-option').forEach(option => {
             option.addEventListener('click', () => {
                 const name = option.getAttribute('data-name');
-                const lang = option.getAttribute('data-lang');
-                
                 currentLangSpan.textContent = `${name} ▼`;
                 document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
                 langDropdown.classList.remove('active');
-                document.documentElement.lang = lang;
             });
         });
 
-        // COPY BIZUM
+        // BIZUM
         function copyBizum() {
-            const number = '+34640341318';
-            navigator.clipboard.writeText(number).then(() => {
-                alert('Número copiat!');
-            }).catch(() => {
-                alert('Error al copiar. Número: ' + number);
+            navigator.clipboard.writeText('+34640341318').then(() => {
+                alert('✓ Copiat!');
             });
         }
 
         // FORMS
         document.getElementById('uploadForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Foto pujada correctament!');
+            alert('Foto pujada!');
             e.target.reset();
         });
 
@@ -1148,7 +1305,7 @@
 
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Missatge enviat correctament!');
+            alert('Missatge enviat!');
             e.target.reset();
         });
 
@@ -1156,7 +1313,7 @@
         document.getElementById('commentForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('commentName').value.toUpperCase();
+            const name = document.getElementById('commentName').value;
             const rating = document.querySelector('input[name="rating"]:checked').value;
             const text = document.getElementById('commentText').value;
             
@@ -1164,39 +1321,32 @@
                 <div class="comment-item">
                     <div class="comment-header">
                         <span class="comment-name">${name}</span>
-                        <span class="comment-stars">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</span>
+                        <span class="comment-stars">${'★'.repeat(rating)}</span>
                     </div>
-                    <div class="comment-text">
-                        ${text || '(Sense comentari)'}
-                    </div>
+                    <div class="comment-text">${text || '(Sense comentari)'}</div>
                 </div>
             `;
             
             document.getElementById('commentsList').insertAdjacentHTML('afterbegin', commentHTML);
             document.getElementById('commentForm').reset();
-            alert('Comentari publicat! Gràcies!');
+            alert('Publicat!');
         });
 
-        // SMOOTH SCROLL
+        // SEARCH
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            const search = prompt('Buscar:');
+            if (search) alert('Funció en desenvolupament: ' + search);
+        });
+
+        // SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-
-        // SEARCH SIMPLE ALERT
-        document.getElementById('searchBtn').addEventListener('click', () => {
-            const search = prompt('Què vols buscar?');
-            if (search) {
-                alert('Funció de cerca en desenvolupament. Has buscat: ' + search);
-            }
         });
     </script>
 </body>
