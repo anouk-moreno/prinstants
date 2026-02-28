@@ -23,14 +23,15 @@
 
         body {
             font-family: 'Shippori Mincho', serif;
-            background: var(--washi-cream);
+            background: url('background.png') repeat;
+            background-size: 400px 400px;
             color: var(--ink-black);
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* WASHI PAPER TEXTURE */
+        /* SUBTLE OVERLAY */
         body::before {
             content: '';
             position: fixed;
@@ -38,10 +39,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            background: rgba(245, 235, 224, 0.1);
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.5;
         }
 
         /* WAVE PATTERN */
@@ -129,7 +129,8 @@
             left: -400px;
             width: 400px;
             height: 100vh;
-            background: linear-gradient(180deg, var(--washi-cream), #efe3d5);
+            background: rgba(245, 235, 224, 0.95);
+            backdrop-filter: blur(15px);
             border-right: 4px solid var(--red-traditional);
             box-shadow: 8px 0 20px rgba(0,0,0,0.3);
             z-index: 1000;
@@ -359,7 +360,8 @@
             position: absolute;
             top: 65px;
             right: 0;
-            background: var(--washi-cream);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--ink-black);
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -500,7 +502,8 @@
         }
 
         .price-card {
-            background: var(--washi-cream);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--ink-black);
             border-radius: 20px;
             padding: 35px;
@@ -526,7 +529,8 @@
         }
 
         .price-card.popular {
-            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--red-traditional);
         }
 
@@ -660,7 +664,8 @@
         }
 
         .form-card {
-            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--ink-black);
             border-radius: 20px;
             padding: 35px;
@@ -700,7 +705,7 @@
             border-radius: 12px;
             font-family: 'Shippori Mincho', serif;
             font-size: 16px;
-            background: var(--washi-cream);
+            background: rgba(255, 255, 255, 0.8);
             color: var(--ink-black);
         }
 
@@ -718,7 +723,8 @@
 
         /* FAQ */
         .faq-item {
-            background: var(--washi-cream);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--ink-black);
             border-radius: 16px;
             padding: 30px;
@@ -749,7 +755,8 @@
 
         /* COMMENTS */
         .comment-form {
-            background: linear-gradient(135deg, #efe3d5, var(--washi-cream));
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--wave-blue);
             border-radius: 20px;
             padding: 40px;
@@ -783,7 +790,8 @@
         }
 
         .comment-item {
-            background: var(--washi-cream);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
             border: 3px solid var(--ink-black);
             border-radius: 16px;
             padding: 30px;
@@ -1223,7 +1231,7 @@
         <div class="footer-content">
             <h2>Contacte</h2>
             <div class="footer-links">
-                <a href="mailto:memoriasimpresas@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#38555d55574a51594b5155484a5d4b594b785f55595154165b5755">Email</a>
                 <a href="tel:+34640341318">Telèfon</a>
                 <a href="https://instagram.com/memoriasimpresas" target="_blank">Instagram</a>
                 <span>Barcelona</span>
@@ -1234,7 +1242,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // MENU
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
