@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prinstants — Barcelona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Caveat:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +21,7 @@
         }
 
         body {
-            font-family: 'Kalam', cursive;
+            font-family: 'Futura', 'Futura-Bold', 'Trebuchet MS', Arial, sans-serif;
             background: url('background.png') repeat;
             background-size: 400px 400px;
             color: var(--ink-black);
@@ -44,9 +43,9 @@
             z-index: 9999;
         }
 
-        /* HEADER TRADITIONAL */
+        /* HEADER CON BACKGROUND-HEADER.PNG */
         header {
-            background: linear-gradient(180deg, var(--indigo), #2d4a6f);
+            background: url('background-header.png') center/cover;
             border-bottom: 4px solid var(--red-traditional);
             box-shadow: 0 4px 0 var(--gold-traditional);
             position: sticky;
@@ -63,7 +62,118 @@
             align-items: center;
         }
 
-        /* HAMBURGER - AUMENTADO */
+        /* LOGO A LA IZQUIERDA */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            width: 300px;
+            height: 80px;
+            background: url('logo.png') center/contain no-repeat;
+            transition: all 0.3s;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .logo-text:hover {
+            transform: scale(1.05);
+        }
+
+        /* NAV RIGHT */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* SEARCH */
+        .search-btn {
+            width: 80px;
+            height: 80px;
+            background: url('lupa.png') center/contain no-repeat;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .search-btn:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+        }
+
+        .search-icon {
+            display: none;
+        }
+
+        /* LANGUAGE */
+        .lang-selector {
+            position: relative;
+        }
+
+        .lang-btn {
+            width: 80px;
+            height: 80px;
+            background: url('lenguaje.png') center/contain no-repeat;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+        }
+
+        .lang-btn span {
+            display: none;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 95px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--ink-black);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            min-width: 200px;
+            display: none;
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        .lang-dropdown.active {
+            display: block;
+        }
+
+        .lang-option {
+            padding: 14px 22px;
+            font-size: 16px;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(45, 36, 36, 0.1);
+            transition: all 0.2s;
+        }
+
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+
+        .lang-option:hover {
+            background: var(--wave-blue);
+            color: var(--washi-cream);
+        }
+
+        .lang-option.active {
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            font-weight: 700;
+        }
+
+        /* HAMBURGER */
         .hamburger {
             width: 80px;
             height: 80px;
@@ -109,25 +219,12 @@
             position: relative;
         }
 
-        .sidebar-header::after {
-            content: '〜';
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 48px;
-            color: var(--gold-traditional);
-            opacity: 0.5;
-        }
-
         .sidebar-title {
-            font-family: 'Permanent Marker', cursive;
             font-size: 36px;
-            font-weight: 400;
+            font-weight: bold;
             color: var(--washi-cream);
             text-align: center;
             letter-spacing: 4px;
-            transform: rotate(-1deg);
         }
 
         .close-btn {
@@ -147,7 +244,6 @@
             font-weight: bold;
             color: var(--washi-cream);
             box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-            transform: rotate(2deg);
         }
 
         .sidebar-links {
@@ -158,7 +254,6 @@
         .sidebar-links a {
             display: block;
             padding: 22px 40px;
-            font-family: 'Kalam', cursive;
             font-size: 22px;
             font-weight: 700;
             color: var(--ink-black);
@@ -205,186 +300,31 @@
             visibility: visible;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-text {
-            width: 300px;
-            height: 80px;
-            background: url('logo.png') center/contain no-repeat;
-            transition: all 0.3s;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-        }
-
-        .logo-text:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* SEARCH - AUMENTADO */
-        .search-btn {
-            width: 80px;
-            height: 80px;
-            background: url('lupa.png') center/contain no-repeat;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-
-        .search-btn:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
-        }
-
-        .search-icon {
-            display: none;
-        }
-
-        /* LANGUAGE - AUMENTADO */
-        .lang-selector {
-            position: relative;
-        }
-
-        .lang-btn {
-            width: 80px;
-            height: 80px;
-            background: url('lenguaje.png') center/contain no-repeat;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        .lang-btn:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
-        }
-
-        .lang-btn span {
-            display: none;
-        }
-
-        .lang-dropdown {
-            position: absolute;
-            top: 95px;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--ink-black);
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            min-width: 200px;
-            display: none;
-            z-index: 200;
-            overflow: hidden;
-        }
-
-        .lang-dropdown.active {
-            display: block;
-        }
-
-        .lang-option {
-            padding: 14px 22px;
-            font-family: 'Kalam', cursive;
-            font-size: 16px;
-            font-weight: 400;
-            cursor: pointer;
-            border-bottom: 2px solid rgba(45, 36, 36, 0.1);
-            transition: all 0.2s;
-        }
-
-        .lang-option:last-child {
-            border-bottom: none;
-        }
-
-        .lang-option:hover {
-            background: var(--wave-blue);
-            color: var(--washi-cream);
-        }
-
-        .lang-option.active {
-            background: var(--red-traditional);
-            color: var(--washi-cream);
-            font-weight: 700;
-        }
-
-        /* HERO */
+        /* HERO SIMPLIFICADO */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 40px;
+            padding: 100px 40px 60px;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--red-traditional);
-            color: var(--washi-cream);
-            padding: 10px 40px;
-            border: 3px solid var(--ink-black);
-            border-radius: 30px;
-            font-family: 'Kalam', cursive;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            margin-bottom: 35px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
         h1 {
-            font-family: 'Permanent Marker', cursive;
             font-size: clamp(65px, 13vw, 140px);
-            font-weight: 400;
-            margin-bottom: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
             color: var(--indigo);
             letter-spacing: 6px;
             line-height: 1;
-            transform: rotate(-2deg);
         }
 
         .subtitle {
-            font-family: 'Caveat', cursive;
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 400;
             color: var(--red-traditional);
             margin-bottom: 40px;
             letter-spacing: 1px;
-        }
-
-        /* DECORATIVE ELEMENTS */
-        .wave-divider {
-            width: 200px;
-            height: 3px;
-            background: var(--gold-traditional);
-            margin: 40px auto;
-            position: relative;
-        }
-
-        .wave-divider::before,
-        .wave-divider::after {
-            content: '〜';
-            position: absolute;
-            top: -20px;
-            font-size: 32px;
-            color: var(--red-traditional);
-        }
-
-        .wave-divider::before {
-            left: -30px;
-        }
-
-        .wave-divider::after {
-            right: -30px;
         }
 
         /* SECTIONS */
@@ -397,183 +337,87 @@
         }
 
         .section-title {
-            font-family: 'Permanent Marker', cursive;
             font-size: clamp(45px, 9vw, 85px);
-            font-weight: 400;
+            font-weight: bold;
             letter-spacing: 4px;
             margin-bottom: 60px;
             text-align: center;
             color: var(--indigo);
-            transform: rotate(-1deg);
         }
 
-        /* PRICING */
-        .pricing-container {
+        /* NUEVA SECCIÓN PRECIOS ESTILO IMAGEN */
+        .pricing-container-new {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 35px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+        .precios-column,
+        .bizum-column {
+            display: flex;
+            flex-direction: column;
         }
 
-        .price-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--ink-black);
-            border-radius: 20px;
-            padding: 35px;
-            position: relative;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            transition: all 0.3s;
-        }
-
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, var(--red-traditional) 30%, transparent 31%);
-            opacity: 0.2;
-        }
-
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .price-card.popular {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--red-traditional);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -16px;
-            right: 30px;
-            background: var(--red-traditional);
-            color: var(--washi-cream);
-            padding: 8px 22px;
-            font-family: 'Kalam', cursive;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            border: 3px solid var(--ink-black);
-            border-radius: 20px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-        }
-
-        .price-amount {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 76px;
-            font-weight: 400;
-            margin-bottom: 12px;
+        .column-title {
+            font-size: 48px;
+            font-weight: bold;
             color: var(--indigo);
-            line-height: 1;
-        }
-
-        .price-label {
-            font-family: 'Caveat', cursive;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--ink-black);
-            margin-bottom: 25px;
-        }
-
-        .price-features {
-            list-style: none;
-        }
-
-        .price-features li {
-            padding: 12px 0;
-            font-family: 'Kalam', cursive;
-            font-size: 16px;
-            color: var(--ink-black);
-            border-bottom: 2px dotted rgba(195, 66, 63, 0.3);
-        }
-
-        .price-features li:last-child {
-            border-bottom: none;
-        }
-
-        .price-features li::before {
-            content: '◆ ';
-            color: var(--red-traditional);
-            font-size: 12px;
-            margin-right: 8px;
-        }
-
-        /* BIZUM */
-        .bizum-box {
-            background: linear-gradient(135deg, var(--indigo), var(--wave-blue));
-            border: 3px solid var(--gold-traditional);
-            border-radius: 20px;
-            padding: 40px 35px;
             text-align: center;
-            color: var(--washi-cream);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            height: fit-content;
+            margin-bottom: 30px;
         }
 
-        .bizum-box h2 {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 32px;
-            font-weight: 400;
-            letter-spacing: 4px;
+        /* ITEMS DE PRECIO CON IMÁGENES */
+        .precio-item {
             margin-bottom: 20px;
         }
 
-        .bizum-number {
-            font-family: 'Kalam', cursive;
-            font-size: 26px;
-            font-weight: 700;
-            margin: 28px 0;
-            padding: 25px;
-            background: var(--washi-cream);
-            border: 3px solid var(--ink-black);
-            border-radius: 15px;
-            color: var(--ink-black);
-            letter-spacing: 2px;
-            box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        /* BUTTONS */
-        .btn {
+        .precio-item img {
+            width: 100%;
+            height: auto;
             display: block;
-            padding: 16px 35px;
-            background: var(--red-traditional);
-            color: var(--washi-cream);
-            border: 3px solid var(--ink-black);
-            border-radius: 25px;
-            font-family: 'Kalam', cursive;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .btn:hover {
-            background: var(--gold-traditional);
-            color: var(--ink-black);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-        }
-
-        .btn-group {
+        /* BIZUM CON IMÁGENES */
+        .bizum-content {
             display: flex;
             flex-direction: column;
+            gap: 20px;
+        }
+
+        .telefono-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .bizum-buttons {
+            display: flex;
             gap: 15px;
-            margin-top: 25px;
+        }
+
+        .bizum-btn {
+            flex: 1;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .bizum-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .bizum-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* POLÍTICA ROJA */
+        .devoluciones-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 30px;
         }
 
         /* FORMS */
@@ -593,9 +437,8 @@
         }
 
         .form-card h3 {
-            font-family: 'Permanent Marker', cursive;
             font-size: 30px;
-            font-weight: 400;
+            font-weight: bold;
             letter-spacing: 3px;
             margin-bottom: 20px;
             color: var(--indigo);
@@ -607,7 +450,6 @@
 
         label {
             display: block;
-            font-family: 'Kalam', cursive;
             font-size: 16px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -623,7 +465,6 @@
             padding: 14px 18px;
             border: 3px solid var(--ink-black);
             border-radius: 8px;
-            font-family: 'Kalam', cursive;
             font-size: 16px;
             background: rgba(255, 255, 255, 0.8);
             color: var(--ink-black);
@@ -639,6 +480,30 @@
         textarea {
             resize: vertical;
             min-height: 120px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: block;
+            padding: 16px 35px;
+            background: var(--red-traditional);
+            color: var(--washi-cream);
+            border: 3px solid var(--ink-black);
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: var(--gold-traditional);
+            color: var(--ink-black);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
         }
 
         /* FAQ */
@@ -659,7 +524,6 @@
         }
 
         .faq-question {
-            font-family: 'Caveat', cursive;
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 14px;
@@ -667,7 +531,6 @@
         }
 
         .faq-answer {
-            font-family: 'Kalam', cursive;
             color: var(--ink-black);
             font-size: 16px;
             line-height: 1.8;
@@ -729,7 +592,6 @@
         }
 
         .comment-name {
-            font-family: 'Caveat', cursive;
             font-size: 24px;
             font-weight: 700;
             color: var(--indigo);
@@ -741,34 +603,8 @@
         }
 
         .comment-text {
-            font-family: 'Kalam', cursive;
             color: var(--ink-black);
             line-height: 1.8;
-            font-size: 16px;
-        }
-
-        /* POLICY */
-        .policy-box {
-            background: var(--ink-black);
-            border: 3px solid var(--gold-traditional);
-            border-radius: 16px;
-            padding: 32px;
-            margin-top: 45px;
-            color: var(--washi-cream);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-
-        .policy-title {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 22px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            color: var(--gold-traditional);
-        }
-
-        .policy-box p {
-            font-family: 'Kalam', cursive;
             font-size: 16px;
         }
 
@@ -790,9 +626,8 @@
         }
 
         .footer-content h2 {
-            font-family: 'Permanent Marker', cursive;
             font-size: 40px;
-            font-weight: 400;
+            font-weight: bold;
             letter-spacing: 6px;
             margin-bottom: 45px;
         }
@@ -807,7 +642,6 @@
 
         .footer-links a,
         .footer-links span {
-            font-family: 'Kalam', cursive;
             color: var(--washi-cream);
             text-decoration: none;
             transition: all 0.3s;
@@ -819,7 +653,6 @@
         }
 
         .copyright {
-            font-family: 'Kalam', cursive;
             color: var(--washi-cream);
             font-size: 14px;
             margin-top: 45px;
@@ -829,23 +662,23 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav {
-                padding: 10px 8px;  /* Más compacto */
+                padding: 10px 8px;
             }
 
             .nav-right {
-                gap: 5px;  /* Iconos super juntos */
+                gap: 5px;
             }
 
             .hamburger,
             .search-btn,
             .lang-btn {
-                width: 40px;   /* Cambiar de 50px a 40px */
+                width: 40px;
                 height: 40px;
             }
 
             .logo-text {
-                width: 120px;  /* Cambiar de 150px a 120px */
-                height: 40px;  /* Cambiar de 50px a 40px */
+                width: 120px;
+                height: 40px;
             }
 
             h1 {
@@ -860,13 +693,17 @@
                 padding: 60px 20px;
             }
 
-            .pricing-container {
+            .pricing-container-new {
                 grid-template-columns: 1fr;
             }
 
             .sidebar {
                 width: 100%;
                 left: -100%;
+            }
+
+            .bizum-buttons {
+                flex-direction: column;
             }
         }
 
@@ -894,24 +731,25 @@
         </ul>
     </div>
 
+    <!-- HEADER -->
     <header>
-    <nav>
-        <!-- LEFT: LOGO -->
-        <div class="logo">
-            <div class="logo-text"></div>
-        </div>
-
-        <!-- RIGHT: SEARCH, LANGUAGE, MENU -->
-        <div class="nav-right">
-            <div class="search-btn" id="searchBtn">
-                <div class="search-icon"></div>
+        <nav>
+            <!-- LEFT: LOGO -->
+            <div class="logo">
+                <div class="logo-text"></div>
             </div>
 
-            <div class="lang-selector">
-                <div class="lang-btn" id="langBtn">
-                    <span id="currentLang">CAT ▼</span>
+            <!-- RIGHT: SEARCH, LANGUAGE, MENU -->
+            <div class="nav-right">
+                <div class="search-btn" id="searchBtn">
+                    <div class="search-icon"></div>
                 </div>
-                <div class="lang-dropdown" id="langDropdown">
+
+                <div class="lang-selector">
+                    <div class="lang-btn" id="langBtn">
+                        <span id="currentLang">CAT ▼</span>
+                    </div>
+                    <div class="lang-dropdown" id="langDropdown">
                         <div class="lang-option active" data-lang="ca" data-name="CAT">🇪🇸 Català</div>
                         <div class="lang-option" data-lang="es" data-name="ESP">🇪🇸 Español</div>
                         <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 English</div>
@@ -925,7 +763,7 @@
                         <div class="lang-option" data-lang="ja" data-name="日本">🇯🇵 日本語</div>
                         <div class="lang-option" data-lang="ko" data-name="한국">🇰🇷 한국어</div>
                     </div>
-            </div>
+                </div>
 
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -938,68 +776,52 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="badge">Barcelona 2026</div>
         <h1>Benvingut</h1>
-        <p class="subtitle">Fotos instantànies amb essència</p>
-        <div class="wave-divider"></div>
+        <p class="subtitle">Impressió de fotos al moment</p>
     </section>
 
     <!-- PRICING -->
     <section id="preus">
-        <h2 class="section-title">Preus</h2>
-        <div class="pricing-container">
-            <!-- LEFT: PRICES -->
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <div class="price-amount">4€</div>
-                    <div class="price-label">1 Foto</div>
-                    <ul class="price-features">
-                        <li>Impressió instantània</li>
-                        <li>Versió digital inclosa</li>
-                    </ul>
+        <h2 class="section-title">Preus i Pagament</h2>
+        <div class="pricing-container-new">
+            <!-- LEFT: PRECIOS -->
+            <div class="precios-column">
+                <h3 class="column-title">PRECIOS</h3>
+                
+                <div class="precio-item">
+                    <img src="precio-4.png" alt="4€ - 1 Foto Individual">
                 </div>
 
-                <div class="price-card popular">
-                    <div class="popular-badge">Popular</div>
-                    <div class="price-amount">7€</div>
-                    <div class="price-label">2 Fotos</div>
-                    <ul class="price-features">
-                        <li>Impressió instantània</li>
-                        <li>Versions digitals</li>
-                        <li>Estalvia 1€</li>
-                    </ul>
+                <div class="precio-item">
+                    <img src="precio-7.png" alt="7€ - 2 Fotos Popular">
                 </div>
 
-                <div class="price-card">
-                    <div class="price-amount">10€</div>
-                    <div class="price-label">3 Fotos</div>
-                    <ul class="price-features">
-                        <li>Impressió instantània</li>
-                        <li>Versions digitals</li>
-                        <li>Estalvia 2€</li>
-                    </ul>
+                <div class="precio-item">
+                    <img src="precio-10.png" alt="10€ - 3 Fotos Oferta">
                 </div>
             </div>
 
             <!-- RIGHT: BIZUM -->
-            <div>
-                <div class="bizum-box">
-                    <h2>Bizum</h2>
-                    <p style="font-family: 'Kalam', cursive; font-size: 16px;">Envia al número:</p>
-                    <div class="bizum-number">+34 640 341 318</div>
-                    <div class="btn-group">
-                        <button class="btn" onclick="copyBizum()">Copiar número</button>
-                        <a href="bizum://send?phone=+34640341318" class="btn">Obrir Bizum</a>
+            <div class="bizum-column">
+                <h3 class="column-title">BIZUM</h3>
+                
+                <div class="bizum-content">
+                    <img src="telefono.png" alt="Número de teléfono" class="telefono-img">
+                    
+                    <div class="bizum-buttons">
+                        <div class="bizum-btn" onclick="copyBizum()">
+                            <img src="boton-copiar.png" alt="Copiar número">
+                        </div>
+                        <a href="bizum://send?phone=+34640341318" class="bizum-btn">
+                            <img src="boton-bizum.png" alt="Abrir Bizum">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- POLICY -->
-        <div class="policy-box">
-            <div class="policy-title">Política de devolucions</div>
-            <p>Les fotos són impressions instantànies. No acceptem devolucions ni reemborsaments.</p>
-        </div>
+        <!-- POLÍTICA ROJA -->
+        <img src="devoluciones.png" alt="Política de devoluciones" class="devoluciones-img">
     </section>
 
     <!-- SERVICES -->
@@ -1214,10 +1036,12 @@
             });
         });
 
-        // BIZUM
+        // BIZUM - COPIAR NÚMERO
         function copyBizum() {
             navigator.clipboard.writeText('+34640341318').then(() => {
-                alert('✓ Copiat!');
+                alert('✓ Número copiat!');
+            }).catch(() => {
+                alert('No s\'ha pogut copiar el número');
             });
         }
 
