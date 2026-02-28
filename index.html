@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prinstants — Barcelona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Shippori+Mincho:wght@400;600;800&family=Zen+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Caveat:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
         }
 
         body {
-            font-family: 'Shippori Mincho', serif;
+            font-family: 'Kalam', cursive;
             background: url('background.png') repeat;
             background-size: 400px 400px;
             color: var(--ink-black);
@@ -42,26 +42,6 @@
             background: rgba(245, 235, 224, 0.1);
             pointer-events: none;
             z-index: 9999;
-        }
-
-        /* WAVE PATTERN */
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 300px;
-            background: 
-                radial-gradient(ellipse at 50% 100%, transparent 40%, var(--wave-blue) 41%, var(--wave-blue) 43%, transparent 44%),
-                radial-gradient(ellipse at 0% 100%, transparent 40%, var(--indigo) 41%, var(--indigo) 43%, transparent 44%),
-                radial-gradient(ellipse at 100% 100%, transparent 40%, var(--wave-blue) 41%, var(--wave-blue) 43%, transparent 44%);
-            background-size: 200px 150px, 250px 180px, 220px 160px;
-            background-position: 0 100%, 100px 100%, 200px 100%;
-            background-repeat: repeat-x;
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 1;
         }
 
         /* HEADER TRADITIONAL */
@@ -85,41 +65,22 @@
 
         /* HAMBURGER */
         .hamburger {
-            width: 55px;
-            height: 55px;
-            background: var(--washi-cream);
-            border: 3px solid var(--ink-black);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
+            width: 60px;
+            height: 60px;
+            background: url('menu.png') center/contain no-repeat;
+            border: none;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.3s;
-            position: relative;
-        }
-
-        .hamburger::before {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border: 2px solid var(--red-traditional);
-            border-radius: 50%;
-            opacity: 0.6;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
 
         .hamburger:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
         }
 
         .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: var(--ink-black);
-            border-radius: 2px;
+            display: none;
         }
 
         /* SIDEBAR */
@@ -160,12 +121,13 @@
         }
 
         .sidebar-title {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'Permanent Marker', cursive;
             font-size: 36px;
-            font-weight: 900;
+            font-weight: 400;
             color: var(--washi-cream);
             text-align: center;
-            letter-spacing: 8px;
+            letter-spacing: 4px;
+            transform: rotate(-1deg);
         }
 
         .close-btn {
@@ -176,7 +138,7 @@
             height: 45px;
             background: var(--red-traditional);
             border: 3px solid var(--washi-cream);
-            border-radius: 50%;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -185,6 +147,7 @@
             font-weight: bold;
             color: var(--washi-cream);
             box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            transform: rotate(2deg);
         }
 
         .sidebar-links {
@@ -195,8 +158,9 @@
         .sidebar-links a {
             display: block;
             padding: 22px 40px;
-            font-family: 'Zen Antique', serif;
+            font-family: 'Kalam', cursive;
             font-size: 22px;
+            font-weight: 700;
             color: var(--ink-black);
             text-decoration: none;
             border-bottom: 2px solid rgba(195, 66, 63, 0.2);
@@ -246,44 +210,23 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .logo-box {
-            width: 65px;
-            height: 65px;
-            background: var(--washi-cream);
-            border: 3px solid var(--gold-traditional);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Noto Serif JP', serif;
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--red-traditional);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .logo-box::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            border: 2px solid var(--red-traditional);
-            border-radius: 50%;
-            opacity: 0.4;
+            display: none;
         }
 
         .logo-text {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 34px;
-            font-weight: 900;
-            color: var(--washi-cream);
-            letter-spacing: 6px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            width: 280px;
+            height: 80px;
+            background: url('logo.png') center/contain no-repeat;
+            text-indent: -9999px;
+            transition: all 0.3s;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .logo-text:hover {
+            transform: scale(1.05);
         }
 
         /* NAV RIGHT */
@@ -294,42 +237,26 @@
         }
 
         .search-btn {
-            width: 55px;
-            height: 55px;
-            background: var(--wave-blue);
-            border: 3px solid var(--washi-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: url('lupa.png') center/contain no-repeat;
+            border: none;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
 
         .search-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
         }
 
         .search-icon {
-            width: 24px;
-            height: 24px;
-            border: 3px solid var(--washi-cream);
-            border-radius: 50%;
-            position: relative;
+            display: none;
         }
 
         .search-icon::after {
-            content: '';
-            position: absolute;
-            bottom: -9px;
-            right: -9px;
-            width: 13px;
-            height: 3px;
-            background: var(--washi-cream);
-            transform: rotate(-45deg);
-            border-radius: 2px;
+            display: none;
         }
 
         /* LANGUAGE SELECTOR */
@@ -338,22 +265,20 @@
         }
 
         .lang-btn {
-            padding: 14px 24px;
-            background: var(--gold-traditional);
-            border: 3px solid var(--ink-black);
-            border-radius: 25px;
-            font-family: 'Zen Antique', serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--ink-black);
+            width: 60px;
+            height: 60px;
+            background: url('lenguaje.png') center/contain no-repeat;
+            border: none;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: all 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            text-indent: -9999px;
+            overflow: hidden;
         }
 
         .lang-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
         }
 
         .lang-dropdown {
@@ -377,8 +302,9 @@
 
         .lang-option {
             padding: 14px 22px;
-            font-family: 'Zen Antique', serif;
+            font-family: 'Kalam', cursive;
             font-size: 16px;
+            font-weight: 400;
             cursor: pointer;
             border-bottom: 2px solid rgba(45, 36, 36, 0.1);
             transition: all 0.2s;
@@ -425,21 +351,23 @@
         }
 
         h1 {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'Permanent Marker', cursive;
             font-size: clamp(65px, 13vw, 140px);
-            font-weight: 900;
+            font-weight: 400;
             margin-bottom: 30px;
             color: var(--indigo);
-            letter-spacing: 12px;
+            letter-spacing: 6px;
             line-height: 1;
+            transform: rotate(-2deg);
         }
 
         .subtitle {
-            font-family: 'Zen Antique', serif;
-            font-size: 26px;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            font-weight: 700;
             color: var(--red-traditional);
             margin-bottom: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         /* DECORATIVE ELEMENTS */
@@ -478,13 +406,14 @@
         }
 
         .section-title {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'Permanent Marker', cursive;
             font-size: clamp(45px, 9vw, 85px);
-            font-weight: 900;
-            letter-spacing: 8px;
+            font-weight: 400;
+            letter-spacing: 4px;
             margin-bottom: 60px;
             text-align: center;
             color: var(--indigo);
+            transform: rotate(-1deg);
         }
 
         /* PRICING */
@@ -687,9 +616,9 @@
 
         label {
             display: block;
-            font-family: 'Zen Antique', serif;
-            font-size: 15px;
-            font-weight: 600;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 8px;
             color: var(--ink-black);
@@ -702,8 +631,8 @@
             width: 100%;
             padding: 14px 18px;
             border: 3px solid var(--ink-black);
-            border-radius: 12px;
-            font-family: 'Shippori Mincho', serif;
+            border-radius: 8px;
+            font-family: 'Kalam', cursive;
             font-size: 16px;
             background: rgba(255, 255, 255, 0.8);
             color: var(--ink-black);
@@ -739,15 +668,15 @@
         }
 
         .faq-question {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 22px;
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 14px;
             color: var(--indigo);
         }
 
         .faq-answer {
-            font-family: 'Shippori Mincho', serif;
+            font-family: 'Kalam', cursive;
             color: var(--ink-black);
             font-size: 16px;
             line-height: 1.8;
