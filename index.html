@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prinstants — Barcelona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,76 +13,251 @@
         }
 
         :root {
-            --catalan-yellow: #FCDD09;
-            --catalan-red: #DA121A;
-            --white: #ffffff;
-            --black: #1d1d1f;
-            --gray: #86868b;
-            --light-gray: #f5f5f7;
+            --vintage-yellow: #F4D03F;
+            --vintage-brown: #6B4423;
+            --vintage-cream: #F5E6D3;
+            --vintage-dark: #2C1810;
+            --vintage-tan: #D4A373;
+            --vintage-beige: #E8DCC4;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--black);
+            font-family: 'Courier Prime', monospace;
+            background: var(--vintage-cream);
+            color: var(--vintage-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            position: relative;
         }
 
-        /* HEADER */
+        /* VINTAGE TEXTURE OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(107, 68, 35, 0.03) 2px,
+                    rgba(107, 68, 35, 0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* HEADER VINTAGE */
         header {
+            background: var(--vintage-brown);
+            border-bottom: 4px solid var(--vintage-dark);
+            box-shadow: 0 4px 0 var(--vintage-yellow);
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             z-index: 100;
-            transition: all 0.3s ease;
         }
 
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        /* HAMBURGER MENU */
+        .hamburger {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            background: var(--vintage-yellow);
+            border: 3px solid var(--vintage-dark);
+            border-radius: 0;
+            transition: all 0.3s;
+        }
+
+        .hamburger:hover {
+            background: var(--vintage-tan);
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: var(--vintage-dark);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -350px;
+            width: 350px;
+            height: 100vh;
+            background: var(--vintage-beige);
+            border-right: 6px solid var(--vintage-dark);
+            box-shadow: 6px 0 0 var(--vintage-yellow);
+            z-index: 1000;
+            transition: left 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 30px 20px;
+            background: var(--vintage-brown);
+            border-bottom: 4px solid var(--vintage-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--vintage-yellow);
+            letter-spacing: 3px;
+        }
+
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--vintage-yellow);
+            border: 3px solid var(--vintage-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--vintage-dark);
+        }
+
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-links a {
+            display: block;
+            padding: 20px 30px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: var(--vintage-dark);
+            text-decoration: none;
+            border-bottom: 2px solid var(--vintage-tan);
+            transition: all 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .sidebar-links a:hover {
+            background: var(--vintage-yellow);
+            padding-left: 40px;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.8);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* LOGO CENTER */
         .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--black);
-            letter-spacing: -0.5px;
         }
 
-        .logo-image {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .nav-links {
+        .logo-box {
+            width: 55px;
+            height: 55px;
+            background: var(--vintage-yellow);
+            border: 4px solid var(--vintage-dark);
             display: flex;
-            gap: 40px;
-            list-style: none;
             align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--vintage-dark);
+            font-weight: bold;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
         }
 
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--vintage-yellow);
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
         }
 
-        .nav-links a:hover {
-            color: var(--black);
+        /* NAV RIGHT */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--vintage-yellow);
+            border: 3px solid var(--vintage-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--vintage-tan);
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--vintage-dark);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .search-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 12px;
+            height: 3px;
+            background: var(--vintage-dark);
+            transform: rotate(-45deg);
         }
 
         /* LANGUAGE SELECTOR */
@@ -91,39 +266,31 @@
         }
 
         .lang-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--light-gray);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
+            padding: 12px 20px;
+            background: var(--vintage-yellow);
+            border: 3px solid var(--vintage-dark);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            color: var(--vintage-dark);
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--black);
+            letter-spacing: 2px;
             transition: all 0.3s;
         }
 
         .lang-btn:hover {
-            background: var(--gray);
-            color: var(--white);
+            background: var(--vintage-tan);
         }
 
         .lang-dropdown {
             position: absolute;
-            top: 45px;
+            top: 60px;
             right: 0;
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            padding: 10px;
-            min-width: 180px;
+            background: var(--vintage-beige);
+            border: 4px solid var(--vintage-dark);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+            min-width: 200px;
             display: none;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             z-index: 200;
-            max-height: 400px;
-            overflow-y: auto;
         }
 
         .lang-dropdown.active {
@@ -131,63 +298,68 @@
         }
 
         .lang-option {
-            padding: 10px 15px;
+            padding: 12px 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
             cursor: pointer;
-            border-radius: 8px;
+            border-bottom: 2px solid var(--vintage-tan);
             transition: all 0.2s;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            letter-spacing: 1px;
         }
 
         .lang-option:hover {
-            background: var(--light-gray);
+            background: var(--vintage-yellow);
         }
 
         .lang-option.active {
-            background: var(--catalan-yellow);
-            font-weight: 600;
+            background: var(--vintage-brown);
+            color: var(--vintage-yellow);
         }
 
-        /* HERO */
+        /* HERO VINTAGE POSTER STYLE */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 120px 40px;
+            padding: 100px 40px;
             text-align: center;
-        }
-
-        h1 {
-            font-size: clamp(48px, 8vw, 80px);
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--catalan-red), var(--catalan-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: var(--gray);
-            font-weight: 400;
-            margin-bottom: 40px;
+            position: relative;
         }
 
         .badge {
             display: inline-block;
-            background: var(--light-gray);
-            color: var(--black);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 20px;
+            background: var(--vintage-dark);
+            color: var(--vintage-yellow);
+            padding: 10px 30px;
+            border: 3px solid var(--vintage-yellow);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
         }
 
-        /* SECTION */
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 12vw, 140px);
+            font-weight: 400;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: var(--vintage-brown);
+            text-shadow: 
+                4px 4px 0 var(--vintage-yellow),
+                8px 8px 0 rgba(0, 0, 0, 0.2);
+            line-height: 0.9;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-style: italic;
+            color: var(--vintage-brown);
+            margin-bottom: 40px;
+        }
+
+        /* SECTIONS */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -195,14 +367,16 @@
         }
 
         .section-title {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 8vw, 80px);
+            letter-spacing: 6px;
             margin-bottom: 60px;
             text-align: center;
+            color: var(--vintage-brown);
+            text-shadow: 3px 3px 0 var(--vintage-yellow);
         }
 
-        /* PRICING - 2 COLUMNS */
+        /* PRICING VINTAGE CARDS */
         .pricing-container {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -213,158 +387,135 @@
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 30px;
         }
 
         .price-card {
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--vintage-beige);
+            border: 5px solid var(--vintage-dark);
+            padding: 40px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--catalan-red), var(--catalan-yellow));
-            opacity: 0;
-            transition: opacity 0.3s;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
         }
 
         .price-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .price-card:hover::before {
-            opacity: 1;
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.3);
         }
 
         .price-card.popular {
-            border: 2px solid var(--catalan-yellow);
-            background: linear-gradient(135deg, rgba(252, 221, 9, 0.05), rgba(218, 18, 26, 0.05));
+            background: var(--vintage-yellow);
+            border: 5px solid var(--vintage-dark);
         }
 
         .popular-badge {
             position: absolute;
-            top: 20px;
+            top: -15px;
             right: 20px;
-            background: var(--catalan-yellow);
-            color: var(--black);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
+            background: var(--vintage-dark);
+            color: var(--vintage-yellow);
+            padding: 8px 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            border: 3px solid var(--vintage-yellow);
         }
 
         .price-amount {
-            font-size: 56px;
-            font-weight: 700;
-            letter-spacing: -2px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 80px;
+            letter-spacing: 4px;
             margin-bottom: 10px;
+            color: var(--vintage-brown);
         }
 
         .price-label {
-            font-size: 18px;
-            color: var(--gray);
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: var(--vintage-brown);
+            margin-bottom: 30px;
         }
 
         .price-features {
             list-style: none;
-            margin-bottom: 20px;
         }
 
         .price-features li {
-            padding: 10px 0;
-            color: var(--gray);
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 12px 0;
+            font-family: 'Courier Prime', monospace;
+            font-size: 16px;
+            color: var(--vintage-dark);
+            border-bottom: 2px dashed var(--vintage-tan);
         }
 
         .price-features li::before {
-            content: '✓';
-            color: var(--catalan-red);
-            font-weight: 700;
-            font-size: 18px;
+            content: '★ ';
+            color: var(--vintage-brown);
+            font-weight: bold;
         }
 
-        /* BIZUM BOX */
+        /* BIZUM VINTAGE */
         .bizum-box {
-            background: linear-gradient(135deg, var(--catalan-red), var(--catalan-yellow));
-            border-radius: 24px;
-            padding: 40px;
+            background: var(--vintage-brown);
+            border: 5px solid var(--vintage-dark);
+            padding: 50px 40px;
             text-align: center;
-            color: var(--white);
+            color: var(--vintage-yellow);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
             height: fit-content;
         }
 
         .bizum-box h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
 
         .bizum-number {
+            font-family: 'Courier Prime', monospace;
             font-size: 28px;
-            font-weight: 600;
-            margin: 25px 0;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            letter-spacing: 1px;
+            font-weight: bold;
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--vintage-beige);
+            border: 4px solid var(--vintage-dark);
+            color: var(--vintage-dark);
+            letter-spacing: 2px;
         }
 
-        /* BUTTONS */
+        /* BUTTONS VINTAGE */
         .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            background: var(--black);
-            color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
+            display: block;
+            padding: 18px 40px;
+            background: var(--vintage-yellow);
+            color: var(--vintage-dark);
+            border: 4px solid var(--vintage-dark);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 3px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
-            width: 100%;
             text-align: center;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
         }
 
         .btn:hover {
-            background: #2d2d2f;
-            transform: translateY(-2px);
-        }
-
-        .btn-light {
-            background: var(--white);
-            color: var(--black);
-        }
-
-        .btn-light:hover {
-            background: var(--light-gray);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        /* FORMS */
+        /* FORMS VINTAGE */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -372,15 +523,18 @@
         }
 
         .form-card {
-            background: var(--light-gray);
-            border-radius: 20px;
+            background: var(--vintage-beige);
+            border: 5px solid var(--vintage-dark);
             padding: 40px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
         }
 
         .form-card h3 {
-            font-size: 24px;
-            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 3px;
             margin-bottom: 20px;
+            color: var(--vintage-brown);
         }
 
         .form-group {
@@ -389,10 +543,11 @@
 
         label {
             display: block;
-            font-size: 14px;
-            font-weight: 500;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
             margin-bottom: 8px;
-            color: var(--gray);
+            color: var(--vintage-brown);
         }
 
         input[type="text"],
@@ -401,19 +556,17 @@
         textarea {
             width: 100%;
             padding: 14px 16px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
+            border: 3px solid var(--vintage-dark);
+            font-family: 'Courier Prime', monospace;
             font-size: 16px;
-            background: var(--white);
-            transition: all 0.3s;
+            background: var(--vintage-cream);
+            color: var(--vintage-dark);
         }
 
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: var(--catalan-red);
-            box-shadow: 0 0 0 4px rgba(218, 18, 26, 0.1);
+            background: var(--vintage-yellow);
         }
 
         textarea {
@@ -421,49 +574,42 @@
             min-height: 120px;
         }
 
-        .form-card .btn {
-            width: auto;
-            padding: 16px 32px;
-        }
-
-        /* FAQ */
+        /* FAQ VINTAGE */
         .faq-item {
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
+            background: var(--vintage-beige);
+            border: 4px solid var(--vintage-dark);
             padding: 30px;
             margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
         }
 
         .faq-question {
-            font-size: 18px;
-            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
             margin-bottom: 12px;
-            color: var(--black);
+            color: var(--vintage-brown);
         }
 
         .faq-answer {
-            color: var(--gray);
+            font-family: 'Courier Prime', monospace;
+            color: var(--vintage-dark);
             font-size: 15px;
             line-height: 1.7;
         }
 
         /* COMMENTS */
         .comment-form {
-            background: var(--light-gray);
-            border-radius: 20px;
+            background: var(--vintage-beige);
+            border: 5px solid var(--vintage-dark);
             padding: 40px;
             margin-bottom: 40px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
         }
 
         .star-rating {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             margin: 15px 0;
             flex-direction: row-reverse;
             justify-content: flex-end;
@@ -474,24 +620,24 @@
         }
 
         .star-rating label {
-            font-size: 32px;
+            font-size: 36px;
             cursor: pointer;
-            color: #ddd;
+            color: var(--vintage-tan);
             transition: all 0.2s;
         }
 
         .star-rating input:checked ~ label,
         .star-rating label:hover,
         .star-rating label:hover ~ label {
-            color: var(--catalan-yellow);
+            color: var(--vintage-brown);
         }
 
         .comment-item {
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
+            background: var(--vintage-cream);
+            border: 4px solid var(--vintage-dark);
             padding: 30px;
             margin-bottom: 20px;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
         }
 
         .comment-header {
@@ -499,49 +645,68 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed var(--vintage-tan);
         }
 
         .comment-name {
-            font-weight: 600;
-            font-size: 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: var(--vintage-brown);
         }
 
         .comment-stars {
-            color: var(--catalan-yellow);
-            font-size: 18px;
+            color: var(--vintage-brown);
+            font-size: 20px;
         }
 
         .comment-text {
-            color: var(--gray);
+            font-family: 'Courier Prime', monospace;
+            color: var(--vintage-dark);
             line-height: 1.7;
         }
 
         /* POLICY */
         .policy-box {
-            background: rgba(218, 18, 26, 0.05);
-            border-left: 4px solid var(--catalan-red);
-            border-radius: 12px;
+            background: var(--vintage-dark);
+            border: 4px solid var(--vintage-yellow);
             padding: 30px;
             margin-top: 40px;
+            color: var(--vintage-yellow);
         }
 
         .policy-title {
-            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
             margin-bottom: 10px;
-            color: var(--catalan-red);
         }
 
-        /* FOOTER */
+        .policy-box p {
+            font-family: 'Courier Prime', monospace;
+        }
+
+        /* FOOTER VINTAGE */
         footer {
-            background: var(--black);
-            color: var(--white);
+            background: var(--vintage-brown);
+            color: var(--vintage-yellow);
             padding: 80px 40px 40px;
+            border-top: 6px solid var(--vintage-dark);
+            box-shadow: 0 -4px 0 var(--vintage-yellow);
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+        }
+
+        .footer-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
         }
 
         .footer-links {
@@ -552,18 +717,23 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: var(--gray);
+        .footer-links a,
+        .footer-links span {
+            font-family: 'Courier Prime', monospace;
+            color: var(--vintage-yellow);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 16px;
         }
 
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--vintage-cream);
+            text-decoration: underline;
         }
 
         .copyright {
-            color: var(--gray);
+            font-family: 'Courier Prime', monospace;
+            color: var(--vintage-tan);
             font-size: 14px;
             margin-top: 40px;
         }
@@ -574,69 +744,31 @@
                 padding: 15px 20px;
             }
 
-            .nav-links {
-                gap: 20px;
+            .logo-text {
+                font-size: 24px;
             }
 
-            .nav-links a {
-                display: none;
-            }
-
-            .lang-selector {
-                position: static;
-            }
-
-            .lang-dropdown {
-                right: 20px;
-            }
-
-            .hero {
-                padding: 80px 20px;
+            .logo-box {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
             }
 
             h1 {
-                font-size: 40px;
+                font-size: 50px;
             }
 
             .subtitle {
-                font-size: 18px;
+                font-size: 20px;
             }
 
             section {
                 padding: 60px 20px;
             }
 
-            .section-title {
-                font-size: 32px;
-            }
-
             .pricing-container {
                 grid-template-columns: 1fr;
             }
-
-            .bizum-box {
-                padding: 30px 20px;
-            }
-
-            .bizum-number {
-                font-size: 22px;
-            }
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
         }
 
         /* SMOOTH SCROLL */
@@ -646,54 +778,80 @@
     </style>
 </head>
 <body>
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">MENÚ</div>
+            <div class="close-btn" id="closeBtn">✕</div>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#preus" class="sidebar-link">PREUS</a></li>
+            <li><a href="#serveis" class="sidebar-link">SERVEIS</a></li>
+            <li><a href="#faq" class="sidebar-link">FAQ</a></li>
+            <li><a href="#contacte" class="sidebar-link">CONTACTE</a></li>
+        </ul>
+    </div>
+
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Logo" class="logo-image" style="display: none;" onerror="this.style.display='none';" onload="this.style.display='block';">
-                <span>Prinstants</span>
+            <!-- LEFT: HAMBURGER -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#preus">Preus</a></li>
-                <li><a href="#serveis">Serveis</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contacte">Contacte</a></li>
-                <li class="lang-selector">
+
+            <!-- CENTER: LOGO -->
+            <div class="logo">
+                <div class="logo-box">P</div>
+                <span class="logo-text">PRINSTANTS</span>
+            </div>
+
+            <!-- RIGHT: SEARCH & LANGUAGE -->
+            <div class="nav-right">
+                <div class="search-btn" id="searchBtn">
+                    <div class="search-icon"></div>
+                </div>
+
+                <div class="lang-selector">
                     <div class="lang-btn" id="langBtn">
-                        <span id="currentLang">🇨🇦 CAT</span>
-                        <span>▼</span>
+                        <span id="currentLang">CAT ▼</span>
                     </div>
                     <div class="lang-dropdown" id="langDropdown">
-                        <div class="lang-option active" data-lang="ca" data-flag="🇪🇸" data-name="CAT">🇪🇸 Català</div>
-                        <div class="lang-option" data-lang="es" data-flag="🇪🇸" data-name="ESP">🇪🇸 Español</div>
-                        <div class="lang-option" data-lang="en" data-flag="🇬🇧" data-name="ENG">🇬🇧 English</div>
-                        <div class="lang-option" data-lang="fr" data-flag="🇫🇷" data-name="FRA">🇫🇷 Français</div>
-                        <div class="lang-option" data-lang="it" data-flag="🇮🇹" data-name="ITA">🇮🇹 Italiano</div>
-                        <div class="lang-option" data-lang="pt" data-flag="🇵🇹" data-name="POR">🇵🇹 Português</div>
-                        <div class="lang-option" data-lang="de" data-flag="🇩🇪" data-name="DEU">🇩🇪 Deutsch</div>
-                        <div class="lang-option" data-lang="ru" data-flag="🇷🇺" data-name="RUS">🇷🇺 Русский</div>
-                        <div class="lang-option" data-lang="ar" data-flag="🇸🇦" data-name="ARA">🇸🇦 العربية</div>
-                        <div class="lang-option" data-lang="zh" data-flag="🇨🇳" data-name="中文">🇨🇳 中文</div>
-                        <div class="lang-option" data-lang="ja" data-flag="🇯🇵" data-name="日本">🇯🇵 日本語</div>
-                        <div class="lang-option" data-lang="ko" data-flag="🇰🇷" data-name="한국">🇰🇷 한국어</div>
+                        <div class="lang-option active" data-lang="ca" data-name="CAT">🇪🇸 CATALÀ</div>
+                        <div class="lang-option" data-lang="es" data-name="ESP">🇪🇸 ESPAÑOL</div>
+                        <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 ENGLISH</div>
+                        <div class="lang-option" data-lang="fr" data-name="FRA">🇫🇷 FRANÇAIS</div>
+                        <div class="lang-option" data-lang="it" data-name="ITA">🇮🇹 ITALIANO</div>
+                        <div class="lang-option" data-lang="pt" data-name="POR">🇵🇹 PORTUGUÊS</div>
+                        <div class="lang-option" data-lang="de" data-name="DEU">🇩🇪 DEUTSCH</div>
+                        <div class="lang-option" data-lang="ru" data-name="RUS">🇷🇺 РУССКИЙ</div>
+                        <div class="lang-option" data-lang="ar" data-name="ARA">🇸🇦 العربية</div>
+                        <div class="lang-option" data-lang="zh" data-name="中文">🇨🇳 中文</div>
+                        <div class="lang-option" data-lang="ja" data-name="日本">🇯🇵 日本語</div>
+                        <div class="lang-option" data-lang="ko" data-name="한국">🇰🇷 한국어</div>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!-- HERO -->
-    <section class="hero fade-in">
-        <div class="badge">Barcelona 2026</div>
-        <h1>Benvingut</h1>
+    <section class="hero">
+        <div class="badge">BARCELONA 2026</div>
+        <h1>BENVINGUT</h1>
         <p class="subtitle">Fotos instantànies a disponibilitat :)</p>
     </section>
 
     <!-- PRICING -->
     <section id="preus">
-        <h2 class="section-title">Preus</h2>
+        <h2 class="section-title">PREUS</h2>
         <div class="pricing-container">
-            <!-- COLUMNA 1: PRECIOS -->
+            <!-- LEFT: PRICES -->
             <div class="pricing-grid">
                 <div class="price-card">
                     <div class="price-amount">4€</div>
@@ -705,7 +863,7 @@
                 </div>
 
                 <div class="price-card popular">
-                    <div class="popular-badge">Popular</div>
+                    <div class="popular-badge">POPULAR</div>
                     <div class="price-amount">7€</div>
                     <div class="price-label">2 Fotos</div>
                     <ul class="price-features">
@@ -726,15 +884,15 @@
                 </div>
             </div>
 
-            <!-- COLUMNA 2: BIZUM -->
+            <!-- RIGHT: BIZUM -->
             <div>
                 <div class="bizum-box">
-                    <h2>Pagar amb Bizum</h2>
-                    <p style="font-size: 14px;">Manda el Bizum al següent número:</p>
+                    <h2>PAGAR AMB BIZUM</h2>
+                    <p>Manda el Bizum al següent número:</p>
                     <div class="bizum-number">+34 640 341 318</div>
                     <div class="btn-group">
-                        <button class="btn btn-light" onclick="copyBizum()">Copiar número</button>
-                        <a href="bizum://send?phone=+34640341318" class="btn btn-light">Obrir Bizum</a>
+                        <button class="btn" onclick="copyBizum()">COPIAR NÚMERO</button>
+                        <a href="bizum://send?phone=+34640341318" class="btn">OBRIR BIZUM</a>
                     </div>
                 </div>
             </div>
@@ -742,69 +900,69 @@
 
         <!-- POLICY -->
         <div class="policy-box">
-            <div class="policy-title">Política de devolucions</div>
+            <div class="policy-title">POLÍTICA DE DEVOLUCIONS</div>
             <p>Les fotos són impressions instantànies realitzades al moment. Per aquest motiu, no acceptem devolucions ni reemborsaments.</p>
         </div>
     </section>
 
     <!-- SERVICES -->
     <section id="serveis">
-        <h2 class="section-title">Serveis addicionals</h2>
+        <h2 class="section-title">SERVEIS</h2>
         <div class="form-grid">
             <!-- UPLOAD -->
             <div class="form-card">
-                <h3>Pujar la teva foto</h3>
-                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
-                    Tens una foto al mòbil que vols imprimir? Puja-la aquí!
+                <h3>PUJAR FOTO</h3>
+                <p style="margin-bottom: 20px; font-size: 14px;">
+                    Tens una foto al mòbil que vols imprimir?
                 </p>
                 <form id="uploadForm">
                     <div class="form-group">
-                        <label>Selecciona la teva foto</label>
+                        <label>FOTO</label>
                         <input type="file" accept="image/*" required>
                     </div>
                     <div class="form-group">
-                        <label>El teu email</label>
+                        <label>EMAIL</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
-                    <button type="submit" class="btn">Enviar foto</button>
+                    <button type="submit" class="btn">ENVIAR</button>
                 </form>
             </div>
 
             <!-- DIGITAL -->
             <div class="form-card">
-                <h3>Versió digital</h3>
-                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
+                <h3>VERSIÓ DIGITAL</h3>
+                <p style="margin-bottom: 20px; font-size: 14px;">
                     Deixa el teu email i t'enviarem la versió digital
                 </p>
                 <form id="digitalForm">
                     <div class="form-group">
-                        <label>El teu email</label>
+                        <label>EMAIL</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label>Número de referència</label>
+                        <label>REFERÈNCIA</label>
                         <input type="text" placeholder="#0123">
                     </div>
-                    <button type="submit" class="btn">Sol·licitar</button>
+                    <button type="submit" class="btn">SOL·LICITAR</button>
                 </form>
             </div>
 
             <!-- CONTACT -->
             <div class="form-card">
-                <h3>Contacta</h3>
-                <p style="color: var(--gray); margin-bottom: 20px; font-size: 14px;">
+                <h3>CONTACTA</h3>
+                <p style="margin-bottom: 20px; font-size: 14px;">
                     Tens dubtes? Escriu-nos!
                 </p>
                 <form id="contactForm">
                     <div class="form-group">
-                        <label>El teu email</label>
+                        <label>EMAIL</label>
                         <input type="email" placeholder="exemple@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label>Missatge</label>
+                        <label>MISSATGE</label>
                         <textarea required></textarea>
                     </div>
-                    <button type="submit" class="btn">Enviar</button>
+                    <button type="submit" class="btn">ENVIAR</button>
                 </form>
             </div>
         </div>
@@ -812,31 +970,31 @@
 
     <!-- FAQ -->
     <section id="faq">
-        <h2 class="section-title">Preguntes freqüents</h2>
+        <h2 class="section-title">FAQ</h2>
         
         <div class="faq-item">
-            <div class="faq-question">La versió digital té el marc blanc?</div>
+            <div class="faq-question">LA VERSIÓ DIGITAL TÉ EL MARC BLANC?</div>
             <div class="faq-answer">
                 Sí, per el moment no hem trobat la manera de treure-lo així que l'hem de mandar tal i com ens apareix.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">Quan rebré la versió digital?</div>
+            <div class="faq-question">QUAN REBRÉ LA VERSIÓ DIGITAL?</div>
             <div class="faq-answer">
                 Principalment la podem mandar en el moment. Si no fos viable, et pedim que introdueixis el teu correu a la secció de serveis addicionals - versió digital (el número de referència te'l direm en el moment).
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">Puc imprimir fotos del meu mòbil?</div>
+            <div class="faq-question">PUC IMPRIMIR FOTOS DEL MEU MÒBIL?</div>
             <div class="faq-answer">
-                Absolutament! A la secció de serveis addicionals - pujar foto pots mandar la foto que vulguis. També la pots mandar per WhatsApp al mateix número al que es fa el Bizum (+34 640 341 318) o si tens AirDrop també la pots mandar per aquí. La impressió d'una foto de la galeria del client té el mateix preu que la d'una foto presa al moment.
+                Absolutament! A la secció de serveis addicionals - pujar foto pots mandar la foto que vulguis. També la pots mandar per WhatsApp al mateix número al que es fa el Bizum (+34 640 341 318) o si tens AirDrop també la pots mandar per aquí.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">On us puc tornar a trobar?</div>
+            <div class="faq-question">ON US PUC TORNAR A TROBAR?</div>
             <div class="faq-answer">
                 La veritat que acabem de començar i ens anem movent per alguns esdeveniments de Barcelona: concerts, esdeveniments esportius i altres dates importants pel centre. Sempre pots mandar un correu si necessites qualsevol cosa :)
             </div>
@@ -845,21 +1003,21 @@
 
     <!-- COMMENTS -->
     <section>
-        <h2 class="section-title">Valoracions i comentaris</h2>
-        <p style="text-align: center; color: var(--gray); margin-bottom: 40px;">
-            Deixa una valoració per ajudar-nos a millorar o saluda a futurs clients!
+        <h2 class="section-title">COMENTARIS</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 16px;">
+            Deixa una valoració per ajudar-nos a millorar!
         </p>
 
         <!-- COMMENT FORM -->
         <div class="comment-form">
             <form id="commentForm">
                 <div class="form-group">
-                    <label>El teu nom o username</label>
+                    <label>NOM O USERNAME</label>
                     <input type="text" id="commentName" placeholder="Maria" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>Valoració</label>
+                    <label>VALORACIÓ</label>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="star5" value="5" required>
                         <label for="star5">★</label>
@@ -875,20 +1033,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Comentari (opcional)</label>
+                    <label>COMENTARI (OPCIONAL)</label>
                     <textarea id="commentText" placeholder="Saluts des del concert de..."></textarea>
                 </div>
 
-                <button type="submit" class="btn">Publicar comentari</button>
+                <button type="submit" class="btn">PUBLICAR</button>
             </form>
         </div>
 
         <!-- COMMENTS LIST -->
         <div id="commentsList">
-            <!-- Example comment -->
-            <div class="comment-item fade-in">
+            <div class="comment-item">
                 <div class="comment-header">
-                    <span class="comment-name">Anna</span>
+                    <span class="comment-name">ANNA</span>
                     <span class="comment-stars">★★★★★</span>
                 </div>
                 <div class="comment-text">
@@ -901,7 +1058,7 @@
     <!-- FOOTER -->
     <footer id="contacte">
         <div class="footer-content">
-            <h2 style="margin-bottom: 40px; font-size: 32px;">Informació de contacte</h2>
+            <h2>INFORMACIÓ DE CONTACTE</h2>
             <div class="footer-links">
                 <a href="mailto:memoriasimpresas@gmail.com">memoriasimpresas@gmail.com</a>
                 <a href="tel:+34640341318">+34 640 341 318</a>
@@ -909,17 +1066,68 @@
                 <span>Barcelona, Catalunya</span>
             </div>
             <div class="copyright">
-                © 2026 Prinstants. Barcelona Edition.
+                © 2026 MEMORIAS IMPRESAS. BARCELONA EDITION.
             </div>
         </div>
     </footer>
 
     <script>
+        // HAMBURGER MENU
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        // LANGUAGE SELECTOR
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLangSpan = document.getElementById('currentLang');
+
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            langDropdown.classList.remove('active');
+        });
+
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const name = option.getAttribute('data-name');
+                const lang = option.getAttribute('data-lang');
+                
+                currentLangSpan.textContent = `${name} ▼`;
+                document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                langDropdown.classList.remove('active');
+                document.documentElement.lang = lang;
+            });
+        });
+
         // COPY BIZUM
         function copyBizum() {
             const number = '+34640341318';
             navigator.clipboard.writeText(number).then(() => {
-                alert('Número copiat al portapapers!');
+                alert('Número copiat!');
             }).catch(() => {
                 alert('Error al copiar. Número: ' + number);
             });
@@ -948,12 +1156,12 @@
         document.getElementById('commentForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('commentName').value;
+            const name = document.getElementById('commentName').value.toUpperCase();
             const rating = document.querySelector('input[name="rating"]:checked').value;
             const text = document.getElementById('commentText').value;
             
             const commentHTML = `
-                <div class="comment-item fade-in">
+                <div class="comment-item">
                     <div class="comment-header">
                         <span class="comment-name">${name}</span>
                         <span class="comment-stars">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</span>
@@ -983,42 +1191,12 @@
             });
         });
 
-        // LANGUAGE SELECTOR
-        const langBtn = document.getElementById('langBtn');
-        const langDropdown = document.getElementById('langDropdown');
-        const currentLangSpan = document.getElementById('currentLang');
-
-        // Toggle dropdown
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('active');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            langDropdown.classList.remove('active');
-        });
-
-        // Handle language selection
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.addEventListener('click', () => {
-                const flag = option.getAttribute('data-flag');
-                const name = option.getAttribute('data-name');
-                const lang = option.getAttribute('data-lang');
-                
-                // Update current language display
-                currentLangSpan.textContent = `${flag} ${name}`;
-                
-                // Update active state
-                document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
-                // Close dropdown
-                langDropdown.classList.remove('active');
-                
-                // Update HTML lang attribute
-                document.documentElement.lang = lang;
-            });
+        // SEARCH SIMPLE ALERT
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            const search = prompt('Què vols buscar?');
+            if (search) {
+                alert('Funció de cerca en desenvolupament. Has buscat: ' + search);
+            }
         });
     </script>
 </body>
