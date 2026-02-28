@@ -205,16 +205,14 @@
             visibility: visible;
         }
 
-        /* LOGO - MUCHO MÁS GRANDE */
         .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
         }
 
         .logo-text {
-            width: 400px;
-            height: 100px;
+            width: 300px;
+            height: 80px;
             background: url('logo.png') center/contain no-repeat;
             transition: all 0.3s;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
@@ -224,7 +222,6 @@
             transform: scale(1.05);
         }
 
-        /* NAV RIGHT */
         .nav-right {
             display: flex;
             align-items: center;
@@ -829,23 +826,19 @@
             opacity: 0.8;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
             .hamburger,
             .search-btn,
             .lang-btn {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .logo-text {
-                width: 200px;
-                height: 60px;
+                width: 150px;
+                height: 50px;
             }
+        }
 
             h1 {
                 font-size: 55px;
@@ -893,32 +886,24 @@
         </ul>
     </div>
 
-    <!-- HEADER -->
     <header>
-        <nav>
-            <!-- LEFT: HAMBURGER -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav>
+        <!-- LEFT: LOGO -->
+        <div class="logo">
+            <div class="logo-text"></div>
+        </div>
+
+        <!-- RIGHT: SEARCH, LANGUAGE, MENU -->
+        <div class="nav-right">
+            <div class="search-btn" id="searchBtn">
+                <div class="search-icon"></div>
             </div>
 
-            <!-- CENTER: LOGO -->
-            <div class="logo">
-                <div class="logo-text"></div>
-            </div>
-
-            <!-- RIGHT: SEARCH & LANGUAGE -->
-            <div class="nav-right">
-                <div class="search-btn" id="searchBtn">
-                    <div class="search-icon"></div>
+            <div class="lang-selector">
+                <div class="lang-btn" id="langBtn">
+                    <span id="currentLang">CAT ▼</span>
                 </div>
-
-                <div class="lang-selector">
-                    <div class="lang-btn" id="langBtn">
-                        <span id="currentLang">CAT ▼</span>
-                    </div>
-                    <div class="lang-dropdown" id="langDropdown">
+                <div class="lang-dropdown" id="langDropdown">
                         <div class="lang-option active" data-lang="ca" data-name="CAT">🇪🇸 Català</div>
                         <div class="lang-option" data-lang="es" data-name="ESP">🇪🇸 Español</div>
                         <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 English</div>
@@ -932,6 +917,12 @@
                         <div class="lang-option" data-lang="ja" data-name="日本">🇯🇵 日本語</div>
                         <div class="lang-option" data-lang="ko" data-name="한국">🇰🇷 한국어</div>
                     </div>
+            </div>
+
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </nav>
