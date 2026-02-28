@@ -300,30 +300,29 @@
             visibility: visible;
         }
 
-        /* HERO SIMPLIFICADO */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 40px 60px;
+            padding: 50px 40px 40px;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
         h1 {
-            font-size: clamp(65px, 13vw, 140px);
+            font-size: clamp(50px, 10vw, 100px);
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--indigo);
-            letter-spacing: 6px;
-            line-height: 1;
+            letter-spacing: 4px;
+            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: 32px;
+            font-size: clamp(22px, 5vw, 32px);
             font-weight: 400;
             color: var(--red-traditional);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
@@ -337,10 +336,10 @@
         }
 
         .section-title {
-            font-size: clamp(45px, 9vw, 85px);
+            font-size: clamp(35px, 7vw, 60px);
             font-weight: bold;
-            letter-spacing: 4px;
-            margin-bottom: 60px;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
             text-align: center;
             color: var(--indigo);
         }
@@ -360,22 +359,41 @@
         }
 
         .column-title {
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--indigo);
-            text-align: center;
-            margin-bottom: 30px;
+            display: none;
         }
 
-        /* ITEMS DE PRECIO CON IMÁGENES */
         .precio-item {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Era 20px */
+            background: rgba(255, 255, 255, 0.6);
+            border: 3px solid var(--indigo);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .precio-item img {
-            width: 100%;
-            height: auto;
-            display: block;
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .precio-info {
+            flex: 1;
+        }
+
+        .precio-info h4 {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--indigo);
+            margin-bottom: 8px;
+        }
+
+        .precio-info p {
+            font-size: 15px;
+            color: var(--ink-black);
+            margin: 3px 0;
         }
 
         /* BIZUM CON IMÁGENES */
@@ -393,31 +411,73 @@
 
         .bizum-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
         }
 
-        .bizum-btn {
-            flex: 1;
+        .bizum-btn-small {
+            width: 120px;
+            height: auto;
             cursor: pointer;
             transition: transform 0.3s;
+            border: none;
+            background: transparent;
+            padding: 0;
         }
 
-        .bizum-btn:hover {
+        .bizum-btn-small:hover {
             transform: scale(1.05);
         }
 
-        .bizum-btn img {
+        .bizum-btn-small img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* POLÍTICA ROJA */
-        .devoluciones-img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .bizum-label {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--indigo);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .bizum-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--indigo);
+            margin: 15px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 3px solid var(--indigo);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* POLÍTICA ROJA CON TEXTO */
+        .devoluciones-box {
+            background: rgba(195, 66, 63, 0.15);
+            border: 3px solid var(--red-traditional);
+            border-radius: 15px;
+            padding: 25px;
             margin-top: 30px;
+        }
+
+        .devoluciones-box h4 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B2E2B;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .devoluciones-box p {
+            font-size: 16px;
+            color: #8B2E2B;
+            line-height: 1.6;
+            text-align: center;
         }
 
         /* FORMS */
@@ -705,9 +765,39 @@
             .bizum-buttons {
                 flex-direction: column;
             }
+
+            .hero {
+                padding: 30px 20px 30px;
+            }
+            
+            .precio-item {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .precio-item img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .precio-info h4 {
+                font-size: 16px;
+            }
+            
+            .precio-info p {
+                font-size: 13px;
+            }
+            
+            .bizum-number {
+                font-size: 24px;
+                padding: 15px;
+            }
+            
+            .bizum-btn-small {
+                width: 100px;
+            }
         }
 
-        /* SMOOTH SCROLL */
         html {
             scroll-behavior: smooth;
         }
@@ -786,33 +876,44 @@
         <div class="pricing-container-new">
             <!-- LEFT: PRECIOS -->
             <div class="precios-column">
-                <h3 class="column-title">PRECIOS</h3>
-                
                 <div class="precio-item">
-                    <img src="precio-4.png" alt="4€ - 1 Foto Individual">
+                    <img src="precio-4.png" alt="4€">
+                    <div class="precio-info">
+                        <h4>1 FOTO - INDIVIDUAL</h4>
+                        <p>Versión digital disponible</p>
+                    </div>
                 </div>
 
                 <div class="precio-item">
-                    <img src="precio-7.png" alt="7€ - 2 Fotos Popular">
+                    <img src="precio-7.png" alt="7€">
+                    <div class="precio-info">
+                        <h4>2 FOTOS - POPULAR</h4>
+                        <p>• Versión digital disponible</p>
+                        <p>• Ahorras 1€</p>
+                    </div>
                 </div>
 
                 <div class="precio-item">
-                    <img src="precio-10.png" alt="10€ - 3 Fotos Oferta">
+                    <img src="precio-10.png" alt="10€">
+                    <div class="precio-info">
+                        <h4>3 FOTOS - OFERTA</h4>
+                        <p>• Versión digital disponible</p>
+                        <p>• Ahorras 2€</p>
+                    </div>
                 </div>
             </div>
 
             <!-- RIGHT: BIZUM -->
             <div class="bizum-column">
-                <h3 class="column-title">BIZUM</h3>
-                
                 <div class="bizum-content">
-                    <img src="telefono.png" alt="Número de teléfono" class="telefono-img">
+                    <p class="bizum-label">Mandar bizum a:</p>
+                    <p class="bizum-number">+34 640 341 318</p>
                     
                     <div class="bizum-buttons">
-                        <div class="bizum-btn" onclick="copyBizum()">
-                            <img src="boton-copiar.png" alt="Copiar número">
-                        </div>
-                        <a href="bizum://send?phone=+34640341318" class="bizum-btn">
+                        <button class="bizum-btn-small" onclick="copyBizum()">
+                            <img src="boton-copiar.png" alt="Copiar">
+                        </button>
+                        <a href="bizum://send?phone=+34640341318" class="bizum-btn-small">
                             <img src="boton-bizum.png" alt="Abrir Bizum">
                         </a>
                     </div>
@@ -820,8 +921,10 @@
             </div>
         </div>
 
-        <!-- POLÍTICA ROJA -->
-        <img src="devoluciones.png" alt="Política de devoluciones" class="devoluciones-img">
+        <div class="devoluciones-box">
+            <h4>POLÍTICA DE DEVOLUCIONES</h4>
+            <p>Las fotos se imprimen en el momento después de realizar el pago, por lo que no se admiten reembolsos ni devoluciones.</p>
+        </div>
     </section>
 
     <!-- SERVICES -->
