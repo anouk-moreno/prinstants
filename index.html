@@ -24,10 +24,10 @@
         }
 
         :root {
-            --indigo: #002F5F;  /* BORDE OSCURO */
-            --indigo-light: #7FA9D2; /* INTERIOR CLARO */
-            --red-traditional: #BF3A21; /* ROJO INTERIOR */
-            --red-dark: #8A1703; /* ROJO BORDE */
+            --indigo: #002F5F;
+            --indigo-light: #7FA9D2;
+            --red-traditional: #BF3A21;
+            --red-dark: #8A1703;
             --washi-cream: #f5ebe0;
             --ink-black: #2d2424;
             --gold-traditional: #FFC900;
@@ -36,13 +36,13 @@
 
         body {
             font-family: 'Montserrat', 'Futura-Bold', 'Arial Black', sans-serif;
-            font-weight: 700; /* YA ESTABA EN 700, MANTENER */
+            font-weight: 700;
             background: #FFC900;
             color: var(--ink-black);
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
-            text-transform: uppercase; /* TODO EN MAYÚSCULAS */
+            text-transform: uppercase;
         }
 
         body::before {
@@ -58,8 +58,8 @@
         }
 
         header {
-            background: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
-            border-bottom: 4px solid #001F3F; /* LÍNEA MÁS OSCURA */
+            background: var(--indigo);
+            border-bottom: 4px solid #001F3F;
             box-shadow: 0 4px 0 var(--gold-traditional);
             position: sticky;
             top: 0;
@@ -70,7 +70,7 @@
             max-width: 100%;
             width: 100%;
             margin: 0 auto;
-            padding: 15px 20px 15px 10px; /* MENOS PADDING IZQUIERDO */
+            padding: 15px 20px 15px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -87,7 +87,7 @@
             background: url('logo.png') center/contain no-repeat;
             transition: all 0.3s;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-            cursor: pointer; /* AÑADIDO PARA INDICAR QUE ES CLICKEABLE */
+            cursor: pointer;
         }
 
         .logo-text:hover {
@@ -97,8 +97,8 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 25px; /* AUMENTADO DE 15px A 25px */
-            padding-right: 10px; /* AÑADIDO PARA MÁS ESPACIO A LA DERECHA */
+            gap: 25px;
+            padding-right: 10px;
         }
 
         .search-btn {
@@ -268,7 +268,7 @@
             font-weight: 700;
             color: var(--ink-black);
             text-decoration: none;
-            border-bottom: 2px solid rgba(138, 23, 3, 0.2); /* ROJO OSCURO */
+            border-bottom: 2px solid rgba(138, 23, 3, 0.2);
             transition: all 0.3s;
             position: relative;
         }
@@ -283,7 +283,7 @@
         }
 
         .sidebar-links a:hover {
-            background: linear-gradient(90deg, rgba(191, 58, 33, 0.1), transparent); /* ROJO NUEVO */
+            background: linear-gradient(90deg, rgba(191, 58, 33, 0.1), transparent);
             padding-left: 50px;
         }
 
@@ -291,7 +291,6 @@
             opacity: 1;
         }
 
-        /* OVERLAY */
         .overlay {
             position: fixed;
             top: 0;
@@ -313,7 +312,7 @@
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px 10px; /* REDUCIDO PADDING INFERIOR DE 20px A 10px */
+            padding: 30px 20px 10px;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -321,17 +320,17 @@
 
         h1 {
             font-size: clamp(32px, 8vw, 55px);
-            font-weight: 900; /* CAMBIADO DE bold A 900 PARA COINCIDIR CON SECTION-TITLE */
+            font-weight: 900;
             margin-bottom: 10px;
-            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
+            color: var(--indigo);
             letter-spacing: 2px;
             line-height: 1.2;
         }
 
         .subtitle {
             font-size: clamp(16px, 4vw, 22px);
-            font-weight: 700; /* CAMBIADO DE 400 A 700 PARA NEGRITA */
-            color: var(--red-dark); /* ROJO OSCURO PARA DESTACAR */
+            font-weight: 700;
+            color: var(--red-dark);
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
@@ -339,7 +338,7 @@
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 40px 80px; /* REDUCIDO PADDING SUPERIOR DE 80px A 40px */
+            padding: 40px 40px 80px;
             position: relative;
             z-index: 2;
         }
@@ -350,14 +349,14 @@
             letter-spacing: 2px;
             margin-bottom: 30px;
             text-align: center;
-            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
+            color: var(--indigo);
         }
 
         .section-title::before,
         .section-title::after {
             content: '★';
             margin: 0 10px;
-            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
+            color: var(--indigo);
         }
 
         .pricing-container-new {
@@ -379,8 +378,8 @@
 
         .precio-item {
             margin-bottom: 15px;
-            background: var(--indigo-light); /* INTERIOR CLARO #7FA9D2 */
-            border: 4px solid var(--indigo); /* BORDE OSCURO #002F5F */
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -393,7 +392,7 @@
             width: 100px;
             height: 100px;
             flex-shrink: 0;
-            opacity: 1; /* MOSTRAR LAS MONEDAS */
+            opacity: 1;
         }
 
         .precio-info {
@@ -413,7 +412,6 @@
             margin: 3px 0;
         }
 
-        /* BIZUM CON CAJA PERSONALIZADA */
         .bizum-content {
             display: flex;
             flex-direction: column;
@@ -421,8 +419,8 @@
         }
 
         .bizum-box {
-            background: var(--indigo-light); /* INTERIOR CLARO */
-            border: 4px solid var(--indigo); /* BORDE OSCURO */
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
             border-radius: 15px;
             padding: 40px 30px;
             display: flex;
@@ -463,68 +461,9 @@
             transform: scale(0.95);
         }
 
-        .telefono-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .bizum-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .bizum-btn-small {
-            width: 120px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s;
-            border: none;
-            background: transparent;
-            padding: 0;
-        }
-
-        .bizum-btn-small:hover {
-            transform: scale(1.05);
-        }
-
-        .bizum-btn-small img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .bizum-number-container {
-            position: relative;
-            width: 100%;
-            background-image: url('phone-number-box.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .bizum-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--indigo);
-            margin: 0;
-            padding: 0;
-            background: transparent;
-            border: none;
-            text-align: center;
-        }
-
-        /* POLÍTICA ROJA CON TEXTO */
         .devoluciones-box {
-            background: var(--red-traditional); /* INTERIOR ROJO #BF3A21 */
-            border: 4px solid var(--red-dark); /* BORDE ROJO OSCURO #8A1703 */
+            background: var(--red-traditional);
+            border: 4px solid var(--red-dark);
             border-radius: 15px;
             padding: 35px 40px;
             margin-top: 30px;
@@ -534,19 +473,19 @@
         .devoluciones-box h4 {
             font-size: 24px;
             font-weight: bold;
-            color: #FFFFFF; /* BLANCO PARA CONTRASTE */
+            color: #FFFFFF;
             margin-bottom: 12px;
             text-align: center;
         }
 
         .devoluciones-box p {
             font-size: 16px;
-            color: #FFFFFF; /* BLANCO PARA CONTRASTE */
+            color: #FFFFFF;
             line-height: 1.6;
             text-align: center;
         }
 
-        /* FORMS */
+        /* FORMS - NUEVA ESTÉTICA */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -554,20 +493,28 @@
         }
 
         .form-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--ink-black);
-            border-radius: 20px;
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
+            border-radius: 15px;
             padding: 35px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .form-card h3 {
-            font-size: 30px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
             color: var(--indigo);
+            text-align: center;
+        }
+
+        .form-card > p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink-black);
+            text-align: center;
         }
 
         .form-group {
@@ -580,7 +527,7 @@
             font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 8px;
-            color: var(--ink-black);
+            color: var(--indigo);
         }
 
         input[type="text"],
@@ -589,18 +536,20 @@
         textarea {
             width: 100%;
             padding: 14px 18px;
-            border: 3px solid var(--ink-black);
+            border: 3px solid var(--indigo);
             border-radius: 8px;
             font-size: 16px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--ink-black);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: var(--red-traditional); /* ROJO NUEVO */
-            box-shadow: 0 0 0 4px rgba(191, 58, 33, 0.1);
+            border-color: var(--red-traditional);
+            box-shadow: 0 0 0 3px rgba(191, 58, 33, 0.2);
         }
 
         textarea {
@@ -608,21 +557,24 @@
             min-height: 120px;
         }
 
-        /* BUTTONS */
         .btn {
             display: block;
+            width: 100%;
             padding: 16px 35px;
-            background: var(--red-traditional); /* ROJO NUEVO */
+            background: var(--red-traditional);
             color: #FFFFFF;
-            border: 3px solid var(--red-dark); /* BORDE ROJO OSCURO */
-            border-radius: 25px;
+            border: 3px solid var(--red-dark);
+            border-radius: 12px;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn:hover {
@@ -630,48 +582,48 @@
             color: var(--ink-black);
             border-color: var(--ink-black);
             transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        /* FAQ */
+        /* FAQ - NUEVA ESTÉTICA */
         .faq-item {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--ink-black);
-            border-radius: 16px;
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
+            border-radius: 15px;
             padding: 30px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             transition: all 0.3s;
         }
 
         .faq-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
 
         .faq-question {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 900;
             margin-bottom: 14px;
             color: var(--indigo);
+            letter-spacing: 1px;
         }
 
         .faq-answer {
             color: var(--ink-black);
             font-size: 16px;
+            font-weight: 700;
             line-height: 1.8;
         }
 
-        /* COMMENTS */
+        /* COMMENTS - NUEVA ESTÉTICA */
         .comment-form {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--wave-blue);
-            border-radius: 20px;
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
+            border-radius: 15px;
             padding: 40px;
             margin-bottom: 45px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         .star-rating {
@@ -699,14 +651,27 @@
             color: var(--gold-traditional);
         }
 
+        /* CARRUSEL DE COMENTARIOS */
+        .comments-carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .comments-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+        }
+
         .comment-item {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--ink-black);
-            border-radius: 16px;
+            min-width: 100%;
+            background: var(--indigo-light);
+            border: 4px solid var(--indigo);
+            border-radius: 15px;
             padding: 30px;
-            margin-bottom: 22px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            position: relative;
         }
 
         .comment-header {
@@ -715,32 +680,114 @@
             align-items: center;
             margin-bottom: 18px;
             padding-bottom: 12px;
-            border-bottom: 2px solid rgba(191, 58, 33, 0.2); /* ROJO NUEVO */
+            border-bottom: 3px solid var(--indigo);
         }
 
         .comment-name {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--indigo);
+            letter-spacing: 1px;
         }
 
         .comment-stars {
             color: var(--gold-traditional);
-            font-size: 20px;
+            font-size: 22px;
         }
 
         .comment-text {
             color: var(--ink-black);
             line-height: 1.8;
             font-size: 16px;
+            font-weight: 700;
         }
 
-        /* FOOTER */
+        .delete-comment {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--red-traditional);
+            color: #FFFFFF;
+            border: 2px solid var(--red-dark);
+            border-radius: 6px;
+            width: 35px;
+            height: 35px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .comment-item:hover .delete-comment {
+            display: flex;
+        }
+
+        .delete-comment:hover {
+            background: var(--red-dark);
+            transform: scale(1.1);
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .carousel-btn {
+            background: var(--indigo);
+            color: #FFFFFF;
+            border: 3px solid var(--indigo);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .carousel-btn:hover {
+            background: var(--red-traditional);
+            border-color: var(--red-dark);
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 47, 95, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--indigo);
+        }
+
+        .carousel-dot.active {
+            background: var(--indigo);
+            transform: scale(1.3);
+        }
+
+        /* FOOTER - NUEVA ESTÉTICA */
         footer {
-            background: linear-gradient(180deg, var(--indigo), #1e2f4a);
+            background: var(--indigo);
             color: var(--washi-cream);
-            padding: 70px 40px 40px;
-            border-top: 4px solid var(--red-dark); /* ROJO OSCURO */
+            padding: 50px 40px 30px;
+            border-top: 4px solid var(--red-dark);
             box-shadow: 0 -4px 0 var(--gold-traditional);
             position: relative;
             z-index: 2;
@@ -749,51 +796,56 @@
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-content h2 {
-            font-size: 40px;
-            font-weight: bold;
-            letter-spacing: 6px;
-            margin-bottom: 45px;
-        }
-
-        .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 45px;
-            margin-bottom: 45px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
-        .footer-links a,
-        .footer-links span {
+        .footer-logo {
+            width: 250px;
+            height: 80px;
+            background: url('logo.png') center/contain no-repeat;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            gap: 30px;
+        }
+
+        .footer-email {
             color: var(--washi-cream);
             text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             transition: all 0.3s;
-            font-size: 17px;
         }
 
-        .footer-links a:hover {
+        .footer-email:hover {
             color: var(--gold-traditional);
         }
 
-        .copyright {
+        .footer-copyright {
             color: var(--washi-cream);
             font-size: 14px;
-            margin-top: 45px;
-            opacity: 0.8;
+            font-weight: 700;
+            opacity: 0.9;
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav {
-                padding: 10px 10px; /* MANTIENE EL PADDING AUMENTADO */
+                padding: 10px 10px;
             }
 
             .nav-right {
-                gap: 15px; /* REDUCIDO EN MÓVIL PERO AÚN MÁS QUE ANTES */
+                gap: 15px;
                 padding-right: 5px;
             }
 
@@ -819,7 +871,7 @@
             }
 
             section {
-                padding: 30px 15px 40px; /* AJUSTADO PARA MÓVIL */
+                padding: 30px 15px 40px;
             }
 
             .section-title {
@@ -835,19 +887,6 @@
             .sidebar {
                 width: 100%;
                 left: -100%;
-            }
-
-            .bizum-buttons {
-                flex-direction: row;
-                gap: 8px;
-            }
-
-            .bizum-btn-small {
-                width: 90px;
-            }
-
-            .bizum-number-container {
-                padding: 40px 15px;
             }
 
             .bizum-number {
@@ -880,6 +919,26 @@
             .precio-info p {
                 font-size: 12px;
             }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-logo {
+                width: 180px;
+                height: 60px;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .footer-email,
+            .footer-copyright {
+                font-size: 14px;
+            }
         }
 
         html {
@@ -888,10 +947,8 @@
     </style>
 </head>
 <body>
-    <!-- OVERLAY -->
     <div class="overlay" id="overlay"></div>
 
-    <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-title">Menú</div>
@@ -905,15 +962,12 @@
         </ul>
     </div>
 
-    <!-- HEADER -->
     <header>
         <nav>
-            <!-- LEFT: LOGO -->
             <div class="logo">
                 <div class="logo-text"></div>
             </div>
 
-            <!-- RIGHT: SEARCH, LANGUAGE, MENU -->
             <div class="nav-right">
                 <div class="search-btn" id="searchBtn">
                     <div class="search-icon"></div>
@@ -948,17 +1002,14 @@
         </nav>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
         <h1>BENVINGUT/DA</h1>
         <p class="subtitle">IMPRESSIÓ DE FOTOS AL MOMENT</p>
     </section>
 
-    <!-- PRICING -->
     <section id="preus">
         <h2 class="section-title">PAGO</h2>
         
-        <!-- BIZUM -->
         <div class="bizum-content">
             <div class="bizum-box">
                 <p class="bizum-label">MANDAR BIZUM A:</p>
@@ -967,10 +1018,8 @@
             </div>
         </div>
 
-        <!-- ESPACIO -->
         <div style="height: 40px;"></div>
 
-        <!-- PRECIOS -->
         <h2 class="section-title">PRECIOS</h2>
         <div class="pricing-container-new">
             <div class="precios-column">
@@ -1008,16 +1057,12 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="serveis">
-        <h2 class="section-title">SERVICIOS ADICIONALES</h2>
+        <h2 class="section-title">SERVICIOS</h2>
         <div class="form-grid">
-            <!-- UPLOAD -->
             <div class="form-card">
                 <h3>Pujar foto</h3>
-                <p style="margin-bottom: 18px; font-size: 14px; font-weight: 700;">
-                    Tens una foto que vols imprimir?
-                </p>
+                <p>Tens una foto que vols imprimir?</p>
                 <form id="uploadForm">
                     <div class="form-group">
                         <label>Foto</label>
@@ -1031,12 +1076,9 @@
                 </form>
             </div>
 
-            <!-- DIGITAL -->
             <div class="form-card">
                 <h3>Versió digital</h3>
-                <p style="margin-bottom: 18px; font-size: 14px; font-weight: 700;">
-                    T'enviarem la versió digital
-                </p>
+                <p>T'enviarem la versió digital</p>
                 <form id="digitalForm">
                     <div class="form-group">
                         <label>Email</label>
@@ -1050,12 +1092,9 @@
                 </form>
             </div>
 
-            <!-- CONTACT -->
             <div class="form-card">
                 <h3>Contacta</h3>
-                <p style="margin-bottom: 18px; font-size: 14px; font-weight: 700;">
-                    Tens dubtes? Escriu-nos
-                </p>
+                <p>Tens dubtes? Escriu-nos</p>
                 <form id="contactForm">
                     <div class="form-group">
                         <label>Email</label>
@@ -1071,7 +1110,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq">
         <h2 class="section-title">PREGUNTAS</h2>
         
@@ -1104,11 +1142,9 @@
         </div>
     </section>
 
-    <!-- COMMENTS -->
     <section>
         <h2 class="section-title">OPINIONES</h2>
 
-        <!-- COMMENT FORM -->
         <div class="comment-form">
             <form id="commentForm">
                 <div class="form-group">
@@ -1141,31 +1177,35 @@
             </form>
         </div>
 
-        <!-- COMMENTS LIST -->
-        <div id="commentsList">
-            <div class="comment-item">
-                <div class="comment-header">
-                    <span class="comment-name">Anna</span>
-                    <span class="comment-stars">★★★★★</span>
-                </div>
-                <div class="comment-text">
-                    Saluts des del concert de Bad Gyal! Som d'Alemanya i ens ha encantat!
+        <div class="comments-carousel-container">
+            <div class="comments-carousel" id="commentsCarousel">
+                <div class="comment-item" data-index="0">
+                    <div class="delete-comment" onclick="deleteComment(0)">✕</div>
+                    <div class="comment-header">
+                        <span class="comment-name">Anna</span>
+                        <span class="comment-stars">★★★★★</span>
+                    </div>
+                    <div class="comment-text">
+                        Saluts des del concert de Bad Gyal! Som d'Alemanya i ens ha encantat!
+                    </div>
                 </div>
             </div>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="prevComment()">‹</button>
+                <button class="carousel-btn" onclick="nextComment()">›</button>
+            </div>
+            
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer id="contacte">
         <div class="footer-content">
-            <h2>Contacte</h2>
-            <div class="footer-links">
-                <a href="mailto:memoriasimpresas@gmail.com">Email</a>
-                <a href="tel:+34640341318">Telèfon</a>
-                <span>Barcelona</span>
-            </div>
-            <div class="copyright">
-                © 2026 Prinstants · Barcelona
+            <div class="footer-logo"></div>
+            <div class="footer-info">
+                <a href="mailto:prinstants@gmail.com" class="footer-email">prinstants@gmail.com</a>
+                <div class="footer-copyright">© 2026 Prinstants</div>
             </div>
         </div>
     </footer>
@@ -1174,8 +1214,6 @@
         // CAMERA SHUTTER SOUND
         function playCameraShutter() {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            // Crear el sonido de shutter
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
             const filter = audioContext.createBiquadFilter();
@@ -1184,7 +1222,6 @@
             filter.connect(gainNode);
             gainNode.connect(audioContext.destination);
             
-            // Configurar el sonido
             oscillator.type = 'square';
             oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.05);
@@ -1192,15 +1229,12 @@
             filter.type = 'lowpass';
             filter.frequency.setValueAtTime(2000, audioContext.currentTime);
             
-            // Envelope para que suene como un click de cámara
             gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
             
-            // Reproducir
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.1);
             
-            // Añadir un segundo "click" para hacer el sonido más realista
             setTimeout(() => {
                 const oscillator2 = audioContext.createOscillator();
                 const gainNode2 = audioContext.createGain();
@@ -1225,10 +1259,8 @@
             }, 60);
         }
         
-        // Añadir evento click al logo
         document.querySelector('.logo-text').addEventListener('click', () => {
             playCameraShutter();
-            // Pequeña animación de flash
             document.querySelector('.logo-text').style.filter = 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5)) brightness(1.3)';
             setTimeout(() => {
                 document.querySelector('.logo-text').style.filter = 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))';
@@ -1283,7 +1315,7 @@
             });
         });
 
-        // BIZUM - COPIAR NÚMERO
+        // BIZUM
         function copyBizum() {
             navigator.clipboard.writeText('+34640341318').then(() => {
                 alert('✓ Número copiat!');
@@ -1311,7 +1343,95 @@
             e.target.reset();
         });
 
-        // COMMENTS
+        // COMMENTS CAROUSEL
+        let currentCommentIndex = 0;
+        let comments = [];
+
+        function loadComments() {
+            const saved = localStorage.getItem('prinstants_comments');
+            if (saved) {
+                comments = JSON.parse(saved);
+            } else {
+                comments = [{
+                    name: 'Anna',
+                    rating: 5,
+                    text: 'Saluts des del concert de Bad Gyal! Som d\'Alemanya i ens ha encantat!'
+                }];
+            }
+            renderComments();
+        }
+
+        function saveComments() {
+            localStorage.setItem('prinstants_comments', JSON.stringify(comments));
+        }
+
+        function renderComments() {
+            const carousel = document.getElementById('commentsCarousel');
+            const dotsContainer = document.getElementById('carouselDots');
+            
+            if (comments.length === 0) {
+                carousel.innerHTML = '<div class="comment-item"><div class="comment-text">Cap comentari encara</div></div>';
+                dotsContainer.innerHTML = '';
+                return;
+            }
+            
+            carousel.innerHTML = comments.map((comment, index) => `
+                <div class="comment-item" data-index="${index}">
+                    <div class="delete-comment" onclick="deleteComment(${index})">✕</div>
+                    <div class="comment-header">
+                        <span class="comment-name">${comment.name}</span>
+                        <span class="comment-stars">${'★'.repeat(comment.rating)}</span>
+                    </div>
+                    <div class="comment-text">${comment.text || '(Sense comentari)'}</div>
+                </div>
+            `).join('');
+            
+            dotsContainer.innerHTML = comments.map((_, index) => 
+                `<div class="carousel-dot ${index === currentCommentIndex ? 'active' : ''}" onclick="goToComment(${index})"></div>`
+            ).join('');
+            
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const carousel = document.getElementById('commentsCarousel');
+            carousel.style.transform = `translateX(-${currentCommentIndex * 100}%)`;
+            
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentCommentIndex);
+            });
+        }
+
+        function nextComment() {
+            if (currentCommentIndex < comments.length - 1) {
+                currentCommentIndex++;
+                updateCarousel();
+            }
+        }
+
+        function prevComment() {
+            if (currentCommentIndex > 0) {
+                currentCommentIndex--;
+                updateCarousel();
+            }
+        }
+
+        function goToComment(index) {
+            currentCommentIndex = index;
+            updateCarousel();
+        }
+
+        function deleteComment(index) {
+            if (confirm('Segur que vols eliminar aquest comentari?')) {
+                comments.splice(index, 1);
+                if (currentCommentIndex >= comments.length && currentCommentIndex > 0) {
+                    currentCommentIndex--;
+                }
+                saveComments();
+                renderComments();
+            }
+        }
+
         document.getElementById('commentForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
@@ -1319,17 +1439,11 @@
             const rating = document.querySelector('input[name="rating"]:checked').value;
             const text = document.getElementById('commentText').value;
             
-            const commentHTML = `
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-name">${name}</span>
-                        <span class="comment-stars">${'★'.repeat(rating)}</span>
-                    </div>
-                    <div class="comment-text">${text || '(Sense comentari)'}</div>
-                </div>
-            `;
+            comments.push({ name, rating: parseInt(rating), text });
+            currentCommentIndex = comments.length - 1;
             
-            document.getElementById('commentsList').insertAdjacentHTML('afterbegin', commentHTML);
+            saveComments();
+            renderComments();
             document.getElementById('commentForm').reset();
             alert('Publicat!');
         });
@@ -1350,6 +1464,9 @@
                 }
             });
         });
+
+        // INIT
+        loadComments();
     </script>
 </body>
 </html>
