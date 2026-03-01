@@ -309,45 +309,19 @@
             visibility: visible;
         }
 
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px 10px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            font-size: clamp(32px, 8vw, 55px);
-            font-weight: 900;
-            margin-bottom: 10px;
-            color: var(--indigo);
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            font-size: clamp(16px, 4vw, 22px);
-            font-weight: 700;
-            color: var(--red-dark);
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 40px 80px;
+            padding: 25px 40px 50px;
             position: relative;
             z-index: 2;
         }
 
         .section-title {
-            font-size: clamp(24px, 6vw, 40px);
+            font-size: clamp(20px, 5vw, 32px);
             font-weight: 900;
             letter-spacing: 2px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
             color: var(--indigo);
         }
@@ -422,16 +396,16 @@
             background: var(--indigo-light);
             border: 4px solid var(--indigo);
             border-radius: 15px;
-            padding: 40px 30px;
+            padding: 25px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
+            gap: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .bizum-label {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: var(--indigo);
             margin: 0;
@@ -465,27 +439,26 @@
             background: var(--red-traditional);
             border: 4px solid var(--red-dark);
             border-radius: 15px;
-            padding: 35px 40px;
-            margin-top: 30px;
+            padding: 20px 30px;
+            margin-top: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .devoluciones-box h4 {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
             color: #FFFFFF;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-align: center;
         }
 
         .devoluciones-box p {
-            font-size: 16px;
+            font-size: 13px;
             color: #FFFFFF;
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: center;
         }
 
-        /* FORMS - NUEVA ESTÉTICA */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -585,13 +558,12 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        /* FAQ - NUEVA ESTÉTICA */
         .faq-item {
             background: var(--indigo-light);
             border: 4px solid var(--indigo);
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             transition: all 0.3s;
         }
@@ -602,21 +574,20 @@
         }
 
         .faq-question {
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 900;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             color: var(--indigo);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .faq-answer {
-            color: var(--ink-black);
-            font-size: 16px;
+            color: #000000;
+            font-size: 14px;
             font-weight: 700;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        /* COMMENTS - NUEVA ESTÉTICA */
         .comment-form {
             background: var(--indigo-light);
             border: 4px solid var(--indigo);
@@ -631,27 +602,26 @@
             gap: 10px;
             margin: 18px 0;
             flex-direction: row-reverse;
-            justify-content: flex-end;
-        }
-
-        .star-rating input {
-            display: none;
+            justify-content: center;
         }
 
         .star-rating label {
             font-size: 38px;
             cursor: pointer;
-            color: rgba(212, 165, 116, 0.3);
+            color: #D4A574;
+            opacity: 0.4;
             transition: all 0.2s;
         }
 
-        .star-rating input:checked ~ label,
-        .star-rating label:hover,
-        .star-rating label:hover ~ label {
-            color: var(--gold-traditional);
+        .star-rating label:hover {
+            opacity: 1;
         }
 
-        /* CARRUSEL DE COMENTARIOS */
+        .star-rating input:checked ~ label {
+            color: var(--gold-traditional);
+            opacity: 1;
+        }
+
         .comments-carousel-container {
             position: relative;
             overflow: hidden;
@@ -696,9 +666,9 @@
         }
 
         .comment-text {
-            color: var(--ink-black);
-            line-height: 1.8;
-            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            font-size: 14px;
             font-weight: 700;
         }
 
@@ -722,7 +692,7 @@
         }
 
         .comment-item:hover .delete-comment {
-            display: flex;
+            display: none;
         }
 
         .delete-comment:hover {
@@ -782,13 +752,11 @@
             transform: scale(1.3);
         }
 
-        /* FOOTER - NUEVA ESTÉTICA */
         footer {
             background: var(--indigo);
             color: var(--washi-cream);
-            padding: 50px 40px 30px;
-            border-top: 4px solid var(--red-dark);
-            box-shadow: 0 -4px 0 var(--gold-traditional);
+            padding: 25px 40px;
+            border-top: 4px solid var(--gold-traditional);
             position: relative;
             z-index: 2;
         }
@@ -797,25 +765,23 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             gap: 30px;
         }
 
         .footer-logo {
-            width: 250px;
-            height: 80px;
+            width: 180px;
+            height: 60px;
             background: url('logo.png') center/contain no-repeat;
             filter: brightness(0) invert(1);
+            flex-shrink: 0;
         }
 
         .footer-info {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            width: 100%;
-            max-width: 800px;
-            gap: 30px;
+            gap: 40px;
         }
 
         .footer-email {
@@ -917,7 +883,10 @@
             }
 
             .precio-info p {
-                font-size: 12px;
+                font-size: 14px;
+                color: #000000;
+                margin: 3px 0;
+                font-weight: 700;
             }
 
             .form-grid {
@@ -1002,11 +971,6 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>BENVINGUT/DA</h1>
-        <p class="subtitle">IMPRESSIÓ DE FOTOS AL MOMENT</p>
-    </section>
-
     <section id="preus">
         <h2 class="section-title">PAGO</h2>
         
@@ -1063,10 +1027,11 @@
             <div class="form-card">
                 <h3>Pujar foto</h3>
                 <p>Tens una foto que vols imprimir?</p>
-                <form id="uploadForm">
+                <form id="uploadForm" action="https://formspree.io/f/mzdaqoqb" method="post">
                     <div class="form-group">
                         <label>Foto</label>
                         <input type="file" accept="image/*" required>
+                        <input type="hidden" name="_subject" value="Nueva foto para imprimir">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -1078,7 +1043,7 @@
 
             <div class="form-card">
                 <h3>Versió digital</h3>
-                <p>T'enviarem la versió digital</p>
+                <p>Pots escanejar la teva foto per obtenir la versió digital a instax UP! (Marc blanc inclòs)</p>
                 <form id="digitalForm">
                     <div class="form-group">
                         <label>Email</label>
@@ -1095,10 +1060,11 @@
             <div class="form-card">
                 <h3>Contacta</h3>
                 <p>Tens dubtes? Escriu-nos</p>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/mzdaqoqb" method="post">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" placeholder="exemple@email.com" required>
+                        <input type="hidden" name="_subject" value="Mensaje de contacto">
                     </div>
                     <div class="form-group">
                         <label>Missatge</label>
@@ -1111,7 +1077,7 @@
     </section>
 
     <section id="faq">
-        <h2 class="section-title">PREGUNTAS</h2>
+        <h2 class="section-title">FAQs</h2>
         
         <div class="faq-item">
             <div class="faq-question">La versió digital té el marc blanc?</div>
@@ -1170,9 +1136,11 @@
 
                 <div class="form-group">
                     <label>Comentari (opcional)</label>
-                    <textarea id="commentText" placeholder="Saluts des del concert..."></textarea>
+                    <textarea id="commentText" placeholder="Saluts des del concert..." maxlength="200"></textarea>
+                    <small style="display: block; text-align: right; margin-top: 5px; color: var(--indigo); font-weight: 700;">
+                        <span id="charCount">0</span>/200
+                    </small>
                 </div>
-
                 <button type="submit" class="btn">Publicar</button>
             </form>
         </div>
@@ -1360,6 +1328,10 @@
             }
             renderComments();
         }
+
+        document.getElementById('commentText').addEventListener('input', function() {
+            document.getElementById('charCount').textContent = this.value.length;
+        });
 
         function saveComments() {
             localStorage.setItem('prinstants_comments', JSON.stringify(comments));
