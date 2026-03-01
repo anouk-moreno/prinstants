@@ -24,7 +24,7 @@
         }
 
         :root {
-            --indigo: #0055A4;  
+            --indigo: #002F5F;  /* MÁS OSCURO */
             --red-traditional: #c3423f;
             --washi-cream: #f5ebe0;
             --ink-black: #2d2424;
@@ -55,8 +55,8 @@
         }
 
         header {
-            background: #0055A4;
-            border-bottom: 4px solid #003D7A;
+            background: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
+            border-bottom: 4px solid #001F3F; /* LÍNEA MÁS OSCURA */
             box-shadow: 0 4px 0 var(--gold-traditional);
             position: sticky;
             top: 0;
@@ -67,7 +67,7 @@
             max-width: 100%;
             width: 100%;
             margin: 0 auto;
-            padding: 15px 10px;
+            padding: 15px 20px; /* AUMENTADO PADDING LATERAL */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -93,7 +93,8 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 25px; /* AUMENTADO DE 15px A 25px */
+            padding-right: 10px; /* AÑADIDO PARA MÁS ESPACIO A LA DERECHA */
         }
 
         .search-btn {
@@ -308,7 +309,7 @@
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px 20px;
+            padding: 30px 20px 10px; /* REDUCIDO PADDING INFERIOR DE 20px A 10px */
             text-align: center;
             position: relative;
             z-index: 2;
@@ -318,14 +319,14 @@
             font-size: clamp(32px, 8vw, 55px);
             font-weight: bold;
             margin-bottom: 10px;
-            color: #0055A4;  
+            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
             letter-spacing: 2px;
             line-height: 1.2;
         }
 
         .subtitle {
             font-size: clamp(16px, 4vw, 22px);
-            font-weight: 400;
+            font-weight: 700; /* CAMBIADO DE 400 A 700 PARA NEGRITA */
             color: var(--red-traditional);
             margin-bottom: 15px;
             letter-spacing: 1px;
@@ -334,7 +335,7 @@
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 40px 40px 80px; /* REDUCIDO PADDING SUPERIOR DE 80px A 40px */
             position: relative;
             z-index: 2;
         }
@@ -345,14 +346,14 @@
             letter-spacing: 2px;
             margin-bottom: 30px;
             text-align: center;
-            color: #0055A4;  
+            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
         }
 
         .section-title::before,
         .section-title::after {
             content: '★';
             margin: 0 10px;
-            color: #0055A4;
+            color: var(--indigo); /* USA EL NUEVO COLOR OSCURO */
         }
 
         .pricing-container-new {
@@ -373,7 +374,7 @@
         }
 
         .precio-item {
-            margin-bottom: 15px; /* Era 20px */
+            margin-bottom: 15px;
             background: rgba(255, 255, 255, 0.6);
             border: 3px solid var(--indigo);
             border-radius: 15px;
@@ -732,11 +733,12 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav {
-                padding: 10px 5px;
+                padding: 10px 10px; /* MANTIENE EL PADDING AUMENTADO */
             }
 
             .nav-right {
-                gap: 5px;
+                gap: 15px; /* REDUCIDO EN MÓVIL PERO AÚN MÁS QUE ANTES */
+                padding-right: 5px;
             }
 
             .hamburger,
@@ -761,7 +763,7 @@
             }
 
             section {
-                padding: 40px 15px;
+                padding: 30px 15px 40px; /* AJUSTADO PARA MÓVIL */
             }
 
             .section-title {
