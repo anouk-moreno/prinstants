@@ -24,8 +24,10 @@
         }
 
         :root {
-            --indigo: #002F5F;  /* MÁS OSCURO */
-            --red-traditional: #c3423f;
+            --indigo: #002F5F;  /* BORDE OSCURO */
+            --indigo-light: #7FA9D2; /* INTERIOR CLARO */
+            --red-traditional: #BF3A21; /* ROJO INTERIOR */
+            --red-dark: #8A1703; /* ROJO BORDE */
             --washi-cream: #f5ebe0;
             --ink-black: #2d2424;
             --gold-traditional: #FFC900;
@@ -40,6 +42,7 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
+            text-transform: uppercase; /* TODO EN MAYÚSCULAS */
         }
 
         body::before {
@@ -209,7 +212,7 @@
             height: 100vh;
             background: rgba(245, 235, 224, 0.95);
             backdrop-filter: blur(15px);
-            border-right: 4px solid var(--red-traditional);
+            border-right: 4px solid var(--red-dark);
             box-shadow: 8px 0 20px rgba(0,0,0,0.3);
             z-index: 1000;
             transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -241,7 +244,7 @@
             width: 45px;
             height: 45px;
             background: var(--red-traditional);
-            border: 3px solid var(--washi-cream);
+            border: 3px solid var(--red-dark);
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -249,7 +252,7 @@
             cursor: pointer;
             font-size: 24px;
             font-weight: bold;
-            color: var(--washi-cream);
+            color: #FFFFFF;
             box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
 
@@ -265,7 +268,7 @@
             font-weight: 700;
             color: var(--ink-black);
             text-decoration: none;
-            border-bottom: 2px solid rgba(195, 66, 63, 0.2);
+            border-bottom: 2px solid rgba(138, 23, 3, 0.2); /* ROJO OSCURO */
             transition: all 0.3s;
             position: relative;
         }
@@ -280,7 +283,7 @@
         }
 
         .sidebar-links a:hover {
-            background: linear-gradient(90deg, rgba(195, 66, 63, 0.1), transparent);
+            background: linear-gradient(90deg, rgba(191, 58, 33, 0.1), transparent); /* ROJO NUEVO */
             padding-left: 50px;
         }
 
@@ -328,7 +331,7 @@
         .subtitle {
             font-size: clamp(16px, 4vw, 22px);
             font-weight: 700; /* CAMBIADO DE 400 A 700 PARA NEGRITA */
-            color: var(--red-traditional);
+            color: var(--red-dark); /* ROJO OSCURO PARA DESTACAR */
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
@@ -358,9 +361,9 @@
         }
 
         .pricing-container-new {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-bottom: 40px;
         }
 
@@ -376,36 +379,21 @@
 
         .precio-item {
             margin-bottom: 15px;
-            background: transparent; /* ELIMINAR FONDO */
-            border: none; /* ELIMINAR BORDE */
-            border-radius: 0;
+            background: var(--indigo-light); /* INTERIOR CLARO #7FA9D2 */
+            border: 4px solid var(--indigo); /* BORDE OSCURO #002F5F */
+            border-radius: 15px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 20px;
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .precio-item:nth-child(1) {
-            background-image: url('precio-item-box-4.png');
-        }
-
-        .precio-item:nth-child(2) {
-            background-image: url('precio-item-box-7.png');
-        }
-
-        .precio-item:nth-child(3) {
-            background-image: url('precio-item-box-10.png');
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .precio-item img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             flex-shrink: 0;
-            opacity: 0; /* OCULTAR PORQUE LA MONEDA YA ESTÁ EN LA CAJA DIBUJADA */
-            pointer-events: none;
+            opacity: 1; /* MOSTRAR LAS MONEDAS */
         }
 
         .precio-info {
@@ -425,11 +413,54 @@
             margin: 3px 0;
         }
 
-        /* BIZUM CON IMÁGENES */
+        /* BIZUM CON CAJA PERSONALIZADA */
         .bizum-content {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 0;
+        }
+
+        .bizum-box {
+            background: var(--indigo-light); /* INTERIOR CLARO */
+            border: 4px solid var(--indigo); /* BORDE OSCURO */
+            border-radius: 15px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .bizum-label {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--indigo);
+            margin: 0;
+            text-align: center;
+        }
+
+        .bizum-number-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+        }
+
+        .copy-button {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .copy-button:hover {
+            transform: scale(1.1);
+        }
+
+        .copy-button:active {
+            transform: scale(0.95);
         }
 
         .telefono-img {
@@ -465,14 +496,6 @@
             display: block;
         }
 
-        .bizum-label {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--indigo);
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
         .bizum-number-container {
             position: relative;
             width: 100%;
@@ -500,28 +523,25 @@
 
         /* POLÍTICA ROJA CON TEXTO */
         .devoluciones-box {
-            background: transparent;
-            border: none;
-            border-radius: 0;
+            background: var(--red-traditional); /* INTERIOR ROJO #BF3A21 */
+            border: 4px solid var(--red-dark); /* BORDE ROJO OSCURO #8A1703 */
+            border-radius: 15px;
             padding: 35px 40px;
             margin-top: 30px;
-            background-image: url('devoluciones-box.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-position: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .devoluciones-box h4 {
             font-size: 24px;
             font-weight: bold;
-            color: #5A1614; /* MÁS OSCURO PARA CONTRASTE CON EL ROJO */
+            color: #FFFFFF; /* BLANCO PARA CONTRASTE */
             margin-bottom: 12px;
             text-align: center;
         }
 
         .devoluciones-box p {
             font-size: 16px;
-            color: #5A1614; /* MÁS OSCURO PARA CONTRASTE CON EL ROJO */
+            color: #FFFFFF; /* BLANCO PARA CONTRASTE */
             line-height: 1.6;
             text-align: center;
         }
@@ -579,8 +599,8 @@
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: var(--red-traditional);
-            box-shadow: 0 0 0 4px rgba(195, 66, 63, 0.1);
+            border-color: var(--red-traditional); /* ROJO NUEVO */
+            box-shadow: 0 0 0 4px rgba(191, 58, 33, 0.1);
         }
 
         textarea {
@@ -592,9 +612,9 @@
         .btn {
             display: block;
             padding: 16px 35px;
-            background: var(--red-traditional);
-            color: var(--washi-cream);
-            border: 3px solid var(--ink-black);
+            background: var(--red-traditional); /* ROJO NUEVO */
+            color: #FFFFFF;
+            border: 3px solid var(--red-dark); /* BORDE ROJO OSCURO */
             border-radius: 25px;
             font-size: 18px;
             font-weight: 700;
@@ -608,6 +628,7 @@
         .btn:hover {
             background: var(--gold-traditional);
             color: var(--ink-black);
+            border-color: var(--ink-black);
             transform: translateY(-2px);
             box-shadow: 0 6px 14px rgba(0,0,0,0.3);
         }
@@ -694,7 +715,7 @@
             align-items: center;
             margin-bottom: 18px;
             padding-bottom: 12px;
-            border-bottom: 2px solid rgba(195, 66, 63, 0.2);
+            border-bottom: 2px solid rgba(191, 58, 33, 0.2); /* ROJO NUEVO */
         }
 
         .comment-name {
@@ -719,7 +740,7 @@
             background: linear-gradient(180deg, var(--indigo), #1e2f4a);
             color: var(--washi-cream);
             padding: 70px 40px 40px;
-            border-top: 4px solid var(--red-traditional);
+            border-top: 4px solid var(--red-dark); /* ROJO OSCURO */
             box-shadow: 0 -4px 0 var(--gold-traditional);
             position: relative;
             z-index: 2;
@@ -807,7 +828,7 @@
             }
 
             .pricing-container-new {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 25px;
             }
 
@@ -839,8 +860,17 @@
             }
 
             .precio-item img {
-                width: 50px;
-                height: 50px;
+                width: 70px;
+                height: 70px;
+            }
+
+            .copy-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .bizum-number-img {
+                max-width: 100%;
             }
 
             .precio-info h4 {
@@ -926,53 +956,47 @@
 
     <!-- PRICING -->
     <section id="preus">
-        <h2 class="section-title">PRECIOS Y PAGO</h2>
+        <h2 class="section-title">★ PAGO ★</h2>
+        
+        <!-- BIZUM -->
+        <div class="bizum-content">
+            <div class="bizum-box">
+                <p class="bizum-label">MANDAR BIZUM A:</p>
+                <img src="numero-telefono.png" alt="+34 640 341 318" class="bizum-number-img">
+                <img src="copiar-emoji.png" alt="Copiar" class="copy-button" onclick="copyBizum()">
+            </div>
+        </div>
+
+        <!-- ESPACIO -->
+        <div style="height: 40px;"></div>
+
+        <!-- PRECIOS -->
+        <h2 class="section-title">★ PRECIOS ★</h2>
         <div class="pricing-container-new">
-            <!-- LEFT: PRECIOS -->
             <div class="precios-column">
                 <div class="precio-item">
-                    <img src="precio-4.png" alt="4€">
+                    <img src="moneda-4.png" alt="4€">
                     <div class="precio-info">
                         <h4>1 FOTO - INDIVIDUAL</h4>
-                        <p>Versión digital disponible</p>
+                        <p>VERSIÓN DIGITAL DISPONIBLE</p>
                     </div>
                 </div>
 
                 <div class="precio-item">
-                    <img src="precio-7.png" alt="7€">
+                    <img src="moneda-7.png" alt="7€">
                     <div class="precio-info">
                         <h4>2 FOTOS - POPULAR</h4>
-                        <p>• Versión digital disponible</p>
-                        <p>• Ahorras 1€</p>
+                        <p>• VERSIÓN DIGITAL DISPONIBLE</p>
+                        <p>• AHORRAS 1€</p>
                     </div>
                 </div>
 
                 <div class="precio-item">
-                    <img src="precio-10.png" alt="10€">
+                    <img src="moneda-10.png" alt="10€">
                     <div class="precio-info">
                         <h4>3 FOTOS - OFERTA</h4>
-                        <p>• Versión digital disponible</p>
-                        <p>• Ahorras 2€</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT: BIZUM -->
-            <div class="bizum-column">
-                <div class="bizum-content">
-                    <p class="bizum-label">MANDAR BIZUM A:</p>
-                    
-                    <div class="bizum-number-container">
-                        <p class="bizum-number">+34 640 341 318</p>
-                        
-                        <div class="bizum-buttons">
-                            <button class="bizum-btn-small" onclick="copyBizum()">
-                                <img src="boton-copiar.png" alt="Copiar">
-                            </button>
-                            <a href="bizum://send?phone=+34640341318" class="bizum-btn-small">
-                                <img src="boton-bizum.png" alt="Abrir Bizum">
-                            </a>
-                        </div>
+                        <p>• VERSIÓN DIGITAL DISPONIBLE</p>
+                        <p>• AHORRAS 2€</p>
                     </div>
                 </div>
             </div>
@@ -980,7 +1004,7 @@
 
         <div class="devoluciones-box">
             <h4>POLÍTICA DE DEVOLUCIONES</h4>
-            <p>Las fotos se imprimen en el momento después de realizar el pago, por lo que no se admiten reembolsos ni devoluciones.</p>
+            <p>LAS FOTOS SE IMPRIMEN EN EL MOMENTO DESPUÉS DE REALIZAR EL PAGO, POR LO QUE NO SE ADMITEN REEMBOLSOS NI DEVOLUCIONES.</p>
         </div>
     </section>
 
