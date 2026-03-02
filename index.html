@@ -1055,49 +1055,41 @@
             <div class="form-card">
                 <h3>Pujar foto</h3>
                 <p>Tens una foto que vols imprimir?</p>
-                <form id="uploadForm" action="https://formspree.io/f/mzdaqoqb" method="post">
+                <form action="https://formspree.io/f/mzdaqoqb" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Foto</label>
-                        <input type="file" accept="image/*" required>
-                        <input type="hidden" name="_subject" value="Nueva foto para imprimir">
+                        <input type="file" name="foto" accept="image/*" required>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="exemple@email.com" required>
+                        <input type="email" name="email" placeholder="exemple@email.com" required>
                     </div>
+                    <input type="hidden" name="_subject" value="📸 Nova foto per imprimir">
                     <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
 
             <div class="form-card">
                 <h3>Versió digital</h3>
-                <p>Pots escanejar la teva foto per obtenir la versió digital a instax UP! (Marc blanc inclòs)</p>
-                <form id="digitalForm">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="exemple@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Referència</label>
-                        <input type="text" placeholder="#0123">
-                    </div>
-                    <button type="submit" class="btn">Enviar</button>
-                </form>
+                <p>Escaneja la teva foto amb l'app instax UP! per obtenir la versió digital (Marc blanc inclòs)</p>
+                <button onclick="openInstaxApp()" class="btn" style="margin-top: 10px;">
+                    Descarregar App
+                </button>
             </div>
 
             <div class="form-card">
                 <h3>Contacta</h3>
                 <p>Tens dubtes? Escriu-nos</p>
-                <form id="contactForm" action="https://formspree.io/f/mzdaqoqb" method="post">
+                <form action="https://formspree.io/f/mzdaqoqb" method="POST">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="exemple@email.com" required>
-                        <input type="hidden" name="_subject" value="Mensaje de contacto">
+                        <input type="email" name="email" placeholder="exemple@email.com" required>
                     </div>
                     <div class="form-group">
                         <label>Missatge</label>
-                        <textarea required></textarea>
+                        <textarea name="missatge" required></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="💬 Missatge de contacte">
                     <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
@@ -1320,26 +1312,20 @@
             });
         }
 
-        // FORMS
-        document.getElementById('uploadForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Foto pujada!');
-            e.target.reset();
-        });
+        function openInstaxApp() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.open('https://apps.apple.com/es/app/instax-up/id1668975223', '_blank');
+            }
+            else if (/android/i.test(userAgent)) {
+                window.open('https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up', '_blank');
+            }
+            else {
+                alert('Descarrega l\'app des del teu mòbil:\n\niOS: App Store\nAndroid: Google Play');
+            }
+        }
 
-        document.getElementById('digitalForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Sol·licitud enviada!');
-            e.target.reset();
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Missatge enviat!');
-            e.target.reset();
-        });
-
-        // COMMENTS CAROUSEL
         let currentCommentIndex = 0;
         let comments = [];
 
