@@ -763,7 +763,8 @@
             background: var(--indigo);
             color: var(--washi-cream);
             padding: 20px 30px;
-            border-top: 4px solid var(--gold-traditional);
+            border-top: 4px solid #001F3F;
+            box-shadow: 0 -4px 0 var(--gold-traditional);
             position: relative;
             z-index: 2;
         }
@@ -1347,8 +1348,8 @@
                 .then(response => {
                     if (response.ok) {
                         statusDiv.style.display = 'block';
-                        statusDiv.style.color = '#00AA00';
-                        statusDiv.textContent = '✓ MISSATGE ENVIAT!';
+                        statusDiv.style.color = '#002F5F';
+                        statusDiv.textContent = 'MISSATGE ENVIAT!';
                         document.getElementById('contactForm').reset();
                     } else {
                         throw new Error('Error en el envío');
