@@ -1313,15 +1313,23 @@
             }
 
             function openInstaxApp() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    window.location.href = 'https://apps.apple.com/es/app/instax-up/id1668975223';
+                const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                const android = /android/i.test(navigator.userAgent);
+                
+                if (iOS) {
+                    window.open('https://apps.apple.com/es/app/instax-up/id1668975223', '_blank');
                 }
-                else if (/android/i.test(userAgent)) {
-                    window.location.href = 'https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up';
+                else if (android) {
+                    window.open('https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up', '_blank');
                 }
                 else {
-                    alert("Descarrega l'app des del teu mòbil:\\n\\niOS: App Store\\nAndroid: Google Play");
+                    // Desktop - mostrar ambas opciones
+                    if (confirm('iOS (iPhone/iPad)? Click OK\\nAndroid? Click Cancel')) {
+                        window.open('https://apps.apple.com/es/app/instax-up/id1668975223', '_blank');
+                    } else {
+                        window.open('https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up', '_blank');
+                    }
                 }
             }
 
