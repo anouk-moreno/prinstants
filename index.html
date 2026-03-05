@@ -1046,7 +1046,7 @@
                 <p style="font-size: 12px; margin-bottom: 15px; line-height: 1.4;">Escull com vols enviar-nos la foto:</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <a href="https://wa.me/34640341318?text=Hola!%20Vull%20imprimir%20una%20foto%20📸" target="_blank" class="btn" style="text-decoration: none; font-size: 15px;">
+                    <a href="https://wa.me/34640341318" target="_blank" class="btn" style="text-decoration: none; font-size: 15px;">
                         WHATSAPP
                     </a>
                     <a href="mailto:prinstants@gmail.com?subject=Foto%20per%20imprimir&body=Adjunta%20la%20teva%20foto%20i%20envia!" class="btn" style="text-decoration: none; font-size: 15px;">
@@ -1313,23 +1313,12 @@
             }
 
             function openInstaxApp() {
-                const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-                const android = /android/i.test(navigator.userAgent);
+                const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
                 
-                if (iOS) {
-                    window.open('https://apps.apple.com/es/app/instax-up/id1668975223', '_blank');
-                }
-                else if (android) {
-                    window.open('https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up', '_blank');
-                }
-                else {
-                    // Desktop - mostrar ambas opciones
-                    if (confirm('iOS (iPhone/iPad)? Click OK\\nAndroid? Click Cancel')) {
-                        window.open('https://apps.apple.com/es/app/instax-up/id1668975223', '_blank');
-                    } else {
-                        window.open('https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up', '_blank');
-                    }
+                if (isIOS) {
+                    window.location = 'https://apps.apple.com/es/app/instax-up/id1668975223';
+                } else {
+                    window.location = 'https://play.google.com/store/apps/details?id=com.fujifilm.fb.instax.up';
                 }
             }
 
