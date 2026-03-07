@@ -847,13 +847,13 @@
 
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-title">Menú</div>
+            <div class="sidebar-title" data-translate="menu">Menú</div>
             <div class="close-btn" id="closeBtn">✕</div>
         </div>
         <ul class="sidebar-links">
-            <li><a href="#preus" class="sidebar-link">Preus</a></li>
-            <li><a href="#serveis" class="sidebar-link">Serveis</a></li>
-            <li><a href="#contacte" class="sidebar-link">Contacte</a></li>
+            <li><a href="#preus" class="sidebar-link" data-translate="prices">Preus</a></li>
+            <li><a href="#serveis" class="sidebar-link" data-translate="services">Serveis</a></li>
+            <li><a href="#contacte" class="sidebar-link" data-translate="contact">Contacte</a></li>
         </ul>
     </div>
 
@@ -878,13 +878,8 @@
                         <div class="lang-option" data-lang="en" data-name="ENG">🇬🇧 English</div>
                         <div class="lang-option" data-lang="fr" data-name="FRA">🇫🇷 Français</div>
                         <div class="lang-option" data-lang="it" data-name="ITA">🇮🇹 Italiano</div>
-                        <div class="lang-option" data-lang="pt" data-name="POR">🇵🇹 Português</div>
                         <div class="lang-option" data-lang="de" data-name="DEU">🇩🇪 Deutsch</div>
-                        <div class="lang-option" data-lang="ru" data-name="RUS">🇷🇺 Русский</div>
-                        <div class="lang-option" data-lang="ar" data-name="ARA">🇸🇦 العربية</div>
-                        <div class="lang-option" data-lang="zh" data-name="中文">🇨🇳 中文</div>
-                        <div class="lang-option" data-lang="ja" data-name="日本">🇯🇵 日本語</div>
-                        <div class="lang-option" data-lang="ko" data-name="한국">🇰🇷 한국어</div>
+                        <div class="lang-option" data-lang="pt" data-name="POR">🇵🇹 Português</div>
                     </div>
                 </div>
 
@@ -898,11 +893,11 @@
     </header>
 
     <section id="preus">
-        <h2 class="section-title">PAGO</h2>
+        <h2 class="section-title" data-translate="payment">PAGO</h2>
         
         <div class="bizum-content">
             <div class="bizum-box">
-                <p class="bizum-label">PARA PAGAR CON BIZUM:</p>
+                <p class="bizum-label" data-translate="payWithBizum">PARA PAGAR CON BIZUM:</p>
                 <img src="numero-telefono.png" alt="+34 640 341 318" class="bizum-number-img">
                 <img src="copiar-emoji.png" alt="Copiar" class="copy-button" onclick="copyBizum()">
             </div>
@@ -910,50 +905,50 @@
 
         <div style="height: 40px;"></div>
 
-        <h2 class="section-title">PRECIOS</h2>
+        <h2 class="section-title" data-translate="prices">PRECIOS</h2>
         <div class="pricing-container-new">
             <div class="precios-column">
                 <div class="precio-item">
                     <img src="moneda-4.png" alt="4€">
                     <div class="precio-info">
-                        <h4>1 FOTO - INDIVIDUAL</h4>
-                        <p>VERSIÓN DIGITAL DISPONIBLE</p>
+                        <h4 data-translate="photo1Title">1 FOTO - INDIVIDUAL</h4>
+                        <p data-translate="digitalVersion">VERSIÓN DIGITAL DISPONIBLE</p>
                     </div>
                 </div>
 
                 <div class="precio-item">
                     <img src="moneda-7.png" alt="7€">
                     <div class="precio-info">
-                        <h4>2 FOTOS - POPULAR</h4>
-                        <p>VERSIÓN DIGITAL DISPONIBLE</p>
-                        <p>AHORRAS 1€</p>
+                        <h4 data-translate="photo2Title">2 FOTOS - POPULAR</h4>
+                        <p data-translate="digitalVersion">VERSIÓN DIGITAL DISPONIBLE</p>
+                        <p data-translate="save1">AHORRAS 1€</p>
                     </div>
                 </div>
 
                 <div class="precio-item">
                     <img src="moneda-10.png" alt="10€">
                     <div class="precio-info">
-                        <h4>3 FOTOS - PACK OFERTA</h4>
-                        <p>VERSIÓN DIGITAL DISPONIBLE</p>
-                        <p>AHORRAS 2€</p>
+                        <h4 data-translate="photo3Title">3 FOTOS - PACK OFERTA</h4>
+                        <p data-translate="digitalVersion">VERSIÓN DIGITAL DISPONIBLE</p>
+                        <p data-translate="save2">AHORRAS 2€</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="devoluciones-box">
-            <h4>POLÍTICA DE DEVOLUCIONES</h4>
-            <p>LAS FOTOS SE IMPRIMEN JUSTO DESPUÉS DE REALIZAR EL PAGO, POR LO QUE NO SE ADMITEN REEMBOLSOS NI DEVOLUCIONES.</p>
+            <h4 data-translate="returnPolicyTitle">POLÍTICA DE DEVOLUCIONES</h4>
+            <p data-translate="returnPolicyText">LAS FOTOS SE IMPRIMEN JUSTO DESPUÉS DE REALIZAR EL PAGO, POR LO QUE NO SE ADMITEN REEMBOLSOS NI DEVOLUCIONES.</p>
         </div>
     </section>
 
     <section id="serveis">
-        <h2 class="section-title">SERVICIOS</h2>
+        <h2 class="section-title" data-translate="services">SERVICIOS</h2>
         <div class="form-grid">
             <div class="form-card">
-                <h3>SUBIR FOTO</h3>
-                <p>TIENES UNA FOTO QUE QUIERES IMPRIMIR?</p>
-                <p style="font-size: 12px; margin-bottom: 15px; line-height: 1.4;">Escull com vols enviar-nos la foto:</p>
+                <h3 data-translate="uploadPhoto">SUBIR FOTO</h3>
+                <p data-translate="uploadPhotoQuestion">TIENES UNA FOTO QUE QUIERES IMPRIMIR?</p>
+                <p style="font-size: 12px; margin-bottom: 15px; line-height: 1.4;" data-translate="chooseMethod">Escull com vols enviar-nos la foto:</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <a href="https://wa.me/34640341318" target="_blank" class="btn" style="text-decoration: none; font-size: 15px;">
@@ -966,39 +961,39 @@
             </div>
 
             <div class="form-card">
-                <h3>Versió digital</h3>
-                <p>Escaneja la teva foto amb l'app instax UP! per obtenir la versió digital (Marc blanc inclòs)</p>
-                <button type="button" onclick="openInstaxApp()" class="btn" style="margin-top: 10px;">
+                <h3 data-translate="digitalVersionTitle">Versió digital</h3>
+                <p data-translate="digitalVersionDesc">Escaneja la teva foto amb l'app instax UP! per obtenir la versió digital (Marc blanc inclòs)</p>
+                <button type="button" onclick="openInstaxApp()" class="btn" style="margin-top: 10px;" data-translate="downloadApp">
                     Descarregar App
                 </button>
             </div>
 
             <div class="form-card">
-                <h3>Contacta</h3>
-                <p>Vols contactar amb nosaltres? Omple el formulari i ens posarem en contacte ben aviat.</p>
+                <h3 data-translate="contact">Contacta</h3>
+                <p data-translate="contactDesc">Vols contactar amb nosaltres? Omple el formulari i ens posarem en contacte ben aviat.</p>
                 
                 <form id="contactForm">
                     <div class="form-group">
-                        <label>Nombre</label>
+                        <label data-translate="name">Nombre</label>
                         <input type="text" name="nombre" placeholder="" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>Correo electrónico *</label>
+                        <label data-translate="email">Correo electrónico *</label>
                         <input type="email" name="email" placeholder="" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>Número de teléfono</label>
+                        <label data-translate="phone">Número de teléfono</label>
                         <input type="text" name="telefono" placeholder="">
                     </div>
                     
                     <div class="form-group">
-                        <label>Comentario</label>
+                        <label data-translate="comment">Comentario</label>
                         <textarea name="comentario" rows="5" required></textarea>
                     </div>
                     
-                    <button type="submit" class="btn">Enviar</button>
+                    <button type="submit" class="btn" data-translate="send">Enviar</button>
                 </form>
                 
                 <div id="contactStatus" style="margin-top: 15px; font-size: 14px; font-weight: 700; text-align: center; display: none;"></div>
@@ -1007,17 +1002,17 @@
     </section>
 
     <section>
-        <h2 class="section-title">OPINIONES</h2>
+        <h2 class="section-title" data-translate="opinions">OPINIONES</h2>
 
         <div class="comment-form">
             <form id="commentForm">
                 <div class="form-group">
-                    <label>Nom</label>
+                    <label data-translate="nameLabel">Nom</label>
                     <input type="text" id="commentName" placeholder="" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>Valoració</label>
+                    <label data-translate="rating">Valoració</label>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="star5" value="5" required>
                         <label for="star5">★</label>
@@ -1033,18 +1028,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Comentari (opcional)</label>
+                    <label data-translate="commentOptional">Comentari (opcional)</label>
                     <textarea id="commentText" placeholder="" maxlength="200"></textarea>
                     <small style="display: block; text-align: right; margin-top: 5px; color: var(--indigo); font-weight: 700;">
                         <span id="charCount">0</span>/200
                     </small>
                 </div>
-                <button type="submit" class="btn">Publicar</button>
+                <button type="submit" class="btn" data-translate="publish">Publicar</button>
             </form>
         </div>
 
         <div id="commentsContainer">
-            <div style="text-align: center; padding: 40px; color: var(--indigo);">
+            <div style="text-align: center; padding: 40px; color: var(--indigo);" data-translate="loadingComments">
                 Carregant comentaris...
             </div>
         </div>
@@ -1117,6 +1112,321 @@
             }, 100);
         });
 
+        // === TRANSLATION SYSTEM ===
+        const translations = {
+            ca: {
+                menu: 'Menú',
+                prices: 'Preus',
+                services: 'Serveis',
+                contact: 'Contacte',
+                payment: 'PAGAMENT',
+                payWithBizum: 'PER PAGAR AMB BIZUM:',
+                photo1Title: '1 FOTO - INDIVIDUAL',
+                photo2Title: '2 FOTOS - POPULAR',
+                photo3Title: '3 FOTOS - PACK OFERTA',
+                digitalVersion: 'VERSIÓ DIGITAL DISPONIBLE',
+                save1: 'ESTALVIES 1€',
+                save2: 'ESTALVIES 2€',
+                returnPolicyTitle: 'POLÍTICA DE DEVOLUCIONS',
+                returnPolicyText: 'LES FOTOS S\'IMPRIMEIXIN JUST DESPRÉS DE REALITZAR EL PAGAMENT, PER LA QUAL COSA NO S\'ADMETEN REEMBORSAMENTS NI DEVOLUCIONS.',
+                uploadPhoto: 'PUJAR FOTO',
+                uploadPhotoQuestion: 'TENS UNA FOTO QUE VOLS IMPRIMIR?',
+                chooseMethod: 'Escull com vols enviar-nos la foto:',
+                digitalVersionTitle: 'Versió digital',
+                digitalVersionDesc: 'Escaneja la teva foto amb l\'app instax UP! per obtenir la versió digital (Marc blanc inclòs)',
+                downloadApp: 'Descarregar App',
+                contactDesc: 'Vols contactar amb nosaltres? Omple el formulari i ens posarem en contacte ben aviat.',
+                name: 'Nom',
+                email: 'Correu electrònic *',
+                phone: 'Número de telèfon',
+                comment: 'Comentari',
+                send: 'Enviar',
+                opinions: 'OPINIONS',
+                nameLabel: 'Nom',
+                rating: 'Valoració',
+                commentOptional: 'Comentari (opcional)',
+                publish: 'Publicar',
+                loadingComments: 'Carregant comentaris...',
+                noComments: 'Encara no hi ha comentaris. Sigues el primer!',
+                numberCopied: '✓ Número copiat!',
+                cannotCopy: 'No s\'ha pogut copiar el número',
+                messageSent: '✓ MISSATGE ENVIAT!',
+                errorSending: '✗ ERROR. TORNA-HO A INTENTAR',
+                commentPublished: '✓ Comentari publicat!',
+                errorPublishing: '✗ Error publicant comentari',
+                noComment: '(Sense comentari)'
+            },
+            es: {
+                menu: 'Menú',
+                prices: 'Precios',
+                services: 'Servicios',
+                contact: 'Contacto',
+                payment: 'PAGO',
+                payWithBizum: 'PARA PAGAR CON BIZUM:',
+                photo1Title: '1 FOTO - INDIVIDUAL',
+                photo2Title: '2 FOTOS - POPULAR',
+                photo3Title: '3 FOTOS - PACK OFERTA',
+                digitalVersion: 'VERSIÓN DIGITAL DISPONIBLE',
+                save1: 'AHORRAS 1€',
+                save2: 'AHORRAS 2€',
+                returnPolicyTitle: 'POLÍTICA DE DEVOLUCIONES',
+                returnPolicyText: 'LAS FOTOS SE IMPRIMEN JUSTO DESPUÉS DE REALIZAR EL PAGO, POR LO QUE NO SE ADMITEN REEMBOLSOS NI DEVOLUCIONES.',
+                uploadPhoto: 'SUBIR FOTO',
+                uploadPhotoQuestion: '¿TIENES UNA FOTO QUE QUIERES IMPRIMIR?',
+                chooseMethod: 'Elige cómo quieres enviarnos la foto:',
+                digitalVersionTitle: 'Versión digital',
+                digitalVersionDesc: 'Escanea tu foto con la app instax UP! para obtener la versión digital (Marco blanco incluido)',
+                downloadApp: 'Descargar App',
+                contactDesc: '¿Quieres contactar con nosotros? Rellena el formulario y nos pondremos en contacto pronto.',
+                name: 'Nombre',
+                email: 'Correo electrónico *',
+                phone: 'Número de teléfono',
+                comment: 'Comentario',
+                send: 'Enviar',
+                opinions: 'OPINIONES',
+                nameLabel: 'Nombre',
+                rating: 'Valoración',
+                commentOptional: 'Comentario (opcional)',
+                publish: 'Publicar',
+                loadingComments: 'Cargando comentarios...',
+                noComments: '¡Todavía no hay comentarios. Sé el primero!',
+                numberCopied: '✓ ¡Número copiado!',
+                cannotCopy: 'No se pudo copiar el número',
+                messageSent: '✓ ¡MENSAJE ENVIADO!',
+                errorSending: '✗ ERROR. VUELVE A INTENTARLO',
+                commentPublished: '✓ ¡Comentario publicado!',
+                errorPublishing: '✗ Error publicando comentario',
+                noComment: '(Sin comentario)'
+            },
+            en: {
+                menu: 'Menu',
+                prices: 'Prices',
+                services: 'Services',
+                contact: 'Contact',
+                payment: 'PAYMENT',
+                payWithBizum: 'TO PAY WITH BIZUM:',
+                photo1Title: '1 PHOTO - INDIVIDUAL',
+                photo2Title: '2 PHOTOS - POPULAR',
+                photo3Title: '3 PHOTOS - PACK OFFER',
+                digitalVersion: 'DIGITAL VERSION AVAILABLE',
+                save1: 'SAVE 1€',
+                save2: 'SAVE 2€',
+                returnPolicyTitle: 'RETURN POLICY',
+                returnPolicyText: 'PHOTOS ARE PRINTED IMMEDIATELY AFTER PAYMENT, SO NO REFUNDS OR RETURNS ARE ACCEPTED.',
+                uploadPhoto: 'UPLOAD PHOTO',
+                uploadPhotoQuestion: 'DO YOU HAVE A PHOTO YOU WANT TO PRINT?',
+                chooseMethod: 'Choose how you want to send us the photo:',
+                digitalVersionTitle: 'Digital version',
+                digitalVersionDesc: 'Scan your photo with the instax UP! app to get the digital version (White frame included)',
+                downloadApp: 'Download App',
+                contactDesc: 'Want to contact us? Fill out the form and we\'ll get in touch soon.',
+                name: 'Name',
+                email: 'Email *',
+                phone: 'Phone number',
+                comment: 'Comment',
+                send: 'Send',
+                opinions: 'REVIEWS',
+                nameLabel: 'Name',
+                rating: 'Rating',
+                commentOptional: 'Comment (optional)',
+                publish: 'Publish',
+                loadingComments: 'Loading comments...',
+                noComments: 'No comments yet. Be the first!',
+                numberCopied: '✓ Number copied!',
+                cannotCopy: 'Could not copy number',
+                messageSent: '✓ MESSAGE SENT!',
+                errorSending: '✗ ERROR. TRY AGAIN',
+                commentPublished: '✓ Comment published!',
+                errorPublishing: '✗ Error publishing comment',
+                noComment: '(No comment)'
+            },
+            fr: {
+                menu: 'Menu',
+                prices: 'Prix',
+                services: 'Services',
+                contact: 'Contact',
+                payment: 'PAIEMENT',
+                payWithBizum: 'POUR PAYER AVEC BIZUM:',
+                photo1Title: '1 PHOTO - INDIVIDUELLE',
+                photo2Title: '2 PHOTOS - POPULAIRE',
+                photo3Title: '3 PHOTOS - PACK OFFRE',
+                digitalVersion: 'VERSION NUMÉRIQUE DISPONIBLE',
+                save1: 'ÉCONOMISEZ 1€',
+                save2: 'ÉCONOMISEZ 2€',
+                returnPolicyTitle: 'POLITIQUE DE RETOUR',
+                returnPolicyText: 'LES PHOTOS SONT IMPRIMÉES IMMÉDIATEMENT APRÈS LE PAIEMENT, AUCUN REMBOURSEMENT NI RETOUR N\'EST ACCEPTÉ.',
+                uploadPhoto: 'TÉLÉCHARGER PHOTO',
+                uploadPhotoQuestion: 'AVEZ-VOUS UNE PHOTO À IMPRIMER?',
+                chooseMethod: 'Choisissez comment nous envoyer la photo:',
+                digitalVersionTitle: 'Version numérique',
+                digitalVersionDesc: 'Scannez votre photo avec l\'app instax UP! pour obtenir la version numérique (Cadre blanc inclus)',
+                downloadApp: 'Télécharger l\'App',
+                contactDesc: 'Vous voulez nous contacter? Remplissez le formulaire et nous vous répondrons bientôt.',
+                name: 'Nom',
+                email: 'Email *',
+                phone: 'Numéro de téléphone',
+                comment: 'Commentaire',
+                send: 'Envoyer',
+                opinions: 'AVIS',
+                nameLabel: 'Nom',
+                rating: 'Évaluation',
+                commentOptional: 'Commentaire (facultatif)',
+                publish: 'Publier',
+                loadingComments: 'Chargement des commentaires...',
+                noComments: 'Pas encore de commentaires. Soyez le premier!',
+                numberCopied: '✓ Numéro copié!',
+                cannotCopy: 'Impossible de copier le numéro',
+                messageSent: '✓ MESSAGE ENVOYÉ!',
+                errorSending: '✗ ERREUR. RÉESSAYEZ',
+                commentPublished: '✓ Commentaire publié!',
+                errorPublishing: '✗ Erreur lors de la publication',
+                noComment: '(Sans commentaire)'
+            },
+            it: {
+                menu: 'Menu',
+                prices: 'Prezzi',
+                services: 'Servizi',
+                contact: 'Contatto',
+                payment: 'PAGAMENTO',
+                payWithBizum: 'PER PAGARE CON BIZUM:',
+                photo1Title: '1 FOTO - INDIVIDUALE',
+                photo2Title: '2 FOTO - POPOLARE',
+                photo3Title: '3 FOTO - PACK OFFERTA',
+                digitalVersion: 'VERSIONE DIGITALE DISPONIBILE',
+                save1: 'RISPARMI 1€',
+                save2: 'RISPARMI 2€',
+                returnPolicyTitle: 'POLITICA DI RESO',
+                returnPolicyText: 'LE FOTO VENGONO STAMPATE SUBITO DOPO IL PAGAMENTO, QUINDI NON SI ACCETTANO RIMBORSI O RESI.',
+                uploadPhoto: 'CARICA FOTO',
+                uploadPhotoQuestion: 'HAI UNA FOTO CHE VUOI STAMPARE?',
+                chooseMethod: 'Scegli come inviarci la foto:',
+                digitalVersionTitle: 'Versione digitale',
+                digitalVersionDesc: 'Scansiona la tua foto con l\'app instax UP! per ottenere la versione digitale (Cornice bianca inclusa)',
+                downloadApp: 'Scarica App',
+                contactDesc: 'Vuoi contattarci? Compila il modulo e ti risponderemo presto.',
+                name: 'Nome',
+                email: 'Email *',
+                phone: 'Numero di telefono',
+                comment: 'Commento',
+                send: 'Invia',
+                opinions: 'RECENSIONI',
+                nameLabel: 'Nome',
+                rating: 'Valutazione',
+                commentOptional: 'Commento (facoltativo)',
+                publish: 'Pubblica',
+                loadingComments: 'Caricamento commenti...',
+                noComments: 'Nessun commento ancora. Sii il primo!',
+                numberCopied: '✓ Numero copiato!',
+                cannotCopy: 'Impossibile copiare il numero',
+                messageSent: '✓ MESSAGGIO INVIATO!',
+                errorSending: '✗ ERRORE. RIPROVA',
+                commentPublished: '✓ Commento pubblicato!',
+                errorPublishing: '✗ Errore nella pubblicazione',
+                noComment: '(Senza commento)'
+            },
+            de: {
+                menu: 'Menü',
+                prices: 'Preise',
+                services: 'Dienstleistungen',
+                contact: 'Kontakt',
+                payment: 'ZAHLUNG',
+                payWithBizum: 'UM MIT BIZUM ZU BEZAHLEN:',
+                photo1Title: '1 FOTO - EINZELN',
+                photo2Title: '2 FOTOS - BELIEBT',
+                photo3Title: '3 FOTOS - PACK ANGEBOT',
+                digitalVersion: 'DIGITALE VERSION VERFÜGBAR',
+                save1: 'SPAREN SIE 1€',
+                save2: 'SPAREN SIE 2€',
+                returnPolicyTitle: 'RÜCKGABEPOLITIK',
+                returnPolicyText: 'FOTOS WERDEN SOFORT NACH DER ZAHLUNG GEDRUCKT, DAHER WERDEN KEINE RÜCKERSTATTUNGEN ODER RÜCKSENDUNGEN AKZEPTIERT.',
+                uploadPhoto: 'FOTO HOCHLADEN',
+                uploadPhotoQuestion: 'HABEN SIE EIN FOTO ZUM DRUCKEN?',
+                chooseMethod: 'Wählen Sie, wie Sie uns das Foto senden möchten:',
+                digitalVersionTitle: 'Digitale Version',
+                digitalVersionDesc: 'Scannen Sie Ihr Foto mit der instax UP! App, um die digitale Version zu erhalten (Weißer Rahmen inklusive)',
+                downloadApp: 'App Herunterladen',
+                contactDesc: 'Möchten Sie uns kontaktieren? Füllen Sie das Formular aus und wir melden uns bald.',
+                name: 'Name',
+                email: 'E-Mail *',
+                phone: 'Telefonnummer',
+                comment: 'Kommentar',
+                send: 'Senden',
+                opinions: 'BEWERTUNGEN',
+                nameLabel: 'Name',
+                rating: 'Bewertung',
+                commentOptional: 'Kommentar (optional)',
+                publish: 'Veröffentlichen',
+                loadingComments: 'Kommentare werden geladen...',
+                noComments: 'Noch keine Kommentare. Seien Sie der Erste!',
+                numberCopied: '✓ Nummer kopiert!',
+                cannotCopy: 'Nummer konnte nicht kopiert werden',
+                messageSent: '✓ NACHRICHT GESENDET!',
+                errorSending: '✗ FEHLER. ERNEUT VERSUCHEN',
+                commentPublished: '✓ Kommentar veröffentlicht!',
+                errorPublishing: '✗ Fehler beim Veröffentlichen',
+                noComment: '(Kein Kommentar)'
+            },
+            pt: {
+                menu: 'Menu',
+                prices: 'Preços',
+                services: 'Serviços',
+                contact: 'Contacto',
+                payment: 'PAGAMENTO',
+                payWithBizum: 'PARA PAGAR COM BIZUM:',
+                photo1Title: '1 FOTO - INDIVIDUAL',
+                photo2Title: '2 FOTOS - POPULAR',
+                photo3Title: '3 FOTOS - PACK OFERTA',
+                digitalVersion: 'VERSÃO DIGITAL DISPONÍVEL',
+                save1: 'ECONOMIZE 1€',
+                save2: 'ECONOMIZE 2€',
+                returnPolicyTitle: 'POLÍTICA DE DEVOLUÇÃO',
+                returnPolicyText: 'AS FOTOS SÃO IMPRESSAS IMEDIATAMENTE APÓS O PAGAMENTO, PORTANTO NÃO SÃO ACEITES REEMBOLSOS OU DEVOLUÇÕES.',
+                uploadPhoto: 'ENVIAR FOTO',
+                uploadPhotoQuestion: 'TEM UMA FOTO QUE QUER IMPRIMIR?',
+                chooseMethod: 'Escolha como nos enviar a foto:',
+                digitalVersionTitle: 'Versão digital',
+                digitalVersionDesc: 'Digitalize a sua foto com a app instax UP! para obter a versão digital (Moldura branca incluída)',
+                downloadApp: 'Descarregar App',
+                contactDesc: 'Quer contactar-nos? Preencha o formulário e responderemos em breve.',
+                name: 'Nome',
+                email: 'Email *',
+                phone: 'Número de telefone',
+                comment: 'Comentário',
+                send: 'Enviar',
+                opinions: 'OPINIÕES',
+                nameLabel: 'Nome',
+                rating: 'Avaliação',
+                commentOptional: 'Comentário (opcional)',
+                publish: 'Publicar',
+                loadingComments: 'A carregar comentários...',
+                noComments: 'Ainda não há comentários. Seja o primeiro!',
+                numberCopied: '✓ Número copiado!',
+                cannotCopy: 'Não foi possível copiar o número',
+                messageSent: '✓ MENSAGEM ENVIADA!',
+                errorSending: '✗ ERRO. TENTE NOVAMENTE',
+                commentPublished: '✓ Comentário publicado!',
+                errorPublishing: '✗ Erro ao publicar comentário',
+                noComment: '(Sem comentário)'
+            }
+        };
+
+        let currentLang = localStorage.getItem('preferredLanguage') || 'ca';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize language on load
+        changeLanguage(currentLang);
+
         // === MENU SIDEBAR ===
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
@@ -1157,20 +1467,33 @@
 
         document.querySelectorAll('.lang-option').forEach(option => {
             option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
                 const name = option.getAttribute('data-name');
                 currentLangSpan.textContent = `${name} ▼`;
                 document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
                 langDropdown.classList.remove('active');
+                
+                // Change language
+                changeLanguage(lang);
             });
         });
+
+        // Set active language on load
+        const savedLang = localStorage.getItem('preferredLanguage') || 'ca';
+        const activeOption = document.querySelector(`.lang-option[data-lang="${savedLang}"]`);
+        if (activeOption) {
+            activeOption.classList.add('active');
+            const name = activeOption.getAttribute('data-name');
+            currentLangSpan.textContent = `${name} ▼`;
+        }
 
         // === BIZUM COPY ===
         function copyBizum() {
             navigator.clipboard.writeText('+34640341318').then(() => {
-                alert('✓ Número copiat!');
+                alert(translations[currentLang].numberCopied);
             }).catch(() => {
-                alert('No s\'ha pogut copiar el número');
+                alert(translations[currentLang].cannotCopy);
             });
         }
 
@@ -1209,7 +1532,7 @@
                 if (response.ok) {
                     statusDiv.style.display = 'block';
                     statusDiv.style.color = '#002F5F';
-                    statusDiv.textContent = '✓ MISSATGE ENVIAT!';
+                    statusDiv.textContent = translations[currentLang].messageSent;
                     document.getElementById('contactForm').reset();
                 } else {
                     throw new Error('Error en el envío');
@@ -1218,7 +1541,7 @@
             .catch(error => {
                 statusDiv.style.display = 'block';
                 statusDiv.style.color = '#CC0000';
-                statusDiv.textContent = '✗ ERROR. TORNA-HO A INTENTAR';
+                statusDiv.textContent = translations[currentLang].errorSending;
                 console.error('Error:', error);
             })
             .finally(() => {
@@ -1248,7 +1571,7 @@
             const container = document.getElementById('commentsContainer');
             
             if (comments.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--indigo);">Encara no hi ha comentaris. Sigues el primer!</div>';
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--indigo);">${translations[currentLang].noComments}</div>`;
                 return;
             }
             
@@ -1259,7 +1582,7 @@
                         <span class="comment-stars-vertical">${'★'.repeat(comment.valoracio)}</span>
                         <span class="comment-date">${comment.data}</span>
                     </div>
-                    <div class="comment-text-vertical">${comment.comentari || '(Sense comentari)'}</div>
+                    <div class="comment-text-vertical">${comment.comentari || translations[currentLang].noComment}</div>
                 </div>
             `).join('');
         }
@@ -1287,12 +1610,12 @@
                 
                 document.getElementById('commentForm').reset();
                 document.getElementById('charCount').textContent = '0';
-                alert('✓ Comentari publicat!');
+                alert(translations[currentLang].commentPublished);
                 
                 await loadComments();
             } catch (error) {
                 console.error('Error:', error);
-                alert('✗ Error publicant comentari');
+                alert(translations[currentLang].errorPublishing);
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
